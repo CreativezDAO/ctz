@@ -1,10 +1,52 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from "styled-components"
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { useMoralis } from "react-moralis";
+import ErrorMessage from "./ErrorMessage"
 
 function Header() {
   const [burgerStatus, setBurgerStatus] = useState(false);
+
+  const [error, setError] = useState();
+
+  const handleNetworkSwitch = async (networkName) => {
+    setError();
+    await changeNetwork({ networkName, setError });
+  };
+
+  const networkChanged = (chainId) => {
+    console.log({ chainId });
+  };
+
+  useEffect(() => {
+    window.ethereum.on("chainChanged", networkChanged);
+
+    return () => {
+      window.ethereum.removeListener("chainChanged", networkChanged);
+    };
+  }, []);
+
+  const { authenticate, isAuthenticated, logout } = useMoralis();
+
+   const login = async () => {
+    if (!isAuthenticated) {
+
+      await authenticate({signingMessage: "Log in using Metamask" })
+        .then(function (user) {
+          console.log("logged in user:", user);
+          console.log(user.get("ethAddress"));
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  }
+
+  const logOut = async () => {
+    await logout();
+    console.log("logged out");
+  }
 
   return (
     <Container>
@@ -19,9 +61,10 @@ function Header() {
       <a href="#">STATS</a>
     </Menu>
     <RightMenu>
-    <RightButton>
-          Connect Wallet
-    </RightButton>    
+    {isAuthenticated ? (<RightButtonLogout onClick={logOut}>Disconnect</RightButtonLogout>
+    ) : ( 
+      <RightButtonLogin onClick={() => {handleNetworkSwitch("polygon"); login();}}>Connect Wallet</RightButtonLogin>
+    )}    
           <CustomMenu onClick={()=>setBurgerStatus(true)}/>
     </RightMenu>
     <BurgerNav show={burgerStatus}>
@@ -74,7 +117,23 @@ const Menu = styled.div `
     }
 `
 
-const RightButton = styled.div`
+const RightButtonLogin = styled.div`
+    background-color: rgba(23, 26, 32, 0.8);
+    height: 40px;
+    width: 160px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    opacity: 0.85;
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+    margin: 8px;
+`
+
+const RightButtonLogout = styled.div`
     background-color: rgba(23, 26, 32, 0.8);
     height: 40px;
     width: 160px;
@@ -139,4 +198,33 @@ const CloseWrapper = styled.div`
       justify-content: flex-end;
 
 `
+const polygon = {
+  polygon: {
+    chainId: `0x${Number(137).toString(16)}`,
+    chainName: "Polygon Mainnet",
+    nativeCurrency: {
+      name: "MATIC",
+      symbol: "MATIC",
+      decimals: 18
+    },
+    rpcUrls: ["https://polygon-rpc.com/"],
+    blockExplorerUrls: ["https://polygonscan.com/"]
+  },
+}
+
+const changeNetwork = async ({ networkName, setError }) => {
+  try {
+    if (!window.ethereum) throw new Error("No metamask wallet found");
+    await window.ethereum.request({
+      method: "wallet_addEthereumChain",
+      params: [
+        {
+          ...polygon[networkName]
+        }
+      ]
+    });
+  } catch (err) {
+    setError(err.message);
+  }
+};
 
