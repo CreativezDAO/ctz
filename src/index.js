@@ -5,15 +5,18 @@ import { store } from './app/store';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import { MoralisProvider } from "react-moralis";
 
 const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
+  <MoralisProvider serverUrl= "https://aucjuyyy6dxq.usemoralis.com:2053/server" appId="6p0DZwOvX1JWzR1NDlIu2gNa3U7fmgd34jowehDk">
     <Provider store={store}>
       <App />
     </Provider>
+  </MoralisProvider>
   </React.StrictMode>
 );
 
