@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from "styled-components"
 import Fade from 'react-reveal/Fade';
+import { useNavigate } from "react-router-dom"
+import { FaTwitterSquare, FaDiscord } from "react-icons/fa"
 
-function Section() {
+function CTZGallery() {
+    let navigate = useNavigate();
   return (
     <Wrap>
         <Fade top>
@@ -14,12 +17,10 @@ function Section() {
         <Buttons>
         <Fade bottom>
             <ButtonGroup>
-                <LeftButton>
-                    Mint
-                </LeftButton>
-                <RightButton>
-                    Earn
-                </RightButton>
+                <a href="https://github.com/react-share-social/react-share-social" target="_blank" rel="noreferrer"><FaTwitterSquare /></a>
+                <a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer"><FaDiscord /></a>
+                <LeftButton onClick={() => { navigate("/mint") }}>Mint</LeftButton>
+                <RightButton onClick={() => { navigate("/earn") }}>Earn</RightButton>
             </ButtonGroup>
         </Fade>
         <DownArrow src="/images/down-arrow.svg" />
@@ -28,7 +29,7 @@ function Section() {
   )
 }
 
-export default Section
+export default CTZGallery
 
 const Wrap = styled.div`
     width: 100vw;

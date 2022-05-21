@@ -3,12 +3,12 @@ import styled from "styled-components"
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useMoralis } from "react-moralis";
-import ErrorMessage from "./ErrorMessage"
+import { Link } from "react-router-dom"
 
 function Header() {
   const [burgerStatus, setBurgerStatus] = useState(false);
 
-  const [error, setError] = useState();
+  const [setError] = useState();
 
   const handleNetworkSwitch = async (networkName) => {
     setError();
@@ -54,11 +54,11 @@ function Header() {
         <img src="/images/logo.svg" alt="" />
     </div>
     <Menu>
-      <a href="#">DOCS</a>
-      <a href="#">ANNOUNCEMENTS</a>
-      <a href="#">VOTING</a>
-      <a href="#">CTZ GALLERY</a>
-      <a href="#">STATS</a>
+      <Link to="/" onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>HOME</Link>
+      <a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave}>DOCS</a>
+      <Link to="/voting" onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave}>VOTING</Link>
+      <Link to="/ctzgallery" onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave}>CTZ GALLERY</Link>
+      <Link to="/stats" onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave}>STATS</Link>
     </Menu>
     <RightMenu>
     {isAuthenticated ? (<RightButtonLogout onClick={logOut}>Disconnect</RightButtonLogout>
@@ -70,14 +70,14 @@ function Header() {
     <BurgerNav show={burgerStatus}>
       <CloseWrapper>
       <CustomClose onClick={()=>setBurgerStatus(false)}/>
-      </CloseWrapper>      
-      <li><a href="#">DOCS</a></li>
-      <li><a href="#">ANNOUNCEMENTS</a></li>
-      <li><a href="#">VOTING</a></li>
-      <li><a href="#">CTZ GALLERY</a></li>
-      <li><a href="#">STATS</a></li>
-      <li><a href="#">MINT</a></li>
-      <li><a href="#">EARN</a></li>
+      </CloseWrapper>  
+      <li><Link to="/" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>HOME</Link></li> 
+      <li><a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DOCS</a></li>
+      <li><Link to="/voting" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>VOTING</Link></li>
+      <li><Link to="/ctzgallery" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>CTZ GALLERY</Link></li>
+      <li><Link to="/stats" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>STATS</Link></li>
+      <li><Link to="/mint" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>MINT</Link></li>
+      <li><Link to="/earn" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>EARN</Link></li>
 
     </BurgerNav>
     </Container>
@@ -85,6 +85,22 @@ function Header() {
 }
 
 export default Header
+
+function handleMouseEnter(e) {
+  e.target.className = 'mouseEnterNav';
+}
+
+function handleMouseEnterBurger(e) {
+  e.target.className = 'mouseEnterBurgerNav'
+}
+
+function handleMouseLeave(e) {
+  e.target.className = 'mouseLeaveNav';
+}
+
+function handleMouseLeaveBurger(e) {
+  e.target.className = 'mouseLeaveBurger';
+}
 
 const Container = styled.div`
     min-height: 60px;
@@ -100,19 +116,28 @@ const Container = styled.div`
 `
 
 const Menu = styled.div `
-    display: flex;
-    align-items: center;
+    background-color: rgba(255, 255, 255,);
+    color: #393c41;
+    font-weight: 500;
+
+ 
+ a {
+    text-transform: uppercase;
+    height: 40px;
+    width: 180px;
+    position: relative;
+    display: inline-flex;
     justify-content: center;
-    flex: 1;
+    align-items: center;
+    border-radius: 100px;
+    ${'' /* opacity: 0.8; */}
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 0 20px;
+ }
 
-    a {
-        font-weight: 500;
-        text-transform: uppercase;
-        padding: 0 30px;
-        flex-wrap: nowrap;
-    }
 
-    @media(max-width: 1200px) {
+    @media(max-width: 1100px) {
       display: none;
     }
 `
@@ -169,7 +194,7 @@ const BurgerNav = styled.div`
     bottom: 0;
     right: 0;
     background: white;
-    width: 300px;
+    width: 200px;
     z-index: 100;
     list-style: none;
     padding: 20px;
@@ -227,4 +252,5 @@ const changeNetwork = async ({ networkName, setError }) => {
     setError(err.message);
   }
 };
+
 

@@ -1,26 +1,24 @@
 import React from 'react'
 import styled from "styled-components"
 import Fade from 'react-reveal/Fade';
+import { useNavigate } from "react-router-dom"
 
-function Section() {
+function Voting() {
+    let navigate = useNavigate();
   return (
     <Wrap>
-    <Fade bottom>
+        <Fade top>
         <ItemText>
-            <h1>About Creaitvez DAO</h1>
-            <p>Creativez is an automated reward distributor DAO NFT collection with 5000 unique, randomly generated artworks on the Polygon Network, with an integrated Matic airdrop every fortnight.</p>
+            <h1>WΞLCOMΞ TO THΞ CRΞATIVΞZ PROJΞCT</h1>
+            <p>CRΞATIVΞZ is an automated reward distributor DAO NFT collection with 5000 unique, randomly generated artworks on the Polygon Network, with an integrated Matic airdrop every fortnight.</p>
         </ItemText>
         </Fade>
         <Buttons>
         <Fade bottom>
-        <ButtonGroup>
-            <LeftButton>
-                Docs
-            </LeftButton>
-            <RightButton>
-                Announcements
-            </RightButton>
-        </ButtonGroup>
+            <ButtonGroup>
+                <LeftButton onClick={() => { navigate("/mint") }}>Mint</LeftButton>
+                <RightButton onClick={() => { navigate("/earn") }}>Earn</RightButton>
+            </ButtonGroup>
         </Fade>
         <DownArrow src="/images/down-arrow.svg" />
         </Buttons>    
@@ -28,7 +26,7 @@ function Section() {
   )
 }
 
-export default Section
+export default Voting
 
 const Wrap = styled.div`
     width: 100vw;
