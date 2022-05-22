@@ -54,16 +54,16 @@ function Header() {
         <img src="/images/logo.svg" alt="" />
     </div>
     <Menu>
-      <Link to="/" onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave }>HOME</Link>
-      <a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave}>DOCS</a>
-      <Link to="/voting" onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave}>VOTING</Link>
-      <Link to="/ctzgallery" onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave}>CTZ GALLERY</Link>
-      <Link to="/stats" onMouseEnter={ handleMouseEnter } onMouseLeave={ handleMouseLeave}>STATS</Link>
+      <Link to="/" className='topMenuButtons' onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ topMenuButtonsLeave }>HOME</Link>
+      <a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" className='topMenuButtons' target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ topMenuButtonsLeave }>DOCS</a>
+      <Link to="/voting" className='topMenuButtons' onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ topMenuButtonsLeave}>VOTING</Link>
+      <Link to="/ctzworld" className='topMenuButtons' onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ topMenuButtonsLeave}>CTZ WORLD</Link>
+      <Link to="/stats" className='topMenuButtons' onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ topMenuButtonsLeave}>STATS</Link>
     </Menu>
     <RightMenu>
-    {isAuthenticated ? (<RightButtonLogout onClick={logOut}>Disconnect</RightButtonLogout>
+    {isAuthenticated ? (<RightButtonLogout onClick={logOut} onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Disconnect</RightButtonLogout>
     ) : ( 
-      <RightButtonLogin onClick={() => {handleNetworkSwitch("polygon"); login();}}>Connect Wallet</RightButtonLogin>
+      <RightButtonLogin onClick={() => {handleNetworkSwitch("polygon"); login();}} onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Connect Wallet</RightButtonLogin>
     )}    
           <CustomMenu onClick={()=>setBurgerStatus(true)}/>
     </RightMenu>
@@ -74,7 +74,7 @@ function Header() {
       <li><Link to="/" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>HOME</Link></li> 
       <li><a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DOCS</a></li>
       <li><Link to="/voting" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>VOTING</Link></li>
-      <li><Link to="/ctzgallery" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>CTZ GALLERY</Link></li>
+      <li><Link to="/ctzworld" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>CTZ WORLD</Link></li>
       <li><Link to="/stats" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>STATS</Link></li>
       <li><Link to="/mint" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>MINT</Link></li>
       <li><Link to="/earn" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>EARN</Link></li>
@@ -86,20 +86,24 @@ function Header() {
 
 export default Header
 
-function handleMouseEnter(e) {
-  e.target.className = 'mouseEnterNav';
-}
-
 function handleMouseEnterBurger(e) {
   e.target.className = 'mouseEnterBurgerNav'
 }
 
-function handleMouseLeave(e) {
-  e.target.className = 'mouseLeaveNav';
-}
-
 function handleMouseLeaveBurger(e) {
   e.target.className = 'mouseLeaveBurger';
+}
+
+function handleMouseEnterButtons1(e) {
+  e.target.className = 'mouseEnterButtons1';
+}
+
+function handleMouseLeaveButtons1(e) {
+  e.target.className = 'mouseLeaveButtons1';
+}
+
+function topMenuButtonsLeave(e) {
+  e.target.className = 'topMenuButtons';
 }
 
 const Container = styled.div`
@@ -108,11 +112,12 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 2px 20px;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1;
+    background: white;
 `
 
 const Menu = styled.div `
@@ -124,20 +129,19 @@ const Menu = styled.div `
  a {
     text-transform: uppercase;
     height: 40px;
-    width: 180px;
+    width: 150px;
     position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
     border-radius: 100px;
-    ${'' /* opacity: 0.8; */}
     text-transform: uppercase;
     cursor: pointer;
-    margin: 0 20px;
+    margin: 0 10px;
  }
 
 
-    @media(max-width: 1100px) {
+    @media(max-width: 1350px) {
       display: none;
     }
 `
@@ -145,7 +149,7 @@ const Menu = styled.div `
 const RightButtonLogin = styled.div`
     background-color: rgba(23, 26, 32, 0.8);
     height: 40px;
-    width: 160px;
+    width: 150px;
     color: white;
     display: flex;
     justify-content: center;
@@ -156,12 +160,13 @@ const RightButtonLogin = styled.div`
     font-size: 12px;
     cursor: pointer;
     margin: 8px;
+    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
 `
 
 const RightButtonLogout = styled.div`
     background-color: rgba(23, 26, 32, 0.8);
     height: 40px;
-    width: 160px;
+    width: 150px;
     color: white;
     display: flex;
     justify-content: center;
@@ -172,6 +177,7 @@ const RightButtonLogout = styled.div`
     font-size: 12px;
     cursor: pointer;
     margin: 8px;
+    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
 `
 
 const RightMenu = styled.div`
