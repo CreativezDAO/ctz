@@ -27,7 +27,7 @@
 }
 
 .mouseEnterBurgerNav {
-    color: #34e89e;
+    color: #6ab3a8;
 }
 
 .mouseLeaveBurgerNav {
@@ -39,17 +39,17 @@
   }
 
 .mouseEnterButtons1 {
-    background-color: rgba(23, 26, 32, 1);
+    background-color: #0f0a52;
     height: 40px;
     width: 150px;
-    color: #28b47a;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 100px;
-    opacity: 0.85;
+    opacity: 1;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 13px;
     cursor: pointer;
     margin: 8px;
     transition-duration: 0.5s;
@@ -57,7 +57,7 @@
 }
 
 .mouseLeaveButtons1 {
-background-color: rgba(23, 26, 32, 0.8);
+background-color: #0f0a52;
 height: 40px;
 width: 150px;
 color: white;
@@ -67,7 +67,7 @@ align-items: center;
 border-radius: 100px;
 opacity: 0.85;
 text-transform: uppercase;
-font-size: 12px;
+font-size: 13px;
 cursor: pointer;
 margin: 8px;
 box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
@@ -75,26 +75,8 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
 
 .mouseEnterButtons2 {
     background-color: rgb(255, 255, 255);
-    height: 40px;
-    width: 150px;
-    color: #28b47a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100px;
-    opacity: 0.85;
-    text-transform: uppercase;
-    font-size: 12px;
-    cursor: pointer;
-    margin: 8px;
-    transition-duration: 0.5s;
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.5);
-}
-
-.mouseLeaveButtons2 {
-    background-color: rgb(255, 255, 255, 0.65);
-    height: 40px;
-    width: 150px;
+    height: 60px;
+    width: 200px;
     color: black;
     display: flex;
     justify-content: center;
@@ -102,11 +84,64 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
     border-radius: 100px;
     opacity: 0.85;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 16px;
     cursor: pointer;
-    margin: 8px;
+    margin: 0px 20px;
+    transition-duration: 0.5s;
+    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.5);
+}
+
+.mouseLeaveButtons2 {
+    background-color: rgb(255, 255, 255, 0.65);
+    height: 60px;
+    width: 200px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    opacity: 0.85;
+    text-transform: uppercase;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0px 20px;
     box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
     }
+
+    .mouseEnterButtons3 {
+      background-color: #0f0a52;
+      height: 60px;
+      width: 200px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100px;
+      opacity: 1;
+      text-transform: uppercase;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 0px 20px;
+      transition-duration: 0.5s;
+      box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.4);
+  }
+  
+  .mouseLeaveButtons3 {
+  background-color: #0f0a52;
+  height: 60px;
+  width: 200px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  opacity: 0.85;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0px 20px;
+  box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+  }
 
 .gradient-text {
     /* Fallback: Set a background color. */
@@ -129,7 +164,7 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
 
 a {
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.9);; 
+    color: rgba(0, 0, 0, 0.9);
     opacity: 0.8; 
     font-size: 95%
   }
@@ -154,17 +189,20 @@ body {
     overflow-x: hidden;
 }
 
-.title {
-    font-size:330%;
-    color: white;
-}
-
 .p1 {
     font-family: "Rubik", sans-serif;
-    color: #0f3443;
+    color: #0f0a52;
     margin: 0;
     padding: 0;
     font-weight: 1000;
+}
+
+.p2 {
+  font-family: "Rubik", sans-serif;
+  color: #6ab3a8;
+  margin: 0;
+  padding: 0;
+  font-weight: 1000;
 }
 
 
@@ -182,17 +220,137 @@ body {
     }
 }
 
+.imageFront {
+  margin: 10px 10px;
+  width: 300px;
+  height: 300px;
+  box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(23, 26, 32, 0.8);
+  overflow:hidden;  
+}
+
+.imageBorderFront {
+  margin: 20px 20px;
+  margin-bottom: 0px;
+  width: 320px;
+  height: 320px;
+  box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.3);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  background-color: #010308;
+  overflow:hidden;  
+  border-radius: 5px;
+}
+
+.textBorderBack1 {
+  margin: 10px 10px;
+  margin-bottom: 10px;
+  width: 300px;
+  height: 420px;
+  box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.3);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  background-image: linear-gradient(45deg,#558f83, #6ab3a8, #66899c, #985fba, 	#5c3170);
+  overflow:hidden;  
+  border-radius: 5px;
+}
+
+.textBorderBack2 {
+  margin: 20px 20px;
+  margin-bottom: 0px;
+  width: 320px;
+  height: 440px;
+  box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.3);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  background-color: #010308;
+  overflow:hidden;  
+  border-radius: 5px;
+}
+
+.cardInsideBorder {
+  margin: 10px 10px;
+  width: 360px;
+  height: 480px;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  overflow:hidden;
+  box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.3);
+  background-image: url('../public/images/neon-city.jpg');
+  border-radius: 2px;
+}
+
 .card {
-    margin: 25px 50px;
-    width: 300px;
-    height: 300px;
-    border-radius: 16px;
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+    margin: 0px 50px;
+    width: 380px;
+    height: 500px;
+    border-radius: 5px;
+    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.9);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
-    background-color: rgba(23, 26, 32, 0.8);
+    background-color: #010308;
     overflow:hidden;
+}
+
+.textOnFrontCard {
+    margin: 5px 5px;
+    width: 300px;
+    height: 80px;
+    padding: 5px 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(45deg, #558f83, #6ab3a8, #66899c, #985fba, 	#5c3170);
+    overflow:hidden;  
+    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.3);
+    font-size: 40px;
+    font-weight: 600;
+    color: 	#0f0a52; 
+    border-radius: 10px;
+}
+
+.textOnFrontCardBorder {
+  margin: 0px 20px;
+  width: 320px;
+  height: 100px;
+  padding: 5px 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #010308;
+  overflow:hidden;  
+  box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.3);
+  font-size: 40px;
+  font-weight: 600;
+  color: 	#0f0a52; 
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 1500px){
+  .card{
+    margin: 0px 0px;
+  }
+}
+
+@media screen and (max-width: 1500px){
+  .cardOpacity{
+    margin: 0px 400px;
+  }
+}
+
+.card:hover {
+  opacity: 0.6;
 }
 
   .pp {
@@ -233,23 +391,14 @@ body {
   }
 
 .topMenuButtons {
-    color: #28b47a;
+    color: #0f0a52;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 13px;
 }
 
-.cardOpacity {
-    margin: 25px 50px;
-    width: 300px;
-    height: 300px;
-    border-radius: 16px;
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    background-color: rgba(23, 26, 32, 0.8);
-    overflow:hidden;
-    opacity: 0.6;
-}
+
+
+
+
 
 

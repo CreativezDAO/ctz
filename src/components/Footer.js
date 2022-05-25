@@ -7,7 +7,7 @@ import { Button } from "@mui/material";
 
 function Footer() {
   return (
-    <IconContext.Provider value={{ size: "2.2em" }}>
+    <IconContext.Provider value={{ size: "2.5em" }}>
         <Container>
         <Menu>
         <Tippy content={<span style={{ color: "white"}}>Twitter</span>}>
@@ -28,16 +28,15 @@ function Footer() {
 export default Footer
 
 const Container = styled.div`
+    width: 100%;
     min-height: 60px;
-    position: fixed;
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
     bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+    background-color: white;
 `
 
 const Menu = styled.div `
@@ -47,8 +46,8 @@ const Menu = styled.div `
     flex: 1;
 
     a {
-        padding: 0 17px;
-        color: white;
+        padding: 0 18px;
+        color: #0f0a52;
     }
 `
 

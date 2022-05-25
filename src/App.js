@@ -8,7 +8,7 @@ import CTZWorld from './components/CTZWorld';
 import Stats from './components/Stats';
 import Mint from './components/Mint';
 import Earn from './components/Earn';
-import Footer from './components/Footer';
+
 
 function App() {
   return (
@@ -23,7 +23,6 @@ function App() {
       <Route path="/mint" element={<Mint />} />
       <Route path="/earn" element={<Earn />} />
     </Routes>
-    <Footer />
     </Router>
     </div>
   );

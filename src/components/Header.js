@@ -107,7 +107,7 @@ function topMenuButtonsLeave(e) {
 }
 
 const Container = styled.div`
-    min-height: 60px;
+    min-height: 100px;
     position: fixed;
     display: flex;
     align-items: center;
@@ -122,7 +122,6 @@ const Container = styled.div`
 
 const Menu = styled.div `
     background-color: rgba(255, 255, 255,);
-    color: #393c41;
     font-weight: 500;
 
  
@@ -147,7 +146,7 @@ const Menu = styled.div `
 `
 
 const RightButtonLogin = styled.div`
-    background-color: rgba(23, 26, 32, 0.8);
+    background-color: #0f0a52;
     height: 40px;
     width: 150px;
     color: white;
@@ -157,14 +156,14 @@ const RightButtonLogin = styled.div`
     border-radius: 100px;
     opacity: 0.85;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 13px;
     cursor: pointer;
     margin: 8px;
     box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
 `
 
 const RightButtonLogout = styled.div`
-    background-color: rgba(23, 26, 32, 0.8);
+    background-color: #0f0a52;
     height: 40px;
     width: 150px;
     color: white;
@@ -174,7 +173,7 @@ const RightButtonLogout = styled.div`
     border-radius: 100px;
     opacity: 0.85;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 13px;
     cursor: pointer;
     margin: 8px;
     box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
