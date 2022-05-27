@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { FaTwitter, FaDiscord, FaGithub } from "react-icons/fa"
+import { FaTwitter, FaDiscord, FaGithub, FaBook } from "react-icons/fa"
 import { IconContext } from "react-icons";
 import Tippy from "@tippy.js/react"
 import "tippy.js/dist/tippy.css"
@@ -19,6 +19,9 @@ function Footer() {
         <Tippy content={<span style={{ color: "white"}}>GitHub</span>}>
         <a href="https://github.com/CreativezDAO" target="_blank" rel="noreferrer"><FaGithub /></a>
         </Tippy>
+        <Tippy content={<span style={{ color: "white"}}>Docs</span>}>
+        <a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer"><FaBook /></a>
+        </Tippy>
         </Menu>
         </Container>
     </IconContext.Provider>
@@ -29,14 +32,15 @@ export default Footer
 
 const Container = styled.div`
     width: 100%;
-    min-height: 60px;
-    position: relative;
+    min-height: 80px;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
     bottom: 0;
     background-color: white;
+    box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.1);
 `
 
 const Menu = styled.div `

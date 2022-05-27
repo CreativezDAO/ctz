@@ -3,9 +3,10 @@ import styled from "styled-components"
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useMoralis } from "react-moralis";
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 
 function Header() {
+
   const [burgerStatus, setBurgerStatus] = useState(false);
 
   const [setError] = useState();
@@ -54,11 +55,11 @@ function Header() {
         <img src="/images/logo.svg" alt="" />
     </div>
     <Menu>
-      <Link to="/" className='topMenuButtons' onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ topMenuButtonsLeave }>HOME</Link>
-      <a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" className='topMenuButtons' target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ topMenuButtonsLeave }>DOCS</a>
-      <Link to="/voting" className='topMenuButtons' onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ topMenuButtonsLeave}>VOTING</Link>
-      <Link to="/ctzworld" className='topMenuButtons' onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ topMenuButtonsLeave}>CTZ WORLD</Link>
-      <Link to="/stats" className='topMenuButtons' onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ topMenuButtonsLeave}>STATS</Link>
+      <NavLink to="/" className={"navbar"}>HOME</NavLink>
+      <NavLink to="/earn" className={"navbar"}>EARN</NavLink>
+      <NavLink to="/voting" className={"navbar"}>VOTING</NavLink>
+      <NavLink to="/ctzworld" className={"navbar"}>CTZ WORLD</NavLink>
+      <NavLink to="/stats" className={"navbar"}>STATS</NavLink>
     </Menu>
     <RightMenu>
     {isAuthenticated ? (<RightButtonLogout onClick={logOut} onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Disconnect</RightButtonLogout>
@@ -72,12 +73,15 @@ function Header() {
       <CustomClose onClick={()=>setBurgerStatus(false)}/>
       </CloseWrapper>  
       <li><Link to="/" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>HOME</Link></li> 
-      <li><a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DOCS</a></li>
+      <li><Link to="/earn" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>EARN</Link></li>
       <li><Link to="/voting" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>VOTING</Link></li>
       <li><Link to="/ctzworld" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>CTZ WORLD</Link></li>
       <li><Link to="/stats" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>STATS</Link></li>
-      <li><Link to="/mint" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>MINT</Link></li>
-      <li><Link to="/earn" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>EARN</Link></li>
+      <li><Link to="/" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>MINT</Link></li>
+      <li><a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DOCS</a></li>
+      <li><a href="https://github.com/CreativezDAO" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>GITHUB</a></li>
+      <li><a href="https://twitter.com/CreativezDAO" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>TWITTER</a></li>
+
 
     </BurgerNav>
     </Container>
@@ -102,12 +106,8 @@ function handleMouseLeaveButtons1(e) {
   e.target.className = 'mouseLeaveButtons1';
 }
 
-function topMenuButtonsLeave(e) {
-  e.target.className = 'topMenuButtons';
-}
-
 const Container = styled.div`
-    min-height: 100px;
+    min-height: 80px;
     position: fixed;
     display: flex;
     align-items: center;
@@ -118,11 +118,13 @@ const Container = styled.div`
     right: 0;
     z-index: 1;
     background: white;
+    box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.3);
 `
 
 const Menu = styled.div `
-    background-color: rgba(255, 255, 255,);
-    font-weight: 500;
+    color: #0f0a52;
+    font-weight: 600;
+    font-size: 13px;
 
  
  a {

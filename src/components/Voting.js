@@ -2,6 +2,7 @@ import React from 'react'
 import styled from "styled-components"
 import Fade from 'react-reveal/Fade';
 import { useNavigate } from "react-router-dom"
+import Footer from './Footer';
 
 function Voting() {
     let navigate = useNavigate();
@@ -14,14 +15,15 @@ function Voting() {
         </ItemText>
         </Fade>
         <Buttons>
+        <DownArrow src="/images/down-arrow.svg" />
         <Fade bottom>
             <ButtonGroup>
                 <LeftButton onClick={() => { navigate("/mint") }}>Mint</LeftButton>
                 <RightButton onClick={() => { navigate("/earn") }}>Earn</RightButton>
             </ButtonGroup>
-        </Fade>
-        <DownArrow src="/images/down-arrow.svg" />
-        </Buttons>    
+        </Fade>        
+        </Buttons> 
+        <Footer />   
     </Wrap>
   )
 }

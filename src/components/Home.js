@@ -6,8 +6,19 @@ import ReactCardFlip from 'react-card-flip'
 import animationData from '../animations/animationTitleV7.json'
 import Lottie from "react-lottie"
 import Footer from './Footer';
+import { Hidden } from '@mui/material'
+import { NoEncryption } from '@mui/icons-material'
 
 function Section() {
+  
+  function handleScroll() {    
+    window.scroll({
+      top: document.body.offsetHeight,
+      left: 0, 
+      behavior: 'smooth',
+    });
+  }
+
     let navigate = useNavigate();
 
     const [isFlipped1, setIsFlipped1] = useState(false);
@@ -44,12 +55,13 @@ function Section() {
     }
 
   return (
-    <Wrap>
-        <Background>      
+    <Wrap>    
+        <Background>     
         <ItemTitle>
-          <Lottie options ={defaultOptions}/> 
+          <Lottie options ={defaultOptions}/>          
+          <DownArrow src="/images/down-arrow.svg" onClick={handleScroll} /> 
         </ItemTitle>
-        </Background> 
+        </Background>
         <Fade top>
         <Spacer/>
         <CardBox> 
@@ -178,8 +190,7 @@ function Section() {
         <Buttons>
         <Fade bottom>
             <ButtonGroup>
-                <LeftButton onClick={() => { navigate("/mint") }} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>Mint</LeftButton>
-                <RightButton onClick={() => { navigate("/earn") }} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>Earn</RightButton>
+                <LeftButton onClick={() => { navigate("/mint")}} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>Mint</LeftButton>
             </ButtonGroup>
             <ItemText2>
             <p1 className = "p1">CRΞATIVΞZ is an <p1 className = "p2">automated reward distributor</p1> DAO NFT collection with 5000 unique randomly <br/> generated artworks on the <p1 className = "p2">Polygon Network</p1> with an integrated <p1 className = "p2">Matic airdrop</p1> every fortnight.</p1>
@@ -214,24 +225,25 @@ const Background = styled.div `
 `
 
 const ItemTitle = styled.div`
-    margin-top: 100px;
+    margin-top: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 `
 
 const ItemText2 = styled.div`
     text-align: center;
-    margin-bottom: 100px;    
+    margin-bottom: 130px;    
 `
 const Spacer = styled.div`
     text-align: center;
-    margin-bottom: 200px;    
+    margin-bottom: 100px;    
 `
 
 const ButtonGroup = styled.div`
     display: flex;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
     margin-top: 150px;
     justify-content: center;
     z-index: 100;
@@ -282,24 +294,10 @@ const LeftButton = styled.div`
     box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
 `
 
-const RightButton = styled(LeftButton)`
-    background: white;
-    opacity: 0.65;
-    color: black;
-`
-
 const Buttons = styled.div`
 
 
 `
-
-  function handleMouseEnter2(e) {
-    e.target.className = 'mouseEnterButtons2';
-  }
-
-  function handleMouseLeave2(e) {
-    e.target.className = 'mouseLeaveButtons2';
-  }
 
   function handleMouseEnter3(e) {
     e.target.className = 'mouseEnterButtons3';
@@ -308,3 +306,10 @@ const Buttons = styled.div`
   function handleMouseLeave3(e) {
     e.target.className = 'mouseLeaveButtons3';
   }
+
+  const DownArrow = styled.img`
+    height: 50px;
+    overflow-x: hidden;
+    animation: animateDown infinite 1.5s;
+    cursor: pointer;
+`
