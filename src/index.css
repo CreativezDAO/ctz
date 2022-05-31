@@ -39,7 +39,7 @@
   }
 
 .mouseEnterButtons1 {
-    background-color: #0f0a52;
+    background-color: #060420;
     height: 40px;
     width: 150px;
     color: white;
@@ -61,7 +61,7 @@
 }
 
 .mouseLeaveButtons1 {
-background-color: #0f0a52;
+background-color: #060420;
 height: 40px;
 width: 150px;
 color: white;
@@ -78,42 +78,42 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
 }
 
 .mouseEnterButtons2 {
-    background-color: rgb(255, 255, 255);
-    height: 60px;
-    width: 200px;
-    color: black;
+    background-color: rgba(170, 44, 255, 1);
+    height: 120px;
+    width: 300px;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 100px;
-    opacity: 0.85;
+    opacity: 1;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 28px;
     cursor: pointer;
-    margin: 0px 20px;
+    margin: 20px 20px;
     transition-duration: 0.5s;
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 1);
 }
 
 .mouseLeaveButtons2 {
-    background-color: rgb(255, 255, 255, 0.65);
-    height: 60px;
-    width: 200px;
-    color: black;
+    background-color: rgba(170, 44, 255, 0.6);
+    height: 120px;
+    width: 300px;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 100px;
-    opacity: 0.85;
+    opacity: 1;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 26px;
     cursor: pointer;
-    margin: 0px 20px;
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+    margin: 20px 20px;
+    box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 0.8);
     }
 
     .mouseEnterButtons3 {
-      background-color: #0f0a52;
+      background-color: #07070a;
       height: 60px;
       width: 200px;
       color: white;
@@ -131,7 +131,7 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
   }
   
   .mouseLeaveButtons3 {
-  background-color: #0f0a52;
+  background-color: #07070a;
   height: 60px;
   width: 200px;
   color: white;
@@ -174,7 +174,7 @@ a {
   }
 
 a.active {
-  background-color: #0f0a52;
+  background-color: #060420;
   height: 40px;
   width: 150px;
   color: white;
@@ -213,7 +213,7 @@ body {
 
 .p1 {
     font-family: "Rubik", sans-serif;
-    color: #0f0a52;
+    color: #000000;
     margin: 0;
     padding: 0;
     font-weight: 1000;
@@ -221,7 +221,7 @@ body {
 
 .p2 {
   font-family: "Rubik", sans-serif;
-  color: #6ab3a8;
+  color: #0f0a52;
   margin: 0;
   padding: 0;
   font-weight: 1000;
@@ -232,9 +232,11 @@ body {
   color: white;
   margin: 0;
   padding: 0;
-  font-weight: 1000;
-  font-size: 200%;
-  box-shadow: 3px 3px 18px 3px rgba(0,0,0,0.2);
+  font-weight: 700;
+  font-size: 300%;
+  background-color: rgba(170, 44, 255, 0.2);
+  box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 1);
+  border-radius: 70px; 
 }
 
 .p4 {
@@ -242,7 +244,7 @@ font-family: "Rubik", sans-serif;
 color: #8cffee;
 margin: 0;
 padding: 0;
-font-weight: 1000;
+font-weight: 700;
 font-size: 100%;
 }
 
@@ -251,8 +253,8 @@ font-size: 100%;
   color: white;
   margin: 0;
   padding: 0;
-  font-weight: 1000;
-  box-shadow: 3px 3px 18px 3px rgba(0,0,0,0.2);
+  font-weight: 500;
+  font-size: 130%;
 }
 
 .p6 {
@@ -260,10 +262,27 @@ font-size: 100%;
   color: white;
   margin: 0;
   padding: 0;
-  font-weight: 1000;
-  font-size: 130%;
-  box-shadow: 3px 3px 18px 3px rgba(0,0,0,0.2);
+  font-weight: 500;
+  font-size: 50%;
 }
+
+.p7 {
+  font-family: "Rubik", sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 100%;
+  }
+
+  .p8 {
+    font-family: "Rubik", sans-serif;
+    color: #8cffee00;
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 100%;
+    }
 
 @keyframes animateDown {
     0%, 20%, 50%, 80%, 100% {
@@ -314,7 +333,7 @@ font-size: 100%;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  background-image: linear-gradient(45deg,#558f83, #6ab3a8, #66899c, #985fba, 	#5c3170);
+  background-image: url('../public/images/speckled-light.jpg');
   overflow:hidden;  
   border-radius: 5px;
 }
@@ -369,12 +388,12 @@ font-size: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(45deg, #558f83, #6ab3a8, #66899c, #985fba, 	#5c3170);
+    background-image: url('../public/images/speckled-light.jpg');
     overflow:hidden;  
     box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.3);
     font-size: 40px;
     font-weight: 600;
-    color: 	#0f0a52; 
+    color: white;
     border-radius: 10px;
 }
 
@@ -450,13 +469,13 @@ font-size: 100%;
   }
 
 .topMenuButtons {
-    color: #0f0a52;
+    color: #060420;
     font-weight: 600;
     font-size: 13px;
 }
 
 .navbar{
-  color: #0f0a52;
+  color: #060420;
   font-weight: 600;
   font-size: 13px;
   height: 40px;
@@ -468,7 +487,7 @@ font-size: 100%;
 }
 
 .navbar:hover{
-  background-color: #0f0a52;
+  background-color: #060420;
   font-weight: 600;
   font-size: 13px;
   color: white;

@@ -6,19 +6,10 @@ import ReactCardFlip from 'react-card-flip'
 import animationData from '../animations/animationTitleV7.json'
 import Lottie from "react-lottie"
 import Footer from './Footer';
-import { Hidden } from '@mui/material'
-import { NoEncryption } from '@mui/icons-material'
+import background from '../animations/Background.mp4'
 
 function Section() {
   
-  function handleScroll() {    
-    window.scroll({
-      top: document.body.offsetHeight,
-      left: 0, 
-      behavior: 'smooth',
-    });
-  }
-
     let navigate = useNavigate();
 
     const [isFlipped1, setIsFlipped1] = useState(false);
@@ -55,21 +46,21 @@ function Section() {
     }
 
   return (
-    <Wrap>    
-        <Background>     
+    <Wrap>  
         <ItemTitle>
+        <video autoPlay muted style={{position: "absolute", width: "100%", left: "50%", top: "50%", height: "100%", objectFit: "cover", transform: "translate(-50%, -50%", zIndex: "-1"}}>
+          <source src={background} type="video/mp4"/>
+        </video>  
           <Lottie options ={defaultOptions}/>          
-          <DownArrow src="/images/down-arrow.svg" onClick={handleScroll} /> 
         </ItemTitle>
-        </Background>
-        <Fade top>
+        <Fade bottom>
         <Spacer/>
         <CardBox> 
         <ReactCardFlip isFlipped={isFlipped1} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick1 }>
           <div className='cardInsideBorder'>          
             <div className='imageBorderFront'>
-              <img src = "images/background-placeholder.jpg" alt="CardPic" className='imageFront'/> 
+              <img src = "images/speckled-light.jpg" alt="CardPic" className='imageFront'/> 
             </div>
             <div className='textOnFrontCardBorder'>
             <div className='textOnFrontCard'>HUMAN</div>
@@ -99,7 +90,7 @@ function Section() {
         <div className='card' onClick={ handleClick2 }>
           <div className='cardInsideBorder'>          
             <div className='imageBorderFront'>
-              <img src = "images/background-placeholder.jpg" alt="CardPic" className='imageFront'/> 
+              <img src = "images/speckled-light.jpg" alt="CardPic" className='imageFront'/> 
             </div>
             <div className='textOnFrontCardBorder'>
             <div className='textOnFrontCard'>CYBERPUNK</div>
@@ -129,7 +120,7 @@ function Section() {
         <div className='card' onClick={ handleClick3 }>
           <div className='cardInsideBorder'>          
             <div className='imageBorderFront'>
-              <img src = "images/background-placeholder.jpg" alt="CardPic" className='imageFront'/> 
+              <img src = "images/speckled-light.jpg" alt="CardPic" className='imageFront'/> 
             </div>
             <div className='textOnFrontCardBorder'>
             <div className='textOnFrontCard'>UNDEAD</div>
@@ -159,7 +150,7 @@ function Section() {
         <div className='card' onClick={ handleClick4 }>
           <div className='cardInsideBorder'>          
             <div className='imageBorderFront'>
-              <img src = "images/background-placeholder.jpg" alt="CardPic" className='imageFront'/> 
+              <img src = "images/speckled-light.jpg" alt="CardPic" className='imageFront'/> 
             </div>
             <div className='textOnFrontCardBorder'>
             <div className='textOnFrontCard'>EXOTIC</div>
@@ -184,16 +175,17 @@ function Section() {
             </div>
           </div>
         </div>  
-        </ReactCardFlip>          
-        </CardBox>        
-        </Fade>
+        </ReactCardFlip>                
+        </CardBox>
+        <Spacer/>        
+        </Fade>        
         <Buttons>
         <Fade bottom>
             <ButtonGroup>
                 <LeftButton onClick={() => { navigate("/mint")}} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>Mint</LeftButton>
             </ButtonGroup>
             <ItemText2>
-            <p1 className = "p1">CRΞATIVΞZ is an <p1 className = "p2">automated reward distributor</p1> DAO NFT collection with 5000 unique randomly <br/> generated artworks on the <p1 className = "p2">Polygon Network</p1> with an integrated <p1 className = "p2">Matic airdrop</p1> every fortnight.</p1>
+            <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor DAO NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>
             </ItemText2>            
         </Fade>
         </Buttons> 
@@ -205,19 +197,15 @@ function Section() {
 
 export default Section
 
-const Wrap = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+const Spacer = styled.div`
+    height: 5px;
+    width: 100vw;
+    justify-content: center;
     align-items: center;
+    position: absolute;
 `
 
-const Background = styled.div `
-    width: 100%;
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-image: linear-gradient(45deg, #558f83, #6ab3a8, #66899c, #985fba, 	#5c3170);
+const Wrap = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -230,23 +218,25 @@ const ItemTitle = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    @media (max-width: 1100px) {
+      height: 100%;
+      width: 100%;
+    }
 `
 
 const ItemText2 = styled.div`
     text-align: center;
-    margin-bottom: 130px;    
-`
-const Spacer = styled.div`
-    text-align: center;
-    margin-bottom: 100px;    
+    justify-content:center;
+    margin-top: 5vh;    
 `
 
 const ButtonGroup = styled.div`
     display: flex;
-    margin-bottom: 30px;
-    margin-top: 150px;
     justify-content: center;
     z-index: 100;
+    margin-top: 5vh;
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: center;
@@ -257,12 +247,13 @@ const CardBox = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
+height: 40vh;
 @media (max-width: 1800px) {
   flex-wrap: wrap;
   margin: 25px 200px;
-  position: relative;
   align-items: center;
   justify-content: center;
+  height: 1000px;
 }
 @media (max-width: 1300px) {
   flex-wrap: wrap;
@@ -270,15 +261,16 @@ justify-content: space-between;
   align-items: center;
   justify-content: center;
 }
-@media (max-width: 700px) {
-  margin: 0px 0px;
+@media (max-width: 980px) {
+  margin: 25px 100px;
   align-items: center;
   justify-content: center;
+  height: 2000px;
 }
 `
 
 const LeftButton = styled.div`
-    background-color: #0f0a52;
+    background-color: #07070a;
     height: 60px;
     width: 200px;
     color: white;
@@ -291,12 +283,15 @@ const LeftButton = styled.div`
     font-size: 16px;
     cursor: pointer;
     margin: 0px 20px;
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.5);
 `
 
 const Buttons = styled.div`
-
-
+    height: 45vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 70px;
 `
 
   function handleMouseEnter3(e) {
@@ -307,9 +302,3 @@ const Buttons = styled.div`
     e.target.className = 'mouseLeaveButtons3';
   }
 
-  const DownArrow = styled.img`
-    height: 50px;
-    overflow-x: hidden;
-    animation: animateDown infinite 1.5s;
-    cursor: pointer;
-`

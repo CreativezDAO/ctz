@@ -51,7 +51,7 @@ const Menu = styled.div `
 
     a {
         padding: 0 18px;
-        color: #0f0a52;
+        color: #060420;
     }
 `
 

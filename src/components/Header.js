@@ -122,7 +122,7 @@ const Container = styled.div`
 `
 
 const Menu = styled.div `
-    color: #0f0a52;
+    color: #060420;
     font-weight: 600;
     font-size: 13px;
 
@@ -148,7 +148,7 @@ const Menu = styled.div `
 `
 
 const RightButtonLogin = styled.div`
-    background-color: #0f0a52;
+    background-color: #060420;
     height: 40px;
     width: 150px;
     color: white;
@@ -165,7 +165,7 @@ const RightButtonLogin = styled.div`
 `
 
 const RightButtonLogout = styled.div`
-    background-color: #0f0a52;
+    background-color: #060420;
     height: 40px;
     width: 150px;
     color: white;
