@@ -6,7 +6,7 @@ import ReactCardFlip from 'react-card-flip'
 import animationData from '../animations/animationTitleV7.json'
 import Lottie from "react-lottie"
 import Footer from './Footer';
-import background from '../animations/Background.mp4'
+import background from '../animations/CyberPunkBackground.mp4'
 
 function Section() {
   
@@ -48,7 +48,7 @@ function Section() {
   return (
     <Wrap>  
         <ItemTitle>
-        <video autoPlay muted style={{position: "absolute", width: "100%", left: "50%", top: "50%", height: "100%", objectFit: "cover", transform: "translate(-50%, -50%", zIndex: "-1"}}>
+        <video autoPlay loop muted style={{position: "absolute", width: "100%", left: "50%", top: "50%", height: "100%", objectFit: "cover", transform: "translate(-50%, -50%", zIndex: "-1"}}>
           <source src={background} type="video/mp4"/>
         </video>  
           <Lottie options ={defaultOptions}/>          

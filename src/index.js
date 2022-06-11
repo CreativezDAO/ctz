@@ -11,13 +11,13 @@ const container = document.getElementById('root');
 const root = createRoot(container);
 
 root.render(
-  <React.StrictMode>
+  <React.Fragment>
   <MoralisProvider serverUrl= "https://aucjuyyy6dxq.usemoralis.com:2053/server" appId="6p0DZwOvX1JWzR1NDlIu2gNa3U7fmgd34jowehDk">
     <Provider store={store}>
       <App />
     </Provider>
   </MoralisProvider>
-  </React.StrictMode>
+  </React.Fragment>
 );
 
 // If you want to start measuring performance in your app, pass a function

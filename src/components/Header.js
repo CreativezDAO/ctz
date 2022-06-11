@@ -58,7 +58,7 @@ function Header() {
       <NavLink to="/" className={"navbar"}>HOME</NavLink>
       <NavLink to="/earn" className={"navbar"}>EARN</NavLink>
       <NavLink to="/voting" className={"navbar"}>VOTING</NavLink>
-      <NavLink to="/ctzworld" className={"navbar"}>CTZ WORLD</NavLink>
+      <NavLink to="/ctzarcade" className={"navbar"}>CTZ ARCADE</NavLink>
       <NavLink to="/stats" className={"navbar"}>STATS</NavLink>
     </Menu>
     <RightMenu>
@@ -81,7 +81,6 @@ function Header() {
       <li><a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DOCS</a></li>
       <li><a href="https://github.com/CreativezDAO" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>GITHUB</a></li>
       <li><a href="https://twitter.com/CreativezDAO" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>TWITTER</a></li>
-
 
     </BurgerNav>
     </Container>
