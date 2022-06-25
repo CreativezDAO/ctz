@@ -3,6 +3,7 @@ import {Bar, Doughnut} from "react-chartjs-2";
 import React, {useState, useEffect } from "react";
 import styled from "styled-components"
 import Footer from './Footer'
+import {useWeb3ExecuteFunction, useMoralisWeb3Api, useMoralis } from "react-moralis"
 
 ChartJS.register(
   CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip
@@ -10,6 +11,10 @@ ChartJS.register(
 let delayed;
 
 const Stats = () => {
+
+  const {Moralis, isInitialized, isAuthenticated, authenticate} = useMoralis();
+
+  const [Count, setCount] = useState ();
 
   const [chartDataBar, setChartDataBar] = useState ({
     datasets: [],
@@ -98,16 +103,60 @@ const Stats = () => {
     })
   }, [])
 
+  useEffect(() => {
+    async function calculateButtonPush () {
+      const query1 = new Moralis.Query("BeQiCycle");
+      query1.descending("createdAt");
+      const BeQicount = await query1.count();
+      const query2 = new Moralis.Query("WETHWMATICCycle");
+      query2.descending("createdAt");
+      const WETHWMATICcount = await query2.count();
+      const query3 = new Moralis.Query("BNBWMATICCycle");
+      query3.descending("createdAt");
+      const BNBWMATICcount = await query3.count();
+      const query4 = new Moralis.Query("USDCDAICycle");
+      query4.descending("createdAt");
+      const USDCDAIcount = await query4.count();
+      const query5 = new Moralis.Query("BananaWMATICCycle");
+      query5.descending("createdAt");
+      const BananaWMATICcount = await query5.count();
+      const query6 = new Moralis.Query("BIFICycle");
+      query6.descending("createdAt");
+      const BIFIcount = await query6.count();
+
+      const TotalCount = ((BeQicount)+(WETHWMATICcount)+(BNBWMATICcount)+(USDCDAIcount)+(BananaWMATICcount)+(BIFIcount));
+
+    setCount(TotalCount);
+    } 
+
+    calculateButtonPush();
+    }, []);
+
+
+            useEffect(() => {
+              async function calculateButtonPushBIFI () {
+                const query = new Moralis.Query("BIFICycle");
+                query.descending("createdAt");
+                const BIFIcount = await query.count();
+          
+                setCount(BIFIcount);
+              } 
+          
+              calculateButtonPushBIFI();
+              }, [isInitialized]);
+            
+
+
   return (
     <Wrap>
     <ItemText1>
-    <p1 className = "p10"> Cumulative MATIC Rewards Distributed to CRΞATIVΞZ NFT Holders</p1>
+    <p1 className = "p10"> Cumulative MATIC Rewards Since CRΞATIVΞZ NFT Release</p1>
     </ItemText1>
       <BarChart>
         <Bar options={chartOptionsBar} data={chartDataBar}/>
       </BarChart>
       <ItemText2>
-        <p1 className = "p5">The CRΞATIVΞZ DAO accumulates MATIC rewards for NFT holders by swapping staking rewards to MATIC.<br/> The above chart shows the MATIC gained from each staking pool since the CRΞATIVΞZ NFT release.</p1>
+        <p1 className = "p5">MATIC rewards are accumulated by swapping staking rewards to MATIC.<br/> 85% of MATIC is distributed to CRΞATIVΞZ NFT holders, 8% is reinvested <br/> back into the staking contracts, 5% is sent to a gaming rewards treasury <br/> (in development) and 2% is used to finance CRΞATIVΞZ development.</p1>
       </ItemText2>
       <ItemText3>
         <p1 className = "p10"> CRΞATIVΞZ DAO - Initial Staking Portfolio</p1>
@@ -117,6 +166,15 @@ const Stats = () => {
       </DoughnutChart>
       <ItemText2>
         <p1 className = "p5">100% of the WETH produced from mint will be staked into the following pools. <br/> Accumulated MATIC rewards will be distributed to CRΞATIVΞZ NFT Holders fortnightly.</p1>
+      </ItemText2>
+      <ItemText3>
+        <p1 className = "p10"> Button Push Counter</p1>
+      </ItemText3>
+      <ButtonPushCounter>
+        <p1 className = "p11"> {Count}</p1>
+      </ButtonPushCounter>
+      <ItemText2>
+        <p1 className = "p5">This is a running total of the number of times a button has been pushed on the "EARN" page.</p1>
       </ItemText2>
       <Footer />
     </Wrap>
@@ -146,7 +204,7 @@ const BarChart = styled.div`
     box-shadow: 0px 0px 15px 5px rgba(255,105,255,1);
     padding: 40px;
     height: 40vh;
-    width: 30%;
+    width: 35%;
     border-radius: 10px;
     background-color: #060420;
 `
@@ -164,12 +222,25 @@ const DoughnutChart = styled.div`
     background-color: #060420; 
 `
 
+const ButtonPushCounter = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 30%;
+    margin-bottom: 60px;
+    box-shadow: 0px 0px 25px 8px rgba(255,105,255,1);
+    border-radius: 1000px;   
+    padding: 50px;
+    background-color: #060420; 
+`
+
 const ItemText1 = styled.div`
     text-align: center;
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-top: 150px;  
+    margin-top: 270px;  
     border-radius: 30px;  
 `
 const ItemText2 = styled.div`
