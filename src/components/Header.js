@@ -4,8 +4,11 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useMoralis } from "react-moralis";
 import { Link, NavLink } from "react-router-dom"
+import detectEthereumProvider from '@metamask/detect-provider';
 
 function Header() {
+
+  const provider = detectEthereumProvider();
 
   const [burgerStatus, setBurgerStatus] = useState(false);
 
@@ -62,7 +65,7 @@ function Header() {
       <NavLink to="/stats" className={"navbar"}>STATS</NavLink>
     </Menu>
     <RightMenu>
-    {isAuthenticated && user && (typeof window.ethereum !== 'undefined') ? (<RightButtonLogout onClick={logOut} onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Disconnect</RightButtonLogout>
+    {isAuthenticated && user && provider !== window.ethereum ? (<RightButtonLogout onClick={logOut} onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Disconnect</RightButtonLogout>
     ) : ( 
       <RightButtonLogin onClick={() => {handleNetworkSwitch("polygon"); login();}}  onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Connect Wallet</RightButtonLogin>
     )}    
