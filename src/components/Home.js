@@ -1,16 +1,83 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from "styled-components"
 import Fade from 'react-reveal/Fade'
-import { useNavigate } from "react-router-dom"
 import ReactCardFlip from 'react-card-flip'
 import animationData from '../animations/animationTitleV7.json'
 import Lottie from "react-lottie"
 import Footer from './Footer';
 import background from '../animations/CyberPunkBackground.mp4'
+import {useWeb3ExecuteFunction, useMoralisWeb3Api, useMoralis } from "react-moralis"
 
-function Section() {
+function Section() {  
+
+    const {Moralis, isInitialized, isAuthenticated, authenticate, user} = useMoralis();
+
+    const [Minted, setMinted] = useState (String ());
+
+    const [presale, setPresale] = useState (Boolean ());
+
+    const [freeMint, setFreeMint] = useState (Boolean ());
+
+    useEffect(() => {
+      async function calculateMinted () {
+      const query = new Moralis.Query("MintTotal");
+      query.descending("supply_decimal");
+      const result = await query.first(); 
+      const minted = String(result.attributes.supply);
   
-    let navigate = useNavigate();
+      setMinted(minted);
+      } 
+  
+      calculateMinted(); 
+      }, [isInitialized]);
+
+      useEffect(() => {
+        async function checkPresaleList () {
+        const query = new Moralis.Query("MintTracker");
+        query.descending("createdAt");
+        const currentAddress = user.get("ethAddress")
+        query.equalTo("userAddress", currentAddress);
+        const test = await query.count();
+        console.log(test);
+        if (test === 0){
+          const notOnList = Boolean(false);      
+          setFreeMint(notOnList);
+          setPresale(notOnList);
+          console.log(notOnList);
+        }
+        else {
+          const result = await query.first();
+          const presaleList = result.attributes.presale;
+          console.log(presaleList);
+          setFreeMint(presaleList);}
+        }  
+    
+        checkPresaleList();
+        }, [isInitialized]); 
+
+        useEffect(() => {
+          async function checkFreeMintList () {
+          const query = new Moralis.Query("MintTracker");
+          query.descending("createdAt");
+          const currentAddress = user.get("ethAddress")
+          query.equalTo("userAddress", currentAddress);
+          const test = await query.count();
+          console.log(test);
+          if (test === 0){
+            const notOnList = Boolean(false);      
+            setFreeMint(notOnList);
+            setPresale(notOnList);
+            console.log(notOnList);
+          }
+          else {
+            const result = await query.first();
+            const freeMintList = result.attributes.freeMint;
+            console.log(freeMintList);
+            setFreeMint(freeMintList);}
+          }  
+      
+          checkFreeMintList();
+          }, [isInitialized]); 
 
     const [isFlipped1, setIsFlipped1] = useState(false);
 
@@ -44,6 +111,69 @@ function Section() {
         preserveAspectRatio: "xMidYMid slice"
       }
     }
+
+    const handleNetworkSwitch = async (networkName) => {
+      setError();
+      await changeNetwork({ networkName, setError });
+    };
+
+    const networkChanged = (chainId) => {
+      console.log({ chainId });
+    };
+
+    const [setError] = useState();
+
+    const polygon = {
+      polygon: {
+        chainId: `0x${Number(137).toString(16)}`,
+        chainName: "Polygon Mainnet",
+        nativeCurrency: {
+          name: "MATIC",
+          symbol: "MATIC",
+          decimals: 18
+        },
+        rpcUrls: ["https://polygon-rpc.com/"],
+        blockExplorerUrls: ["https://polygonscan.com/"]
+      },
+    }
+
+    const changeNetwork = async ({ networkName, setError }) => {
+      try {
+        if (!window.ethereum) throw new Error("No metamask wallet found");
+        await window.ethereum.request({
+          method: "wallet_addEthereumChain",
+          params: [
+            {
+              ...polygon[networkName]
+            }
+          ]
+        });
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+  
+    useEffect(() => {
+      window.ethereum.on("chainChanged", networkChanged);
+  
+      return () => {
+        window.ethereum.removeListener("chainChanged", networkChanged);
+      };
+    }, []);
+
+    const login = async () => {
+     if (!isAuthenticated) {
+ 
+       await authenticate({signingMessage: "Log in using Metamask" })
+         .then(function (user) {
+           console.log("logged in user:", user);
+           console.log(user.get("ethAddress"));
+         })
+         .catch(function (error) {
+           console.log(error);
+         });
+     }
+   }
 
   return (
     <Wrap>  
@@ -181,11 +311,14 @@ function Section() {
         </Fade>        
         <Buttons>
         <Fade bottom>
+        <ItemText2>
+            <p1 className = "p12">{Minted} / 5000</p1>
+            </ItemText2>   
             <ButtonGroup>
-                <LeftButton onClick={() => { navigate("/mint")}} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>Mint</LeftButton>
+                <LeftButton onClick={() => {if(!isAuthenticated) { handleNetworkSwitch("polygon"); login();}else if({freeMint} === true){<p1>free mint</p1>} else if({presale} ===true){<p1>presale</p1>} else{<p1>public sale</p1>}}} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>{{freeMint} ? <p1>freeMint</p1> : <span><p1>publicMint</p1></span>}</LeftButton>
             </ButtonGroup>
             <ItemText2>
-            <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor DAO NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>
+            <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor DAO NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   
             </ItemText2>            
         </Fade>
         </Buttons> 
@@ -270,7 +403,7 @@ height: 40vh;
 `
 
 const LeftButton = styled.div`
-    background-color: #07070a;
+    background-color: rgba(170, 44, 255, 1);
     height: 60px;
     width: 200px;
     color: white;
@@ -278,12 +411,11 @@ const LeftButton = styled.div`
     justify-content: center;
     align-items: center;
     border-radius: 100px;
-    opacity: 0.85;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 20px;
     cursor: pointer;
     margin: 0px 20px;
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.5);
+    box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 0.4);
 `
 
 const Buttons = styled.div`

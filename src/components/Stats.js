@@ -130,21 +130,7 @@ const Stats = () => {
     } 
 
     calculateButtonPush();
-    }, []);
-
-
-            useEffect(() => {
-              async function calculateButtonPushBIFI () {
-                const query = new Moralis.Query("BIFICycle");
-                query.descending("createdAt");
-                const BIFIcount = await query.count();
-          
-                setCount(BIFIcount);
-              } 
-          
-              calculateButtonPushBIFI();
-              }, [isInitialized]);
-            
+    }, [isInitialized]);          
 
 
   return (
