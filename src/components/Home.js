@@ -10,13 +10,12 @@ import {useWeb3ExecuteFunction, useMoralisWeb3Api, useMoralis } from "react-mora
 
 function Section() {    
 
+    const contractProcessor = useWeb3ExecuteFunction();
     const {Moralis, isInitialized, isAuthenticated, authenticate, user} = useMoralis();
-
     const [Minted, setMinted] = useState (String ());
-
-    const [presale, setPresale] = useState (Boolean ());
-
-    const [freeMint, setFreeMint] = useState (Boolean ());
+    const [presale, setPresale] = useState (Boolean());
+    const [publicsale, setPublicsale] = useState (Boolean);
+    const [freeMint, setFreeMint] = useState (Boolean);
 
     useEffect(() => {
       async function calculateMinted () {
@@ -31,52 +30,29 @@ function Section() {
       calculateMinted(); 
       }, [isInitialized]);
 
-      useEffect(() => {
-        async function checkPresaleList () {
-        const query = new Moralis.Query("MintTracker");
-        query.descending("createdAt");
-        const currentAddress = user.get("ethAddress")
-        query.equalTo("userAddress", currentAddress);
-        const test = await query.count();
-        console.log(test);
-        if (test === 0){
-          const notOnList = Boolean(false);      
-          setFreeMint(notOnList);
-          setPresale(notOnList);
-          console.log(notOnList);
-        }
-        else {
-          const result = await query.first();
-          const presaleList = result.attributes.presale;
-          console.log(presaleList);
-          setFreeMint(presaleList);}
-        }  
-    
-        checkPresaleList();
-        }, [isInitialized]); 
-
         useEffect(() => {
-          async function checkFreeMintList () {
+          async function checkLists () {
           const query = new Moralis.Query("MintTracker");
           query.descending("createdAt");
           const currentAddress = user.get("ethAddress")
           query.equalTo("userAddress", currentAddress);
           const test = await query.count();
-          console.log(test);
           if (test === 0){
-            const notOnList = Boolean(false);      
-            setFreeMint(notOnList);
-            setPresale(notOnList);
-            console.log(notOnList);
+            const notOnList = Boolean(true);      
+            setPublicsale(notOnList);
+            //  console.log(notOnList);
           }
           else {
             const result = await query.first();
             const freeMintList = result.attributes.freeMint;
-            console.log(freeMintList);
-            setFreeMint(freeMintList);}
-          }  
+            const presaleList = result.attributes.presale;
+            setFreeMint(freeMintList);          
+            setPresale(presaleList);
+            //  console.log(presaleList);
+            //  console.log(freeMintList);          
+          }}          
       
-          checkFreeMintList();
+          checkLists();
           }, [isInitialized]); 
 
     const [isFlipped1, setIsFlipped1] = useState(false);
@@ -175,6 +151,25 @@ function Section() {
      }
    }
 
+   async function pushTheBIFIButton(){
+
+    let options = {
+      contractAddress: "0x93c629B5C6eb9f6E3030230B40733B1028A3384e",
+      functionName: "pushTheButton",
+      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
+      params: {}
+    }
+
+    await contractProcessor.fetch({
+      params: options,
+      onSuccess: () => {
+        console.log("button push succesful");
+      },
+      onError: (error) => {
+        alert(error.data.message)
+      }
+    });
+  }
 
   return (
     <Wrap>  
@@ -316,7 +311,7 @@ function Section() {
             <p1 className = "p12">{Minted} / 5000</p1>
             </ItemText2>   
             <ButtonGroup>
-                <LeftButton onClick={() => {if(!isAuthenticated) { handleNetworkSwitch("polygon"); login();}else if({freeMint} === true){<p1>free mint</p1>} else if({presale} ===true){<p1>presale</p1>} else{<p1>public sale</p1>}}} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>{{freeMint} ? <p1>freeMint</p1> : <span><p1>publicMint</p1></span>}</LeftButton>
+                <LeftButton onClick={() => {if(!isAuthenticated) { handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>{(() => {if(Boolean(freeMint) === true) {return(<p1>f r e e M i n t</p1>)} else if (Boolean(presale) === true){return (<p1>p r e s a l e m i n t</p1>)} else {return (<p1>M i n t</p1>)}})()} </LeftButton>
             </ButtonGroup>
             <ItemText2>
             <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor DAO NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   

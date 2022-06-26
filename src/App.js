@@ -23,6 +23,7 @@ function App() {
       })
       window.ethereum.on('accountsChanged', async () => {
         logout();
+        window.location.reload();
       })
   }});
 
