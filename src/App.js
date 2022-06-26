@@ -13,7 +13,7 @@ import {useMoralis} from "react-moralis"
 
 function App() {
 
-  const {logout} = useMoralis();//
+  const {logout} = useMoralis();
   
 
   useEffect(() => {
