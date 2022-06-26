@@ -28,11 +28,12 @@ function Header() {
     };
   }, []);
 
-  const { authenticate, isAuthenticated, logout } = useMoralis();
+  const { authenticate, isAuthenticated, logout, user} = useMoralis();
 
    const login = async () => {
-    if (!isAuthenticated) {
-
+    if (!isAuthenticated && !user) {
+      const address = await window.eth_requestAccounts;
+      console.log(address);
       await authenticate({signingMessage: "Log in using Metamask" })
         .then(function (user) {
           console.log("logged in user:", user);
@@ -41,8 +42,7 @@ function Header() {
         .catch(function (error) {
           console.log(error);
         });
-    }
-  }
+      }};
 
   const logOut = async () => {
     await logout();
@@ -62,9 +62,9 @@ function Header() {
       <NavLink to="/stats" className={"navbar"}>STATS</NavLink>
     </Menu>
     <RightMenu>
-    {isAuthenticated ? (<RightButtonLogout onClick={logOut} onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Disconnect</RightButtonLogout>
+    {isAuthenticated && user && (typeof window.ethereum !== 'undefined') ? (<RightButtonLogout onClick={logOut} onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Disconnect</RightButtonLogout>
     ) : ( 
-      <RightButtonLogin onClick={() => {handleNetworkSwitch("polygon"); login();}} onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Connect Wallet</RightButtonLogin>
+      <RightButtonLogin onClick={() => {handleNetworkSwitch("polygon"); login();}}  onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Connect Wallet</RightButtonLogin>
     )}    
           <CustomMenu onClick={()=>setBurgerStatus(true)}/>
     </RightMenu>

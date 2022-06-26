@@ -7,8 +7,9 @@ import Lottie from "react-lottie"
 import Footer from './Footer';
 import background from '../animations/CyberPunkBackground.mp4'
 import {useWeb3ExecuteFunction, useMoralisWeb3Api, useMoralis } from "react-moralis"
+import detectEthereumProvider from '@metamask/detect-provider';
 
-function Section() {  
+function Section() {    
 
     const {Moralis, isInitialized, isAuthenticated, authenticate, user} = useMoralis();
 
@@ -174,6 +175,7 @@ function Section() {
          });
      }
    }
+
 
   return (
     <Wrap>  
