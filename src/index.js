@@ -12,7 +12,7 @@ const root = createRoot(container);
 
 root.render(
   <React.Fragment>
-  <MoralisProvider serverUrl= "https://aucjuyyy6dxq.usemoralis.com:2053/server" appId="6p0DZwOvX1JWzR1NDlIu2gNa3U7fmgd34jowehDk">
+  <MoralisProvider serverUrl= "" appId="">
     <Provider store={store}>
       <App />
     </Provider>
