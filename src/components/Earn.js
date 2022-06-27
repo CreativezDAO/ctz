@@ -321,7 +321,7 @@ const Earn = () => {
         </ButtonGroup>
         </Buttons> 
         <ItemText3>
-        <div/> <p1 className = "p5"> By pushing the button you are executing functions <br/> for the CRΞATIVΞZ DAO such as claiming staking rewards, <br/> sending rewards to the deployer contract, reinvesting into other contracts <br/> & sending rewards to NFT holders. As an incentive and a way to say thank-you, <br/> the contract will reward you upon successful execution of a CRΞATIVΞZ contract function.</p1>
+        <div/> <p1 className = "p5"> By pushing the buttons you are executing functions <br/> for the CRΞATIVΞZ ecosystem including: claiming staking rewards, <br/> sending rewards to the deployer contract, reinvesting into other contracts <br/> & sending rewards to NFT holders. As an incentive and a way to say thank-you, <br/> the contract will reward you upon successful execution of a CRΞATIVΞZ contract function.</p1>
         </ItemText3>                         
     </Fade>
     <Footer /> 

@@ -5,6 +5,9 @@ import ReactCardFlip from 'react-card-flip'
 import animationData from '../animations/animationTitleV7.json'
 import Lottie from "react-lottie"
 import Footer from './Footer';
+import PresaleInfo from './PresaleInfo';
+import FreeMintInfo from './FreeMintInfo';
+import PublicsaleInfo from './PublicsaleInfo';
 import background from '../animations/CyberPunkBackground.mp4'
 import {useWeb3ExecuteFunction, useMoralisWeb3Api, useMoralis } from "react-moralis"
 
@@ -186,7 +189,7 @@ function Section() {
         <div className='card' onClick={ handleClick1 }>
           <div className='cardInsideBorder'>          
             <div className='imageBorderFront'>
-              <img src = "images/speckled-light.jpg" alt="CardPic" className='imageFront'/> 
+              <img src = "images/Creativez_Human.jpg" alt="CardPic" className='imageFront'/> 
             </div>
             <div className='textOnFrontCardBorder'>
             <div className='textOnFrontCard'>HUMAN</div>
@@ -309,12 +312,12 @@ function Section() {
         <Fade bottom>
         <ItemText2>
             <p1 className = "p12">{Minted} / 5000</p1>
-            </ItemText2>   
-            <ButtonGroup>
-                <LeftButton onClick={() => {if(!isAuthenticated) { handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>{(() => {if(Boolean(freeMint) === true) {return(<p1>f r e e M i n t</p1>)} else if (Boolean(presale) === true){return (<p1>p r e s a l e m i n t</p1>)} else {return (<p1>M i n t</p1>)}})()} </LeftButton>
-            </ButtonGroup>
+        </ItemText2>   
+        <ButtonGroup>
+          {(() => {if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else {return <PublicsaleInfo/>}})()}
+        </ButtonGroup>
             <ItemText2>
-            <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor DAO NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   
+            <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   
             </ItemText2>            
         </Fade>
         </Buttons> 
@@ -396,22 +399,6 @@ height: 40vh;
   justify-content: center;
   height: 2000px;
 }
-`
-
-const LeftButton = styled.div`
-    background-color: rgba(170, 44, 255, 1);
-    height: 60px;
-    width: 200px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100px;
-    text-transform: uppercase;
-    font-size: 20px;
-    cursor: pointer;
-    margin: 0px 20px;
-    box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 0.4);
 `
 
 const Buttons = styled.div`
