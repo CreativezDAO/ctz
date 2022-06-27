@@ -8,6 +8,8 @@ import Footer from './Footer';
 import PresaleInfo from './PresaleInfo';
 import FreeMintInfo from './FreeMintInfo';
 import PublicsaleInfo from './PublicsaleInfo';
+import WalletConnectInfo from './WalletConnectInfo';
+import MintedOutInfo from './MintedOutInfo';
 import background from '../animations/CyberPunkBackground.mp4'
 import {useWeb3ExecuteFunction, useMoralisWeb3Api, useMoralis } from "react-moralis"
 
@@ -43,16 +45,13 @@ function Section() {
           if (test === 0){
             const notOnList = Boolean(true);      
             setPublicsale(notOnList);
-            //  console.log(notOnList);
           }
           else {
             const result = await query.first();
             const freeMintList = result.attributes.freeMint;
             const presaleList = result.attributes.presale;
             setFreeMint(freeMintList);          
-            setPresale(presaleList);
-            //  console.log(presaleList);
-            //  console.log(freeMintList);          
+            setPresale(presaleList);         
           }}          
       
           checkLists();
@@ -90,89 +89,6 @@ function Section() {
         preserveAspectRatio: "xMidYMid slice"
       }
     }
-
-    const handleNetworkSwitch = async (networkName) => {
-      setError();
-      await changeNetwork({ networkName, setError });
-    };
-
-    const networkChanged = (chainId) => {
-      console.log({ chainId });
-    };
-
-    const [setError] = useState();
-
-    const polygon = {
-      polygon: {
-        chainId: `0x${Number(137).toString(16)}`,
-        chainName: "Polygon Mainnet",
-        nativeCurrency: {
-          name: "MATIC",
-          symbol: "MATIC",
-          decimals: 18
-        },
-        rpcUrls: ["https://polygon-rpc.com/"],
-        blockExplorerUrls: ["https://polygonscan.com/"]
-      },
-    }
-
-    const changeNetwork = async ({ networkName, setError }) => {
-      try {
-        if (!window.ethereum) throw new Error("No metamask wallet found");
-        await window.ethereum.request({
-          method: "wallet_addEthereumChain",
-          params: [
-            {
-              ...polygon[networkName]
-            }
-          ]
-        });
-      } catch (err) {
-        setError(err.message);
-      }
-    };
-  
-    useEffect(() => {
-      window.ethereum.on("chainChanged", networkChanged);
-  
-      return () => {
-        window.ethereum.removeListener("chainChanged", networkChanged);
-      };
-    }, []);
-
-    const login = async () => {
-     if (!isAuthenticated) {
- 
-       await authenticate({signingMessage: "Log in using Metamask" })
-         .then(function (user) {
-           console.log("logged in user:", user);
-           console.log(user.get("ethAddress"));
-         })
-         .catch(function (error) {
-           console.log(error);
-         });
-     }
-   }
-
-   async function pushTheBIFIButton(){
-
-    let options = {
-      contractAddress: "0x93c629B5C6eb9f6E3030230B40733B1028A3384e",
-      functionName: "pushTheButton",
-      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
-      params: {}
-    }
-
-    await contractProcessor.fetch({
-      params: options,
-      onSuccess: () => {
-        console.log("button push succesful");
-      },
-      onError: (error) => {
-        alert(error.data.message)
-      }
-    });
-  }
 
   return (
     <Wrap>  
@@ -311,10 +227,10 @@ function Section() {
         <Buttons>
         <Fade bottom>
         <ItemText2>
-            <p1 className = "p12">{Minted} / 5000</p1>
+            <p1 className = "p14">{Minted} / 5000</p1>
         </ItemText2>   
         <ButtonGroup>
-          {(() => {if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else {return <PublicsaleInfo/>}})()}
+          {(() => {if(Minted === "5000"){return <MintedOutInfo/>} else if(!isAuthenticated){return <WalletConnectInfo/>} else if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else {return <PublicsaleInfo/>}})()}
         </ButtonGroup>
             <ItemText2>
             <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   

@@ -11,7 +11,7 @@ function Footer() {
         <Container>
         <Menu>
         <Tippy content={<span style={{ color: "white"}}>Twitter</span>}>
-        <Button href="https://twitter.com/CreativezDAO" target="_blank" rel="noreferrer"><FaTwitter onMouseEnter={ handleMouseEnter } /></Button>
+        <Button href="https://twitter.com/Creativez_NFTs" target="_blank" rel="noreferrer"><FaTwitter onMouseEnter={ handleMouseEnter } /></Button>
         </Tippy>
         <Tippy content={<span style={{ color: "white"}}>Discord</span>}>
         <a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer"><FaDiscord /></a>

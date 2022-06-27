@@ -42,6 +42,7 @@ function Header() {
           console.log("logged in user:", user);
           console.log(user.get("ethAddress"));
         })
+        console.log("updating page")
         .catch(function (error) {
           console.log(error);
         });
