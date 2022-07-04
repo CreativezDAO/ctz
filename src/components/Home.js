@@ -15,8 +15,7 @@ import {useWeb3ExecuteFunction, useMoralisWeb3Api, useMoralis } from "react-mora
 
 function Section() {    
 
-    const contractProcessor = useWeb3ExecuteFunction();
-    const {Moralis, isInitialized, isAuthenticated, authenticate, user} = useMoralis();
+    const {Moralis, isInitialized, isAuthenticated, user} = useMoralis();
     const [Minted, setMinted] = useState (String ());
     const [presale, setPresale] = useState (Boolean());
     const [publicsale, setPublicsale] = useState (Boolean);

@@ -151,7 +151,7 @@ const Stats = () => {
         <Doughnut options={chartOptionsDoughnut} data={chartDataDoughnut}/>
       </DoughnutChart>
       <ItemText2>
-        <p1 className = "p5">100% of the WETH produced from mint will be staked into the following pools. <br/> Accumulated MATIC rewards will be distributed to CRΞATIVΞZ NFT Holders fortnightly.</p1>
+        <p1 className = "p5">100% of the MATIC produced from mint will be staked into the following pools. <br/> Accumulated MATIC rewards will be distributed to CRΞATIVΞZ NFT Holders fortnightly.</p1>
       </ItemText2>
       <ItemText3>
         <p1 className = "p10"> Button Push Counter</p1>

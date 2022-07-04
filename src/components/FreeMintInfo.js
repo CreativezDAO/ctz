@@ -1,14 +1,39 @@
 import React from 'react'
 import styled from "styled-components"
+import {useWeb3ExecuteFunction} from "react-moralis"
 
 function FreeMintInfo() {
+
+  const contractProcessor = useWeb3ExecuteFunction();
+
+  async function mint(){
+
+    let options = {
+      contractAddress: "0xA56B8588877d090Da3427E0Ca8eB1533C5D80Cb9",
+      functionName: "mint",
+      abi: [{"inputs":[{"internalType":"uint256","name":"_mintAmount","type":"uint256"}],"name":"mint","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}],
+      params: {_mintAmount: 1},
+      msgValue: (0)
+    }
+
+    await contractProcessor.fetch({
+      params: options,
+      onSuccess: () => {
+        console.log("mint successful");
+      },
+      onError: (error) => {
+        alert(error.data.message)
+      }
+    });
+  }
+
   return (
     //<p1> presale instructions - Presale can mint up to 3 NFTs at a discounted price. Wallets can only perform the minting function once - so make sure you choose the desired amount before executing.
     <Wrap>
       <ItemText2>
         <p1 className ="p1"><p1 className = "p13">🥳 Congrats - you made the Free Mint List! 🥳</p1> <br/><br/> Press the button to mint 1 free CRΞATIVΞZ NFT </p1>  
       </ItemText2>    
-      <Button onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>freemint</Button>
+      <Button onClick={mint} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>free mint</Button>
     </Wrap>
   )
 }
