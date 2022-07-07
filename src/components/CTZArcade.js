@@ -12,7 +12,7 @@ function CTZArcade() {
   </video>
   <Fade top delay={100} duration={2000}>  
         <ItemText1>
-        <p1 className = "p3"> <br/><p1 className = "p8">__</p1>CTZ ARCADE IS UNDER CONSTRUCTION<p1 className = "p8">__</p1> <br/><p1 className = "p8">Hidden Message Bonus Points!!</p1></p1>
+        <p1 className = "p3"> <br/><p1 className = "p8">__</p1>THE ARCADE IS UNDER CONSTRUCTION<p1 className = "p8">__</p1> <br/><p1 className = "p8">Hidden Message Bonus Points!!</p1></p1>
         </ItemText1>
         </Fade>
         <Footer />
