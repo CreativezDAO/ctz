@@ -226,7 +226,7 @@ const ItemText1 = styled.div`
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-top: 270px;  
+    margin-top: 170px;  
     border-radius: 30px;  
 `
 const ItemText2 = styled.div`

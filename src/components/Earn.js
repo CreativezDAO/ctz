@@ -305,7 +305,7 @@ const Earn = () => {
     </video>
     <Fade top delay={100} duration={2500}>  
         <ItemText1>
-        <p1 className = "p3"> <br/><p1 className = "p8">__</p1>TWO WAYS TO EARN FROM CRΞATIVΞZ <p1 className = "p8">__</p1> <br/><p1 className = "p8">Hidden Message Bonus Points!!</p1> <br/> <ItemText2><p1 className = "p6"> 1.  <p1 className = "p7">Hold a CRΞATIVΞZ NFT</p1> and receive a MATIC airdrop fortnightly <br/>2. <p1 className = "p7">Push the buttons</p1> below for a small MATIC reward </p1></ItemText2></p1>
+        <p1 className = "p3"> <br/><p1 className = "p8">__</p1>TWO WAYS TO EARN FROM CRΞATIVΞZ <p1 className = "p8">__</p1> <br/><br/> <ItemText2><p1 className = "p6"> 1.  <p1 className = "p7">Hold a CRΞATIVΞZ NFT</p1> and receive a MATIC airdrop fortnightly <br/>2. <p1 className = "p7">Push the buttons</p1> below for a small MATIC reward </p1></ItemText2></p1>
         </ItemText1>
         </Fade>  
         <Fade bottom delay={20} duration={1800}>
@@ -322,7 +322,7 @@ const Earn = () => {
         </ButtonGroup>
         </Buttons> 
         <ItemText3>
-        <div/> <p1 className = "p5"> By pushing the buttons you are executing functions <br/> for the CRΞATIVΞZ ecosystem including: claiming staking rewards, <br/> sending rewards to the deployer contract, reinvesting into other contracts <br/> & sending rewards to NFT holders. As an incentive and a way to say thank-you, <br/> the contract will reward you upon successful execution of a CRΞATIVΞZ contract function.</p1>
+          <p1 className = "p5"> By pushing the buttons you are executing functions <br/> for the CRΞATIVΞZ ecosystem including: claiming staking rewards, <br/> sending rewards to the deployer contract, reinvesting into other contracts <br/> & sending rewards to NFT holders. As an incentive and a way to say thank-you, <br/> the contract will reward you upon successful execution of a CRΞATIVΞZ contract function.</p1>
         </ItemText3>                         
     </Fade>
     <Footer /> 
@@ -356,7 +356,7 @@ const ButtonGroup = styled.div`
 
 const LeftButton = styled.div`
     background-color: rgba(170, 44, 255, 0.6);
-    height: 120px;
+    height: 100px;
     width: 300px;
     color: white;
     display: flex;
@@ -367,7 +367,7 @@ const LeftButton = styled.div`
     text-transform: uppercase;
     font-size: 24px;
     cursor: pointer;
-    margin: 20px 20px;
+    margin: 10px 20px;
     box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 0.4);
 `
 
@@ -388,7 +388,7 @@ const ItemText1 = styled.div`
     align-items: center;
     display: flex;
     margin-bottom: 40px;
-    margin-top: 150px;  
+    margin-top: 120px;  
     border-radius: 30px;  
 `
 

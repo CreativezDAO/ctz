@@ -79,7 +79,7 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
 
 .mouseEnterButtons2 {
     background-color: rgba(170, 44, 255, 1);
-    height: 120px;
+    height: 100px;
     width: 300px;
     color: white;
     display: flex;
@@ -90,14 +90,14 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
     text-transform: uppercase;
     font-size: 26px;
     cursor: pointer;
-    margin: 20px 20px;
+    margin: 10px 20px;
     transition-duration: 0.5s;
     box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 1);
 }
 
 .mouseLeaveButtons2 {
     background-color: rgba(170, 44, 255, 0.6);
-    height: 120px;
+    height: 100px;
     width: 300px;
     color: white;
     display: flex;
@@ -108,8 +108,8 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
     text-transform: uppercase;
     font-size: 24px;
     cursor: pointer;
-    margin: 20px 20px;
-    box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 0.8);
+    margin: 10px 20px;
+    box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 0.4);
     }
 
     .mouseEnterButtons3 {
@@ -298,7 +298,7 @@ body {
   margin: 0;
   padding: 0;
   font-weight: 500;
-  font-size: 300%;
+  font-size: 250%;
   background-color: rgba(170, 44, 255, 0.2);
   box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 1);
   border-radius: 70px; 
@@ -320,7 +320,7 @@ font-size: 100%;
   margin: 0;
   padding: 0;
   font-weight: 500;
-  font-size: 130%;
+  font-size: 110%;
   text-shadow: 5px 5px rgb(0, 0, 0);
 }
 

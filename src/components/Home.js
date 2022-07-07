@@ -133,7 +133,6 @@ function Section() {
         </ReactCardFlip>                
         </CardBox>             
         <Buttons>
-        <Fade bottom>
         <ItemText3>
             <p1 className = "p14">{Minted} / 5000</p1>
         </ItemText3>   
@@ -143,7 +142,6 @@ function Section() {
             <ItemText2>
             <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   
             </ItemText2>            
-        </Fade>
         </Buttons> 
         <Footer />
         </Wrap2>
