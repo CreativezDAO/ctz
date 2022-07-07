@@ -17,7 +17,7 @@ function Footer() {
         <a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer"><FaDiscord /></a>
         </Tippy>
         <Tippy content={<span style={{ color: "white"}}>GitHub</span>}>
-        <a href="https://github.com/CreativezDAO" target="_blank" rel="noreferrer"><FaGithub /></a>
+        <a href="https://github.com/CreativezDApp" target="_blank" rel="noreferrer"><FaGithub /></a>
         </Tippy>
         <Tippy content={<span style={{ color: "white"}}>Docs</span>}>
         <a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer"><FaBook /></a>
@@ -34,7 +34,7 @@ function Footer() {
 export default Footer
 
 const Container = styled.div`
-    width: 100%;
+    width: 100vw;
     min-height: 80px;
     position: fixed;
     display: flex;

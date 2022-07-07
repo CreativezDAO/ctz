@@ -2,6 +2,7 @@ import React from 'react'
 import background from '../animations/CyberPunkBackground.mp4'
 import styled from "styled-components"
 import Fade from 'react-reveal/Fade'
+import Footer from './Footer'
 
 function CTZArcade() {
   return (
@@ -14,6 +15,7 @@ function CTZArcade() {
         <p1 className = "p3"> <br/><p1 className = "p8">__</p1>CTZ ARCADE IS UNDER CONSTRUCTION<p1 className = "p8">__</p1> <br/><p1 className = "p8">Hidden Message Bonus Points!!</p1></p1>
         </ItemText1>
         </Fade>
+        <Footer />
   </Wrap>
   )
 }

@@ -98,7 +98,6 @@ function Section() {
           <Lottie options ={defaultOptions}/>          
         </ItemTitle>
         <Fade bottom>
-        <Spacer/>
         <CardBox> 
         <ReactCardFlip isFlipped={isFlipped1} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick1 }>
@@ -134,7 +133,7 @@ function Section() {
         <div className='card' onClick={ handleClick2 }>
           <div className='cardInsideBorder'>          
             <div className='imageBorderFront'>
-              <img src = "images/speckled-light.jpg" alt="CardPic" className='imageFront'/> 
+              <img src = "images/Creativez_Cyberpunk.jpg" alt="CardPic" className='imageFront'/> 
             </div>
             <div className='textOnFrontCardBorder'>
             <div className='textOnFrontCard'>CYBERPUNK</div>
@@ -220,8 +219,7 @@ function Section() {
           </div>
         </div>  
         </ReactCardFlip>                
-        </CardBox>
-        <Spacer/>        
+        </CardBox>     
         </Fade>        
         <Buttons>
         <Fade bottom>
@@ -243,14 +241,6 @@ function Section() {
 
 
 export default Section
-
-const Spacer = styled.div`
-    height: 5px;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-`
 
 const Wrap = styled.div`
     display: flex;
@@ -276,7 +266,8 @@ const ItemTitle = styled.div`
 const ItemText2 = styled.div`
     text-align: center;
     justify-content:center;
-    margin-top: 5vh;    
+    margin-bottom: 20px;  
+    margin-top: 20px;  
 `
 
 const ButtonGroup = styled.div`
@@ -284,6 +275,7 @@ const ButtonGroup = styled.div`
     justify-content: center;
     z-index: 100;
     margin-top: 5vh;
+    margin-bottom: 5vh;
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: center;
@@ -294,7 +286,7 @@ const CardBox = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-height: 40vh;
+height: 45vh;
 @media (max-width: 1800px) {
   flex-wrap: wrap;
   margin: 25px 200px;
@@ -323,12 +315,3 @@ const Buttons = styled.div`
     align-items: center;
     margin-bottom: 70px;
 `
-
-  function handleMouseEnter3(e) {
-    e.target.className = 'mouseEnterButtons3';
-  }
-
-  function handleMouseLeave3(e) {
-    e.target.className = 'mouseLeaveButtons3';
-  }
-
