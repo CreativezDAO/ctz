@@ -11,19 +11,19 @@ function Footer() {
         <Container>
         <Menu>
         <Tippy content={<span style={{ color: "white"}}>Twitter</span>}>
-        <Button href="https://twitter.com/Creativez_NFTs" target="_blank" rel="noreferrer"><FaTwitter onMouseEnter={ handleMouseEnter } /></Button>
+        <Button href="https://twitter.com/Creativez_DApp" target="_blank" rel="noreferrer"><FaTwitter onMouseEnter={ handleMouseEnter } /></Button>
         </Tippy>
         <Tippy content={<span style={{ color: "white"}}>Discord</span>}>
-        <a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer"><FaDiscord /></a>
+        <a href="https://discord.gg/Uj7fmHbTWj" target="_blank" rel="noreferrer"><FaDiscord /></a>
         </Tippy>
         <Tippy content={<span style={{ color: "white"}}>GitHub</span>}>
         <a href="https://github.com/CreativezDApp" target="_blank" rel="noreferrer"><FaGithub /></a>
         </Tippy>
         <Tippy content={<span style={{ color: "white"}}>Docs</span>}>
-        <a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer"><FaBook /></a>
+        <a href="https://creativezdapp.gitbook.io/c-r-ks-a-t-i-v-ks-z/" target="_blank" rel="noreferrer"><FaBook /></a>
         </Tippy>
         <Tippy content={<span style={{ color: "white"}}>YouTube</span>}>
-        <a href="https://www.youtube.com/channel/UCXMl76ONcF4dlMwTvuQ7etA/featured" target="_blank" rel="noreferrer"><FaYoutube /></a>
+        <a href="https://www.youtube.com/channel/UCovn1niyPXt5jy84y8cQV6A/featured" target="_blank" rel="noreferrer"><FaYoutube /></a>
         </Tippy>
         </Menu>
         </Container>

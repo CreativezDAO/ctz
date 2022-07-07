@@ -82,10 +82,12 @@ function Header() {
       <li><Link to="/ctzarcade" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>CTZ ARCADE</Link></li>
       <li><Link to="/stats" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>STATS</Link></li>
       <li><Link to="/" onClick = {scrollToBottom} onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>MINT</Link></li>
-      <li><a href="https://creativezdao.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DOCS</a></li>
+      <li><a href="https://creativezdapp.gitbook.io/c-r-ks-a-t-i-v-ks-z/" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DOCS</a></li>
       <li><a href="https://github.com/CreativezDApp" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>GITHUB</a></li>
-      <li><a href="https://twitter.com/Creativez_NFTs" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>TWITTER</a></li>
-      <li><a href="https://www.youtube.com/channel/UCXMl76ONcF4dlMwTvuQ7etA/featured" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>YOUTUBE</a></li>
+      <li><a href="https://twitter.com/Creativez_DApp" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>TWITTER</a></li>
+      <li><a href="https://www.youtube.com/channel/UCovn1niyPXt5jy84y8cQV6A/featured" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>YOUTUBE</a></li>
+      <li><a href="https://discord.gg/Uj7fmHbTWj" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DISCORD</a></li>
+      
 
     </BurgerNav>
     </Container>

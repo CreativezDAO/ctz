@@ -11,7 +11,7 @@ import PublicsaleInfo from './PublicsaleInfo';
 import WalletConnectInfo from './WalletConnectInfo';
 import MintedOutInfo from './MintedOutInfo';
 import background from '../animations/CyberPunkBackground.mp4'
-import {useWeb3ExecuteFunction, useMoralisWeb3Api, useMoralis } from "react-moralis"
+import {useMoralis } from "react-moralis"
 
 function Section() {    
 
