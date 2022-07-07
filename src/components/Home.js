@@ -97,144 +97,56 @@ function Section() {
         </video>  
           <Lottie options ={defaultOptions}/>          
         </ItemTitle>
-        <Fade bottom>
+        <Wrap2>
         <CardBox> 
         <ReactCardFlip isFlipped={isFlipped1} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick1 }>
-          <div className='cardInsideBorder'>          
-            <div className='imageBorderFront'>
-              <img src = "images/Creativez_Human.jpg" alt="CardPic" className='imageFront'/> 
-            </div>
-            <div className='textOnFrontCardBorder'>
-            <div className='textOnFrontCard'>HUMAN</div>
-            </div>
-          </div>         
+          <img src = "images/Human_Card_Back.jpg" alt="CardPic" className='image'/>     
         </div> 
         <div className='card' onClick={ handleClick1 }>
-        <div className='cardInsideBorder'> 
-        <div className='textBorderBack2'>      
-            <div className='textBorderBack1'>
-            <div>
-              <div className='card__header'>
-                <img src="/images/human.svg" alt="" className='pp' />
-                <h2>Human</h2>
-              </div>
-              <div className='card__body'>
-                <h3>40%</h3>
-                <p>2000 HUMANS will be in the CRΞATIVΞZ NFT Collection.</p>
-              </div>
-            </div>
-            </div>   
-            </div>
-          </div>
-        </div> 
+          <img src = "images/Human_Card_Back.jpg" alt="CardPic" className='image'/>     
+        </div>           
         </ReactCardFlip>       
         <ReactCardFlip isFlipped={isFlipped2} flipDirection="horizontal">
         <div className='card' onClick={ handleClick2 }>
-          <div className='cardInsideBorder'>          
-            <div className='imageBorderFront'>
-              <img src = "images/Creativez_Cyberpunk.jpg" alt="CardPic" className='imageFront'/> 
-            </div>
-            <div className='textOnFrontCardBorder'>
-            <div className='textOnFrontCard'>CYBERPUNK</div>
-            </div>
-          </div>         
+          <img src = "images/Cyberpunk_Card_Back.jpg" alt="CardPic" className='image'/>     
         </div> 
         <div className='card' onClick={ handleClick2 }>
-        <div className='cardInsideBorder'> 
-        <div className='textBorderBack2'>      
-            <div className='textBorderBack1'>
-            <div>
-              <div className='card__header'>
-                <img src="/images/human.svg" alt="" className='pp' />
-                <h2>CYBERPUNK</h2>
-              </div>
-              <div className='card__body'>
-                <h3>30%</h3>
-                <p>1500 CYBERPUNKS will be in the CRΞATIVΞZ NFT Collection.</p>
-              </div>
-            </div>
-            </div>   
-            </div>
-          </div>
-        </div> 
+          <img src = "images/Cyberpunk_Card_Back.jpg" alt="CardPic" className='image'/>     
+        </div>   
         </ReactCardFlip>
         <ReactCardFlip isFlipped={isFlipped3} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick3 }>
-          <div className='cardInsideBorder'>          
-            <div className='imageBorderFront'>
-              <img src = "images/speckled-light.jpg" alt="CardPic" className='imageFront'/> 
-            </div>
-            <div className='textOnFrontCardBorder'>
-            <div className='textOnFrontCard'>UNDEAD</div>
-            </div>
-          </div>         
+          <img src = "images/Undead_Card_Back.jpg" alt="CardPic" className='image'/>     
         </div> 
         <div className='card' onClick={ handleClick3 }>
-        <div className='cardInsideBorder'> 
-        <div className='textBorderBack2'>      
-            <div className='textBorderBack1'>
-            <div>
-              <div className='card__header'>
-                <img src="/images/human.svg" alt="" className='pp' />
-                <h2>UNDEAD</h2>
-              </div>
-              <div className='card__body'>
-                <h3>20%</h3>
-                <p>1000 UNDEAD will be in the CRΞATIVΞZ NFT Collection.</p>
-              </div>
-            </div>
-            </div>   
-            </div>
-          </div>
-        </div> 
+          <img src = "images/Undead_Card_Back.jpg" alt="CardPic" className='image'/>     
+        </div>   
         </ReactCardFlip>  
         <ReactCardFlip isFlipped={isFlipped4} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick4 }>
-          <div className='cardInsideBorder'>          
-            <div className='imageBorderFront'>
-              <img src = "images/speckled-light.jpg" alt="CardPic" className='imageFront'/> 
-            </div>
-            <div className='textOnFrontCardBorder'>
-            <div className='textOnFrontCard'>EXOTIC</div>
-            </div>
-          </div>         
+          <img src = "images/Exotic_Card_Back.jpg" alt="CardPic" className='image'/>     
         </div> 
         <div className='card' onClick={ handleClick4 }>
-        <div className='cardInsideBorder'> 
-        <div className='textBorderBack2'>      
-            <div className='textBorderBack1'>
-            <div>
-              <div className='card__header'>
-                <img src="/images/human.svg" alt="" className='pp' />
-                <h2>EXOTIC</h2>
-              </div>
-              <div className='card__body'>
-                <h3>10%</h3>
-                <p>500 EXOTICS will be in the CRΞATIVΞZ NFT Collection.</p>
-              </div>
-            </div>
-            </div>   
-            </div>
-          </div>
-        </div>  
+          <img src = "images/Exotic_Card_Back.jpg" alt="CardPic" className='image'/>     
+        </div> 
         </ReactCardFlip>                
-        </CardBox>     
-        </Fade>        
+        </CardBox>             
         <Buttons>
         <Fade bottom>
-        <ItemText2>
+        <ItemText3>
             <p1 className = "p14">{Minted} / 5000</p1>
-        </ItemText2>   
+        </ItemText3>   
         <ButtonGroup>
           {(() => {if(Minted === "5000"){return <MintedOutInfo/>} else if(!isAuthenticated){return <WalletConnectInfo/>} else if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else {return <PublicsaleInfo/>}})()}
         </ButtonGroup>
             <ItemText2>
-            <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   
+            <p1 className = "p2">CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   
             </ItemText2>            
         </Fade>
         </Buttons> 
         <Footer />
+        </Wrap2>
         </Wrap>       
   )
 }
@@ -249,8 +161,16 @@ const Wrap = styled.div`
     align-items: center;
 `
 
+const Wrap2 = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(2, 2, 2)
+`
+
 const ItemTitle = styled.div`
-    margin-top: 70px;
+    margin-top: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -267,15 +187,22 @@ const ItemText2 = styled.div`
     text-align: center;
     justify-content:center;
     margin-bottom: 20px;  
-    margin-top: 20px;  
+    margin-top: 3vh;  
+`
+
+const ItemText3 = styled.div`
+    text-align: center;
+    justify-content:center;
+    margin-bottom: 10px;  
+    margin-top: 40px;  
 `
 
 const ButtonGroup = styled.div`
     display: flex;
     justify-content: center;
     z-index: 100;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: center;
@@ -283,6 +210,7 @@ const ButtonGroup = styled.div`
 `
 
 const CardBox = styled.div`
+margin-top: 9vh;
 display: flex;
 align-items: center;
 justify-content: space-between;

@@ -35,7 +35,7 @@ export default Footer
 
 const Container = styled.div`
     width: 100vw;
-    min-height: 80px;
+    min-height: 60px;
     position: fixed;
     display: flex;
     align-items: center;

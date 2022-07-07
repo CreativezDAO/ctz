@@ -117,7 +117,7 @@ function scrollToBottom() {
 }
 
 const Container = styled.div`
-    min-height: 80px;
+    min-height: 60px;
     position: fixed;
     display: flex;
     align-items: center;

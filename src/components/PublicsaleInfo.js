@@ -50,7 +50,7 @@ function PublicsaleInfo() {
     <ItemText2>  
       <p1 className ="p1"><p1 className = "p13">🥳 Public Sale Open Time: TBA 🥳</p1></p1>    
     </ItemText2>    
-    <Button onClick={mint} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>M I N T</Button>
+    <Button onClick={mint} onMouseEnter={ handleMouseEnter5 } onMouseLeave={ handleMouseLeave5 }>M I N T</Button>
     <WrapCounter>
       <SmallButton onClick={decrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>-</SmallButton><span><p1 className = "p13">{mintAmount}</p1></span><SmallButton onClick={incrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>+</SmallButton>
     </WrapCounter>
@@ -62,8 +62,8 @@ export default PublicsaleInfo
 
 const Button = styled.div`
     background-color: rgba(170, 44, 255, 1);
-    height: 80px;
-    width: 260px;
+    height: 60px;
+    width: 240px;
     color: white;
     display: flex;
     justify-content: center;
@@ -76,12 +76,12 @@ const Button = styled.div`
     box-shadow: 0px 0px 3px 3px rgba(103, 0, 172, 0.8);
 `
 
-function handleMouseEnter3(e) {
-  e.target.className = 'mouseEnterButtons3';
+function handleMouseEnter5(e) {
+  e.target.className = 'mouseEnterButtons5';
 }
 
-function handleMouseLeave3(e) {
-  e.target.className = 'mouseLeaveButtons3';
+function handleMouseLeave5(e) {
+  e.target.className = 'mouseLeaveButtons5';
 }
 
 function handleMouseEnter4(e) {
@@ -115,8 +115,8 @@ const Wrap = styled.div`
 
 const SmallButton = styled.div`
     background-color: rgba(170, 44, 255, 1);
-    height: 60px;
-    width: 60px;
+    height: 50px;
+    width: 50px;
     color: white;
     display: flex;
     justify-content: center;

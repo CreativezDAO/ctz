@@ -46,7 +46,7 @@ function WalletConnectInfo() {
     <ItemText2>  
     <p1 className ="p1"><p1 className = "p13">🦊 Connect Metamask Wallet to Access Minting 🦊</p1></p1>    
     </ItemText2>    
-    <Button onClick={() => {handleNetworkSwitch("polygon"); login();}}  onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>Connect Wallet</Button>
+    <Button onClick={() => {handleNetworkSwitch("polygon"); login();}}  onMouseEnter={ handleMouseEnter5 } onMouseLeave={ handleMouseLeave5 }>Connect Wallet</Button>
     </Wrap>
     
   )
@@ -56,8 +56,8 @@ export default WalletConnectInfo
 
 const Button = styled.div`
     background-color: rgba(170, 44, 255, 1);
-    height: 80px;
-    width: 260px;
+    height: 70px;
+    width: 240px;
     color: white;
     display: flex;
     justify-content: center;
@@ -100,12 +100,12 @@ const polygon = {
     }
   };
 
-  function handleMouseEnter3(e) {
-    e.target.className = 'mouseEnterButtons3';
+  function handleMouseEnter5(e) {
+    e.target.className = 'mouseEnterButtons5';
   }
   
-  function handleMouseLeave3(e) {
-    e.target.className = 'mouseLeaveButtons3';
+  function handleMouseLeave5(e) {
+    e.target.className = 'mouseLeaveButtons5';
   }
 
   const ItemText2 = styled.div`

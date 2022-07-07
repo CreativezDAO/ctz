@@ -48,7 +48,7 @@ function PresaleInfo() {
       <ItemText2>
         <p1 className ="p1"><p1 className = "p13">🥳 Congrats - you made the Presale List! 🥳</p1> <br/><br/> Presale can mint up to 3 NFTs at a discounted price. <br/> Wallets can only perform the presale minting function once <br/>so make sure you choose the desired amount before executing.<br/><br/><p1 className="p13">Presale Open Time: TBA</p1></p1>    
       </ItemText2>    
-      <Button onClick={mint} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>presale</Button>
+      <Button onClick={mint} onMouseEnter={ handleMouseEnter5 } onMouseLeave={ handleMouseLeave5 }>presale</Button>
       <WrapCounter>
       <SmallButton onClick={decrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>-</SmallButton><span><p1 className = "p13">{mintAmount}</p1></span><SmallButton onClick={incrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>+</SmallButton>
       </WrapCounter> 
@@ -60,8 +60,8 @@ export default PresaleInfo
 
 const Button = styled.div`
     background-color: rgba(170, 44, 255, 1);
-    height: 80px;
-    width: 260px;
+    height: 70px;
+    width: 240px;
     color: white;
     display: flex;
     justify-content: center;
@@ -74,12 +74,12 @@ const Button = styled.div`
     box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 0.4);
 `
 
-function handleMouseEnter3(e) {
-  e.target.className = 'mouseEnterButtons3';
+function handleMouseEnter5(e) {
+  e.target.className = 'mouseEnterButtons5';
 }
 
-function handleMouseLeave3(e) {
-  e.target.className = 'mouseLeaveButtons3';
+function handleMouseLeave5(e) {
+  e.target.className = 'mouseLeaveButtons5';
 }
 
 const Wrap = styled.div`

@@ -31,7 +31,7 @@ function FreeMintInfo() {
     //<p1> presale instructions - Presale can mint up to 3 NFTs at a discounted price. Wallets can only perform the minting function once - so make sure you choose the desired amount before executing.
     <Wrap>
       <ItemText2>
-        <p1 className ="p1"><p1 className = "p13">🥳 Congrats - you made the Free Mint List! 🥳</p1> <br/><br/> Press the button to mint 1 free CRΞATIVΞZ NFT </p1>  
+        <p1 className = "p13">Congrats! You made the Free Mint List <br/><br/> Press the button to mint 1 free CRΞATIVΞZ NFT </p1>  
       </ItemText2>    
       <Button onClick={mint} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>free mint</Button>
     </Wrap>
