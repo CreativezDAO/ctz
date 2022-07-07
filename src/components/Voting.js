@@ -11,8 +11,8 @@ function Voting() {
     <Wrap>
         <Fade top>
         <ItemText>
-            <h1>WHICH STAKING POOL SHOULD CRΞATIVΞZ AUTO-REINVEST INTO?</h1>
-            <p>Cast your vote!</p>
+            <p1 className="p15">WHICH STAKING POOL <br/> SHOULD CRΞATIVΞZ AUTO-REINVEST INTO?</p1>
+            <p className='p2'><br/>Cast your vote!</p>
         </ItemText>
         <VotingVials>
             <VoteCode/>
@@ -45,7 +45,7 @@ const ItemText = styled.div`
 `
 
 const VotingVials = styled.div`
-    padding-top: 8vh;
+    padding-top: 4vh;
     padding-bottom: 30vh;
     text-align: center;
 `

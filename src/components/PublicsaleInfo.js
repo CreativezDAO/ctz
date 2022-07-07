@@ -48,7 +48,7 @@ function PublicsaleInfo() {
     //link to when presale is open - presale open ? "presale is open" : date when open (like on Earn) >> can be TBA till we decide on a date
     <Wrap>
     <ItemText2>  
-      <p1 className ="p1"><p1 className = "p13">🥳 Public Sale Open Time: TBA 🥳</p1></p1>    
+      <p1 className ="p1"><p1 className = "p13">🔥 Public Sale Open Time: TBA 🔥</p1></p1>    
     </ItemText2>    
     <Button onClick={mint} onMouseEnter={ handleMouseEnter5 } onMouseLeave={ handleMouseLeave5 }>M I N T</Button>
     <WrapCounter>
@@ -61,7 +61,7 @@ function PublicsaleInfo() {
 export default PublicsaleInfo
 
 const Button = styled.div`
-    background-color: rgba(170, 44, 255, 1);
+    background-color: rgb(90, 0, 150);
     height: 60px;
     width: 240px;
     color: white;
@@ -73,7 +73,7 @@ const Button = styled.div`
     font-size: 20px;
     cursor: pointer;
     margin: 0px 20px;
-    box-shadow: 0px 0px 3px 3px rgba(103, 0, 172, 0.8);
+    box-shadow: 0px 0px 7px 7px rgba(90, 0, 150, 0.4);
 `
 
 function handleMouseEnter5(e) {
@@ -114,7 +114,7 @@ const Wrap = styled.div`
 `
 
 const SmallButton = styled.div`
-    background-color: rgba(170, 44, 255, 1);
+    background-color: rgb(90, 0, 150);
     height: 50px;
     width: 50px;
     color: white;
@@ -126,5 +126,5 @@ const SmallButton = styled.div`
     font-size: 30px;
     cursor: pointer;
     margin: 0px 20px;
-    box-shadow: box-shadow: 0px 0px 3px 3px rgba(103, 0, 172, 0.8);
+    box-shadow: box-shadow: 0px 0px 3px 3px rgba(90, 0, 150, 0.8);
 `

@@ -141,7 +141,7 @@ function Section() {
           {(() => {if(Minted === "5000"){return <MintedOutInfo/>} else if(!isAuthenticated){return <WalletConnectInfo/>} else if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else {return <PublicsaleInfo/>}})()}
         </ButtonGroup>
             <ItemText2>
-            <p1 className = "p2">CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   
+            <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   
             </ItemText2>            
         </Fade>
         </Buttons> 
@@ -166,7 +166,7 @@ const Wrap2 = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(2, 2, 2)
+    background-color: white;
 `
 
 const ItemTitle = styled.div`

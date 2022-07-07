@@ -59,8 +59,8 @@ function PresaleInfo() {
 export default PresaleInfo
 
 const Button = styled.div`
-    background-color: rgba(170, 44, 255, 1);
-    height: 70px;
+    background-color: rgb(90, 0, 150);
+    height: 60px;
     width: 240px;
     color: white;
     display: flex;
@@ -71,7 +71,7 @@ const Button = styled.div`
     font-size: 20px;
     cursor: pointer;
     margin: 0px 20px;
-    box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 0.4);
+    box-shadow: 0px 0px 7px 7px rgba(90, 0, 150, 0.4);
 `
 
 function handleMouseEnter5(e) {
@@ -96,9 +96,9 @@ const ItemText2 = styled.div`
 `
 
 const SmallButton = styled.div`
-    background-color: rgba(170, 44, 255, 1);
-    height: 60px;
-    width: 60px;
+    background-color: rgb(90, 0, 150);
+    height: 50px;
+    width: 50px;
     color: white;
     display: flex;
     justify-content: center;
@@ -108,7 +108,7 @@ const SmallButton = styled.div`
     font-size: 30px;
     cursor: pointer;
     margin: 0px 20px;
-    box-shadow: box-shadow: 0px 0px 3px 3px rgba(103, 0, 172, 0.8);
+    box-shadow: box-shadow: 0px 0px 3px 3px rgba(90, 0, 150, 0.8);
 `
 
 function handleMouseEnter4(e) {
