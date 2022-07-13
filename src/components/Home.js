@@ -191,8 +191,8 @@ const ItemText2 = styled.div`
 const ItemText3 = styled.div`
     text-align: center;
     justify-content:center;
-    margin-bottom: 10px;  
-    margin-top: 40px;  
+    margin-bottom: 3vh;  
+    margin-top: 3vh;  
 `
 
 const ButtonGroup = styled.div`
@@ -214,30 +214,23 @@ align-items: center;
 justify-content: space-between;
 height: 45vh;
 @media (max-width: 1800px) {
-  flex-wrap: wrap;
   margin: 25px 200px;
   align-items: center;
   justify-content: center;
-  height: 1000px;
-}
-@media (max-width: 1300px) {
-  flex-wrap: wrap;
-  margin: 25px 100px;
-  align-items: center;
-  justify-content: center;
-}
-@media (max-width: 980px) {
-  margin: 25px 100px;
-  align-items: center;
-  justify-content: center;
-  height: 2000px;
+  flex-direction: column;
+  height: 100%;
 }
 `
 
 const Buttons = styled.div`
-    height: 45vh;
+    height: 100%;
     width: 100vw;
     justify-content: center;
     align-items: center;
-    margin-bottom: 70px;
+    margin-bottom: 150px;
+    @media (max-width: 1800px) {
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 `
