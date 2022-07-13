@@ -448,6 +448,12 @@ font-size: 100%;
     overflow:hidden;
 }
 
+.strip {
+  height: 10%;
+  width: 100%;
+  background-color: rgb(132, 0, 255);
+}
+
 @media screen and (max-width: 1500px){
   .card{
     margin: 0px 0px;

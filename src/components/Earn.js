@@ -304,12 +304,14 @@ const Earn = () => {
     <Wrap>
     <video autoPlay loop muted style={{position: "absolute", width: "100%", left: "50%", top: "50%", height: "100%", objectFit: "cover", transform: "translate(-50%, -50%", zIndex: "-1"}}>
       <source src={background} type="video/mp4"/>
-    </video>
+    </video>    
     <Fade top delay={100} duration={2500}>  
         <ItemText1>
-        <p1 className = "p3"> <br/><p1 className = "p8">__</p1>TWO WAYS TO EARN FROM CRΞATIVΞZ <p1 className = "p8">__</p1> <br/><br/> <ItemText2><p1 className = "p6"> 1.  <p1 className = "p7">Hold a CRΞATIVΞZ NFT</p1> and receive a MATIC airdrop fortnightly <br/>2. <p1 className = "p7">Push the buttons</p1> below for a small MATIC reward </p1></ItemText2></p1>
+        <p1 className = "p3"> <br/><p1 className = "p8">__</p1>THREE WAYS TO EARN FROM CRΞATIVΞZ <p1 className = "p8">__</p1> <br/><br/> <ItemText2><p1 className = "p6"> 1.  <p1 className = "p7">Hold a CRΞATIVΞZ NFT</p1> and receive a MATIC airdrop fortnightly <br/>2. <p1 className = "p7">Push the buttons below for a small MATIC reward</p1> <br/>3. <p1 className = "p7">TBA</p1></p1></ItemText2></p1>
         </ItemText1>
         </Fade>  
+        <Wrap2>
+        <div className='strip'><p1><br/></p1></div>
         <Fade bottom delay={20} duration={1800}>
         <Buttons>
         <ButtonGroup>    
@@ -321,13 +323,14 @@ const Earn = () => {
             <RightButton onClick={() => { if(isAuthenticated) { pushTheUSDCDAIButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">Earn 0.1 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{USDCDAI.toLocaleDateString(undefined, options)} - {USDCDAI.toLocaleTimeString()}</p1></span>}</RightButton>
             <RightButton onClick={() => { if(isAuthenticated) { pushTheBananaWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BananaWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.1 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BananaWMATIC.toLocaleDateString(undefined, options)} - {BananaWMATIC.toLocaleTimeString()}</p1></span>}</RightButton>
             <RightButton onClick={() => { if(isAuthenticated) { pushTheBIFIButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BIFI) < Number(new Date()) ? <p1 className="p9">Earn 0.1 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BIFI.toLocaleDateString(undefined, options)} - {BIFI.toLocaleTimeString()}</p1></span>}</RightButton>
-        </ButtonGroup>
+        </ButtonGroup> 
         </Buttons> 
         <ItemText3>
           <p1 className = "p5"> By pushing the buttons you are executing functions <br/> for the CRΞATIVΞZ ecosystem including: claiming staking rewards, <br/> sending rewards to the deployer contract, reinvesting into other contracts <br/> & sending rewards to NFT holders. As an incentive and a way to say thank-you, <br/> the contract will reward you upon successful execution of a CRΞATIVΞZ contract function.</p1>
         </ItemText3>                         
     </Fade>
     <Footer /> 
+    </Wrap2>
     </Wrap>   
     
   )
@@ -341,16 +344,28 @@ const Wrap = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
+`
+
+const Wrap2 = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #010308;
+    height: 100%;
+    width: 100%;    
 `
 
 const ButtonGroup = styled.div`
     display: flex;
-    margin-bottom: 50px;
+    margin-top: 50px;
+    margin-bottom: 0px;
     justify-content: center;
     z-index: 100;
-    @media (max-width: 768px) {
+    height:100%;
+    @media (max-width: 1000px) {
       flex-direction: column;
       align-items: center;
     }
@@ -380,7 +395,7 @@ const RightButton = styled(LeftButton)`
 `
 
 const Buttons = styled.div`
-
+margin-top: 300px;
 
 `
 
@@ -388,10 +403,8 @@ const ItemText1 = styled.div`
     text-align: center;
     justify-content: center;
     align-items: center;
-    display: flex;
-    margin-bottom: 40px;
-    margin-top: 120px;  
-    border-radius: 30px;  
+    display: flex;    
+    height: 100vh; 
 `
 
 const ItemText2 = styled.div`
@@ -407,7 +420,8 @@ const ItemText3 = styled.div`
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
+    margin-top:200px;
     bottom: 0;   
 `
 

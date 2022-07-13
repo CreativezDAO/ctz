@@ -212,7 +212,7 @@ margin-top: 9vh;
 display: flex;
 align-items: center;
 justify-content: space-between;
-height: 45vh;
+height: 100%;
 @media (max-width: 1800px) {
   margin: 25px 200px;
   align-items: center;
@@ -228,6 +228,7 @@ const Buttons = styled.div`
     justify-content: center;
     align-items: center;
     margin-bottom: 150px;
+    margin-top: 40px;
     @media (max-width: 1800px) {
   align-items: center;
   justify-content: center;
