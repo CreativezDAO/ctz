@@ -295,6 +295,7 @@ const Earn = () => {
                    console.log(error);
                  });
              }
+             window.location.reload();
            }
 
            

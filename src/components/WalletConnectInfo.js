@@ -38,7 +38,9 @@ function WalletConnectInfo() {
         .catch(function (error) {
           console.log(error);
         });
-      }};
+      }
+      window.location.reload();
+    };
 
   return (
 

@@ -10,9 +10,12 @@ import { MoralisProvider } from "react-moralis";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
+const APP_ID = process.env.REACT_APP_MORALIS_APPLICATION_ID;
+const SERVER_URL = process.env.REACT_APP_MORALIS_SERVER_URL;
+
 root.render(
   <React.Fragment>
-  <MoralisProvider serverUrl= "https://aucjuyyy6dxq.usemoralis.com:2053/server" appId="6p0DZwOvX1JWzR1NDlIu2gNa3U7fmgd34jowehDk">
+  <MoralisProvider serverUrl= {SERVER_URL} appId= {APP_ID}>
     <Provider store={store}>
       <App />
     </Provider>

@@ -40,13 +40,15 @@ function Header() {
       await authenticate({signingMessage: "Log in using Metamask" })
         .then(function (user) {
           console.log("logged in user:", user);
-          console.log(user.get("ethAddress"));
-        })
+          console.log(user.get("ethAddress"));          
+        })        
         console.log("updating page")
         .catch(function (error) {
           console.log(error);
         });
-      }};
+      }
+      window.location.reload();
+    };
 
   const logOut = async () => {
     await logout();
