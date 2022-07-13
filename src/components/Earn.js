@@ -7,7 +7,7 @@ import background from '../animations/polygon.mp4'
 
 const Earn = () => {
   const contractProcessor = useWeb3ExecuteFunction();
-  const {Moralis, isInitialized, isAuthenticated, authenticate} = useMoralis();
+  const {Moralis, isInitialized, isAuthenticated, authenticate, user} = useMoralis();
   const [BeQi, setBeQi] = useState (new Date ());
   const [WETHWMATIC, setWETHWMATIC] = useState (new Date ());
   const [BNBWMATIC, setBNBWMATIC] = useState (new Date ());
@@ -283,20 +283,21 @@ const Earn = () => {
             }, []);
 
             const login = async () => {
-             if (!isAuthenticated) {
-         
-               await authenticate({signingMessage: "Log in using Metamask" })
-                 .then(function (user) {
-                   console.log("logged in user:", user);
-                   console.log(user.get("ethAddress"));
-                 })
-                 console.log("updating page")
-                 .catch(function (error) {
-                   console.log(error);
-                 });
-             }
-             window.location.reload();
-           }
+                const address = await window.eth_requestAccounts;
+                console.log(address);
+                await Moralis.enableWeb3()
+                await authenticate({signingMessage: "Log in using Metamask" })
+                  .then(function (user) {
+                    console.log("logged in user:", user);
+                    console.log(user.get("ethAddress"));          
+                  })        
+                  console.log("updating page")
+                  .catch(function (error) {
+                    console.log(error);
+                  });
+                window.location.reload();
+              };
+          
 
            
   return (

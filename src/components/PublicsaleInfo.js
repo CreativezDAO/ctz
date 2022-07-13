@@ -1,9 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState} from 'react'
 import styled from "styled-components"
 import {useWeb3ExecuteFunction} from "react-moralis"
 
 function PublicsaleInfo() {
-
   const contractProcessor = useWeb3ExecuteFunction();
   const [mintAmount, setMintAmount] = useState(1)
 
@@ -41,7 +40,6 @@ function PublicsaleInfo() {
   }
 
   console.log(mintAmount)
-
 
   return (
 

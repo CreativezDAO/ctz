@@ -23,12 +23,12 @@ function WalletConnectInfo() {
     };
   }, []);
 
-  const { authenticate, isAuthenticated, user} = useMoralis();
+  const { authenticate, isAuthenticated, user, Moralis} = useMoralis();
 
    const login = async () => {
-    if (!isAuthenticated && !user) {
       const address = await window.eth_requestAccounts;
       console.log(address);
+      await Moralis.enableWeb3()
       await authenticate({signingMessage: "Log in using Metamask" })
         .then(function (user) {
           console.log("logged in user:", user);
@@ -38,7 +38,6 @@ function WalletConnectInfo() {
         .catch(function (error) {
           console.log(error);
         });
-      }
       window.location.reload();
     };
 

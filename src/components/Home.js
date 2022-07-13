@@ -15,7 +15,7 @@ import {useMoralis } from "react-moralis"
 
 function Section() {    
 
-    const {Moralis, isInitialized, isAuthenticated, user} = useMoralis();
+    const {Moralis, isInitialized, isAuthenticated, user, isWeb3Enabled} = useMoralis();
     const [Minted, setMinted] = useState (String ());
     const [presale, setPresale] = useState (Boolean());
     const [publicsale, setPublicsale] = useState (Boolean);
@@ -137,7 +137,7 @@ function Section() {
             <p1 className = "p14">{Minted} / 5000</p1>
         </ItemText3>   
         <ButtonGroup>
-          {(() => {if(Minted === "5000"){return <MintedOutInfo/>} else if(!isAuthenticated){return <WalletConnectInfo/>} else if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else {return <PublicsaleInfo/>}})()}
+          {(() => {if(Minted === "5000"){return <MintedOutInfo/>} else if(!isAuthenticated || !isWeb3Enabled){return <WalletConnectInfo/>} else if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else {return <PublicsaleInfo/>}})()}
         </ButtonGroup>
             <ItemText2>
             <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   

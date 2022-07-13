@@ -28,9 +28,9 @@ function App() {
   }});
 
   const provider = window.ethereum;
-  if(!provider){
-    window.confirm("Metamask is not installed. Please install and connect wallet to use this Dapp")
-  }
+  // if(!provider){
+  //   window.confirm("Metamask is not installed. Please install and connect wallet to use this DApp")
+  // }
 
   useEffect(() => {
   async function changeNetwork () {

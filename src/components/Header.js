@@ -31,12 +31,12 @@ function Header() {
     };
   }, []);
 
-  const { authenticate, isAuthenticated, logout, user} = useMoralis();
+  const { authenticate, isAuthenticated, logout, user, Moralis, isWeb3Enabled} = useMoralis();
 
    const login = async () => {
-    if (!isAuthenticated && !user) {
       const address = await window.eth_requestAccounts;
       console.log(address);
+      await Moralis.enableWeb3()
       await authenticate({signingMessage: "Log in using Metamask" })
         .then(function (user) {
           console.log("logged in user:", user);
@@ -46,7 +46,6 @@ function Header() {
         .catch(function (error) {
           console.log(error);
         });
-      }
       window.location.reload();
     };
 
@@ -68,7 +67,7 @@ function Header() {
       <NavLink to="/stats" className={"navbar"}>STATS</NavLink>
     </Menu>
     <RightMenu>
-    {isAuthenticated && user && provider !== window.ethereum ? (<RightButtonLogout onClick={logOut} onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Disconnect</RightButtonLogout>
+    {isAuthenticated && isWeb3Enabled && provider !== window.ethereum ? (<RightButtonLogout onClick={logOut} onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Disconnect</RightButtonLogout>
     ) : ( 
       <RightButtonLogin onClick={() => {handleNetworkSwitch("polygon"); login();}}  onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Connect Wallet</RightButtonLogin>
     )}    
