@@ -22,7 +22,9 @@
     "date-fns": "^2.28.0",
     "lottie-web": "^5.9.4",
     "moralis": "^1.7.0",
+    "path-browserify": "^1.0.1",
     "pkg": "^5.7.0",
+    "process": "^0.11.10",
     "react": "^18.2.0",
     "react-bodymovin": "^2.0.0",
     "react-card-flip": "^1.1.5",
@@ -42,7 +44,8 @@
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4",
     "web3": "^1.7.4",
-    "web3-eth-contract": "^1.7.3"
+    "web3-eth-contract": "^1.7.3",
+    "webpack": "^5.73.0"
   },
   "scripts": {
     "start": "react-scripts start",

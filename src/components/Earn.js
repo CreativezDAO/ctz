@@ -312,7 +312,6 @@ const Earn = () => {
         </Fade>  
         <Wrap2>
         <div className='strip'><p1><br/></p1></div>
-        <Fade bottom delay={20} duration={1800}>
         <Buttons>
         <ButtonGroup>    
             <RightButton onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">Earn 0.1 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}</p1></span>}</RightButton>
@@ -326,9 +325,8 @@ const Earn = () => {
         </ButtonGroup> 
         </Buttons> 
         <ItemText3>
-          <p1 className = "p5"> By pushing the buttons you are executing functions <br/> for the CRΞATIVΞZ ecosystem including: claiming staking rewards, <br/> sending rewards to the deployer contract, reinvesting into other contracts <br/> & sending rewards to NFT holders. As an incentive and a way to say thank-you, <br/> the contract will reward you upon successful execution of a CRΞATIVΞZ contract function.</p1>
+          <p1 className = "p5"><p1 className="p10">📖 WHY REWARDS? 📖</p1><br/><br/> By pushing the buttons you are executing functions <br/> for the CRΞATIVΞZ ecosystem including: claiming staking rewards, <br/> sending rewards to the deployer contract, reinvesting into other contracts <br/> & sending rewards to NFT holders. As an incentive and a way to say thank-you, <br/> the contract will reward you upon successful execution of a CRΞATIVΞZ contract function.</p1>
         </ItemText3>                         
-    </Fade>
     <Footer /> 
     </Wrap2>
     </Wrap>   
@@ -421,7 +419,7 @@ const ItemText3 = styled.div`
     align-items: center;
     display: flex;
     margin-bottom: 150px;
-    margin-top:200px;
+    margin-top:250px;
     bottom: 0;   
 `
 

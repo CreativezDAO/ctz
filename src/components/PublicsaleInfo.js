@@ -47,6 +47,7 @@ function PublicsaleInfo() {
     <Wrap>
     <ItemText2>  
       <p1 className ="p1"><p1 className = "p13">🔥 Public Sale Open Time: TBA 🔥</p1></p1>    
+      <p1 className ="p1"><p1 className = "p13"><br/>{mintAmount} CRΞATIVΞZ NFT = {Math.round(mintAmount *0.05 * 100) / 100} MATIC</p1></p1>  
     </ItemText2>    
     <Button onClick={mint} onMouseEnter={ handleMouseEnter5 } onMouseLeave={ handleMouseLeave5 }>M I N T</Button>
     <WrapCounter>
