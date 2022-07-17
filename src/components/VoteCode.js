@@ -5,9 +5,9 @@ import styled from "styled-components"
 
 function VoteCode() {
   const {Moralis, isInitialized, isAuthenticated, authenticate} = useMoralis();
-  const [color1, setColor1] = useState();
-  const [color2, setColor2] = useState();
-  const [color3, setColor3] = useState();
+  const color1 = '#3f00eb';
+  const color2 = '#66237a';
+  const color3 = "#ffb618";
   const contractProcessor = useWeb3ExecuteFunction();
   const [Perc1, setPerc1] = useState ();
   const [Perc2, setPerc2] = useState ();
@@ -80,40 +80,7 @@ function VoteCode() {
         alert(error.data.message)
       }
     });
-  }
-
-  useEffect(() => {
-    if (Perc1 > 66) {
-      setColor1("#5900ff");
-    } else if (Perc1 <= 66 && Perc1 >33) {
-      setColor1('#752cfd');
-    }
-    else {
-        setColor1('#DA70D6');
-    }
-  }, [Perc1]);
-
-  useEffect(() => {
-    if (Perc2 > 66) {
-      setColor2("#5900ff");
-    } else if (Perc2 <= 66 && Perc2 >33) {
-      setColor2('#752cfd');
-    }
-    else {
-        setColor2('#DA70D6');
-    }
-  }, [Perc2]);
-
-  useEffect(() => {
-    if (Perc3 > 66) {
-      setColor3("#5900ff");
-    } else if (Perc3 <= 66 && Perc3 >33) {
-      setColor3('#752cfd');
-    }
-    else {
-        setColor3('#DA70D6');
-    }
-  }, [Perc3]);
+  }  
 
   useEffect(() => {
     async function calculatePerc () { 
@@ -245,10 +212,10 @@ function VoteCode() {
           <div className="percentage">{Perc1}%</div>
         </div>       
         <div className="votes">
-          <p1>Total Votes = {Option1Count}</p1>            
+          <p1>Votes = {Option1Count}</p1>            
         </div>
         <ButtonGroup>
-          <div className="buttons" onClick={() => { if(isAuthenticated) { voteOption1()}else{handleNetworkSwitch("polygon"); login();}}}>Option 1</div>   
+          <div className="buttons1" onClick={() => { if(isAuthenticated) { voteOption1()}else{handleNetworkSwitch("polygon"); login();}}}>Option 1</div>   
         </ButtonGroup>
       </VotingVials>
 
@@ -266,10 +233,10 @@ function VoteCode() {
           <div className="percentage">{Perc2}%</div>
         </div>       
         <div className="votes">
-          <p1>Total Votes = {Option2Count}</p1>
+          <p1>Votes = {Option2Count}</p1>
         </div>
         <ButtonGroup>
-          <div className="buttons" onClick={() => { if(isAuthenticated) { voteOption2()}else{handleNetworkSwitch("polygon"); login();}}}>Option 2</div>   
+          <div className="buttons2" onClick={() => { if(isAuthenticated) { voteOption2()}else{handleNetworkSwitch("polygon"); login();}}}>Option 2</div>   
         </ButtonGroup>  
       </VotingVials>
 
@@ -287,10 +254,10 @@ function VoteCode() {
           <div className="percentage">{Perc3}%</div>
         </div>       
         <div className="votes">
-          <p1>Total Votes = {Option3Count}</p1>                    
+          <p1>Votes = {Option3Count}</p1>                    
         </div> 
         <ButtonGroup>
-          <div className="buttons" onClick={() => { if(isAuthenticated) { voteOption3()}else{handleNetworkSwitch("polygon"); login();}}}>Option 3</div>   
+          <div className="buttons3" onClick={() => { if(isAuthenticated) { voteOption3()}else{handleNetworkSwitch("polygon"); login();}}}>Option 3</div>   
         </ButtonGroup>         
       </VotingVials>
     </>

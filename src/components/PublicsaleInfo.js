@@ -22,10 +22,10 @@ function PublicsaleInfo() {
 
     let options = {
       contractAddress: "0xA56B8588877d090Da3427E0Ca8eB1533C5D80Cb9",
-      functionName: "mint",
-      abi: [{"inputs":[{"internalType":"uint256","name":"_mintAmount","type":"uint256"}],"name":"mint","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}],
-      params: {_mintAmount: mintAmount},
-      msgValue: (50000000000000000 * mintAmount)
+        functionName: "mint",
+        abi: [{"inputs":[{"internalType":"uint256","name":"_mintAmount","type":"uint256"}],"name":"mint","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}],
+        params: {_mintAmount: mintAmount},
+        msgValue: (50000000000000000 * mintAmount)
     }
 
     await contractProcessor.fetch({
@@ -60,7 +60,8 @@ function PublicsaleInfo() {
 export default PublicsaleInfo
 
 const Button = styled.div`
-    background-color: rgb(90, 0, 150);
+    background-color: #060420;
+    opacity: 0.9;
     height: 60px;
     width: 240px;
     color: white;
@@ -72,7 +73,7 @@ const Button = styled.div`
     font-size: 20px;
     cursor: pointer;
     margin: 0px 20px;
-    box-shadow: 0px 0px 7px 7px rgba(90, 0, 150, 0.4);
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
 `
 
 function handleMouseEnter5(e) {

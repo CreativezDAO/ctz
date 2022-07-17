@@ -56,7 +56,8 @@ function WalletConnectInfo() {
 export default WalletConnectInfo
 
 const Button = styled.div`
-    background-color: rgb(90, 0, 150);
+    background-color: #060420;
+    opacity: 0.9;
     height: 60px;
     width: 240px;
     color: white;
@@ -68,7 +69,7 @@ const Button = styled.div`
     font-size: 20px;
     cursor: pointer;
     margin: 0px 20px;
-    box-shadow: 0px 0px 7px 7px rgba(90, 0, 150, 0.4);
+    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
 `
 
 const polygon = {

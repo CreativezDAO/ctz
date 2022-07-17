@@ -45,8 +45,8 @@
   
   }
 
-  .buttons {
-    background-color: rgba(170, 44, 255, 1);
+  .buttons1 {
+    background-color: #3f00eb;
     height: 50px;
     width: 150px;
     color: white;
@@ -62,7 +62,49 @@
     margin: 70px 0px;
   }
 
-  .buttons:hover {
+  .buttons1:hover {
+    opacity: 1;
+  }
+
+  .buttons2 {
+    background-color: #66237a;
+    height: 50px;
+    width: 150px;
+    color: white;
+    border-radius: 100px;
+    text-transform: uppercase;
+    font-size: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+    align-items: center;
+    justify-content:center;
+    text-align:center;
+    display: flex;
+    margin: 70px 0px;
+  }
+
+  .buttons2:hover {
+    opacity: 1;
+  }
+
+  .buttons3 {
+    background-color: #ffb618;
+    height: 50px;
+    width: 150px;
+    color: white;
+    border-radius: 100px;
+    text-transform: uppercase;
+    font-size: 16px;
+    opacity: 0.8;
+    cursor: pointer;
+    align-items: center;
+    justify-content:center;
+    text-align:center;
+    display: flex;
+    margin: 70px 0px;
+  }
+
+  .buttons3:hover {
     opacity: 1;
   }
   

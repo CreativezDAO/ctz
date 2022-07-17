@@ -101,34 +101,34 @@ function Section() {
         <CardBox> 
         <ReactCardFlip isFlipped={isFlipped1} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick1 }>
-          <img src = "images/Human_Card_Back.jpg" alt="CardPic" className='image'/>     
+          <img src = "images/Human_Card_Front.png" alt="CardPic" className='image'/>     
         </div> 
         <div className='card' onClick={ handleClick1 }>
-          <img src = "images/Human_Card_Back.jpg" alt="CardPic" className='image'/>     
+          <img src = "images/Human_Card_Back.png" alt="CardPic" className='image'/>     
         </div>           
         </ReactCardFlip>       
         <ReactCardFlip isFlipped={isFlipped2} flipDirection="horizontal">
         <div className='card' onClick={ handleClick2 }>
-          <img src = "images/Cyberpunk_Card_Back.jpg" alt="CardPic" className='image'/>     
+          <img src = "images/Cyberpunk_Card_Front.png" alt="CardPic" className='image'/>     
         </div> 
         <div className='card' onClick={ handleClick2 }>
-          <img src = "images/Cyberpunk_Card_Back.jpg" alt="CardPic" className='image'/>     
+          <img src = "images/Cyberpunk_Card_Back.png" alt="CardPic" className='image'/>     
         </div>   
         </ReactCardFlip>
         <ReactCardFlip isFlipped={isFlipped3} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick3 }>
-          <img src = "images/Undead_Card_Back.jpg" alt="CardPic" className='image'/>     
+          <img src = "images/Undead_Card_Front.png" alt="CardPic" className='image'/>     
         </div> 
         <div className='card' onClick={ handleClick3 }>
-          <img src = "images/Undead_Card_Back.jpg" alt="CardPic" className='image'/>     
+          <img src = "images/Undead_Card_Back.png" alt="CardPic" className='image'/>     
         </div>   
         </ReactCardFlip>  
         <ReactCardFlip isFlipped={isFlipped4} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick4 }>
-          <img src = "images/Exotic_Card_Back.jpg" alt="CardPic" className='image'/>     
+          <img src = "images/Exotic_Card_Front.png" alt="CardPic" className='image'/>     
         </div> 
         <div className='card' onClick={ handleClick4 }>
-          <img src = "images/Exotic_Card_Back.jpg" alt="CardPic" className='image'/>     
+          <img src = "images/Exotic_Card_Back.png" alt="CardPic" className='image'/>     
         </div> 
         </ReactCardFlip>                
         </CardBox>             

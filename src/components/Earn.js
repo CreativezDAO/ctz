@@ -19,7 +19,7 @@ const Earn = () => {
   async function pushTheBeQiButton(){
 
     let options = {
-      contractAddress: "0x390fC33470FC1ac954ebAD76873c948dD6Ba56Fa",
+      contractAddress: "0xDBd4455AB3F153a3F235bDEA2F5506E092B7dAd6",
       functionName: "pushTheButton",
       abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
       params: {}
@@ -39,7 +39,7 @@ const Earn = () => {
   async function pushTheWETHWMATICButton(){
 
     let options = {
-      contractAddress: "0xcA3C5E593fBd18D325319e028cF5434a1AfC65f4",
+      contractAddress: "0x10844B8E9437Ee7ED052Db07AB447740D7a77Fcd",
       functionName: "pushTheButton",
       abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
       params: {}
@@ -59,7 +59,7 @@ const Earn = () => {
   async function pushTheBNBWMATICButton(){
 
     let options = {
-      contractAddress: "0x9633e968C8B6a9CB7E3644bbEcD4129A323a42e8",
+      contractAddress: "0x134705CD5e116Ea332f878100Fb44BEe1a58c3c8",
       functionName: "pushTheButton",
       abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
       params: {}
@@ -79,7 +79,7 @@ const Earn = () => {
   async function pushTheUSDCDAIButton(){
 
     let options = {
-      contractAddress: "0x628097113C72620F2ECfAAF4e2B5A0EDD9297acE",
+      contractAddress: "0x39A5B1e88cc76285D4DcbD8e0370766170C068e4",
       functionName: "pushTheButton",
       abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
       params: {}
@@ -99,7 +99,7 @@ const Earn = () => {
   async function pushTheBananaWMATICButton(){
 
     let options = {
-      contractAddress: "0x1c5bE27F558B3dA623c1f148e845dABbab791C86",
+      contractAddress: "0xAa87F63C8c5948E4d585118E53A37695B69B5CEF",
       functionName: "pushTheButton",
       abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
       params: {}
@@ -119,7 +119,7 @@ const Earn = () => {
   async function pushTheBIFIButton(){
 
     let options = {
-      contractAddress: "0x93c629B5C6eb9f6E3030230B40733B1028A3384e",
+      contractAddress: "0x6030e600e95c7ee9100dBf4DA0dACF7A2955f93c",
       functionName: "pushTheButton",
       abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
       params: {}
@@ -314,14 +314,14 @@ const Earn = () => {
         <div className='strip'><p1><br/></p1></div>
         <Buttons>
         <ButtonGroup>    
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">Earn 0.1 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}</p1></span>}</RightButton>
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheWETHWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(WETHWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.1 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{WETHWMATIC.toLocaleDateString(undefined, options)} - {WETHWMATIC.toLocaleTimeString()}</p1></span>}</RightButton>
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheBNBWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BNBWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.1 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BNBWMATIC.toLocaleDateString(undefined, options)} - {BNBWMATIC.toLocaleTimeString()}</p1></span>}</RightButton>
+            <RightButton onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}</p1></span>}</RightButton>
+            <RightButton onClick={() => { if(isAuthenticated) { pushTheWETHWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(WETHWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{WETHWMATIC.toLocaleDateString(undefined, options)} - {WETHWMATIC.toLocaleTimeString()}</p1></span>}</RightButton>
+            <RightButton onClick={() => { if(isAuthenticated) { pushTheBNBWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BNBWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BNBWMATIC.toLocaleDateString(undefined, options)} - {BNBWMATIC.toLocaleTimeString()}</p1></span>}</RightButton>
         </ButtonGroup>
         <ButtonGroup>
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheUSDCDAIButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">Earn 0.1 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{USDCDAI.toLocaleDateString(undefined, options)} - {USDCDAI.toLocaleTimeString()}</p1></span>}</RightButton>
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheBananaWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BananaWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.1 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BananaWMATIC.toLocaleDateString(undefined, options)} - {BananaWMATIC.toLocaleTimeString()}</p1></span>}</RightButton>
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheBIFIButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BIFI) < Number(new Date()) ? <p1 className="p9">Earn 0.1 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BIFI.toLocaleDateString(undefined, options)} - {BIFI.toLocaleTimeString()}</p1></span>}</RightButton>
+            <RightButton onClick={() => { if(isAuthenticated) { pushTheUSDCDAIButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{USDCDAI.toLocaleDateString(undefined, options)} - {USDCDAI.toLocaleTimeString()}</p1></span>}</RightButton>
+            <RightButton onClick={() => { if(isAuthenticated) { pushTheBananaWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BananaWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BananaWMATIC.toLocaleDateString(undefined, options)} - {BananaWMATIC.toLocaleTimeString()}</p1></span>}</RightButton>
+            <RightButton onClick={() => { if(isAuthenticated) { pushTheBIFIButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BIFI) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BIFI.toLocaleDateString(undefined, options)} - {BIFI.toLocaleTimeString()}</p1></span>}</RightButton>
         </ButtonGroup> 
         </Buttons> 
         <ItemText3>
