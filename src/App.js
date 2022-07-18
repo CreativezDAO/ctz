@@ -8,6 +8,7 @@ import CTZArcade from './components/CTZArcade';
 import Stats from './components/Stats';
 import Earn from './components/Earn';
 import {useMoralis} from "react-moralis"
+import ScrollToTop from './components/ScrollToTop';
 
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
   return (
     <div className="App">
     <Router>
+    <ScrollToTop/>
     <Header />
     <Routes>
       <Route path="/" element={<Home />} />  

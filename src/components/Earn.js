@@ -14,6 +14,7 @@ const Earn = () => {
   const [USDCDAI, setUSDCDAI] = useState (new Date ());
   const [BananaWMATIC, setBananaWMATIC] = useState (new Date ());
   const [BIFI, setBIFI] = useState (new Date ());
+  const [PayDay, setPayDay] = useState (new Date ());
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
   async function pushTheBeQiButton(){
@@ -136,6 +137,26 @@ const Earn = () => {
     });
   }
 
+  async function pushThePayDayButton(){
+
+    let options = {
+      contractAddress: "0xfC3C67A891B071aDE3d7aDE1e0e2b71be265AAb0",
+      functionName: "PayDay",
+      abi: [{"inputs":[],"name":"PayDay","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"Receiver","outputs":[],"stateMutability":"payable","type":"function"}],
+      params: {}
+    }
+
+    await contractProcessor.fetch({
+      params: options,
+      onSuccess: () => {
+        console.log("button push succesful");
+      },
+      onError: (error) => {
+        alert(error.data.message)
+      }
+    });
+  }
+
 
   useEffect(() => {
     async function calculateTimeLeftBeQi () {
@@ -233,6 +254,22 @@ const Earn = () => {
             calculateTimeLeftBIFI();
             }, [isInitialized]);
 
+            useEffect(() => {
+              async function calculateTimeLeftPayDay () {
+              const query = new Moralis.Query("PayDayCycle");
+              query.descending("createdAt");
+              const result = await query.first(); 
+              let start = Number(result.attributes.block_timestamp);
+              let timelocked = Number(result.attributes.timelocked);
+              let end = Number(start+(timelocked*1000));
+              const endDate = new Date(end); 
+          
+              setPayDay(endDate);
+              } 
+          
+              calculateTimeLeftPayDay();
+              }, [isInitialized]);
+
             const handleNetworkSwitch = async (networkName) => {
               setError();
               await changeNetwork({ networkName, setError });
@@ -313,20 +350,28 @@ const Earn = () => {
         <Wrap2>
         <div className='strip'><p1><br/></p1></div>
         <Buttons>
+        <ButtonTitles><p1 className="p10">Staking Contracts</p1></ButtonTitles>
         <ButtonGroup>    
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}</p1></span>}</RightButton>
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheWETHWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(WETHWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{WETHWMATIC.toLocaleDateString(undefined, options)} - {WETHWMATIC.toLocaleTimeString()}</p1></span>}</RightButton>
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheBNBWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BNBWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BNBWMATIC.toLocaleDateString(undefined, options)} - {BNBWMATIC.toLocaleTimeString()}</p1></span>}</RightButton>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheWETHWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(WETHWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{WETHWMATIC.toLocaleDateString(undefined, options)} - {WETHWMATIC.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBNBWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BNBWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BNBWMATIC.toLocaleDateString(undefined, options)} - {BNBWMATIC.toLocaleTimeString()}</p1></span>}</div>
         </ButtonGroup>
         <ButtonGroup>
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheUSDCDAIButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{USDCDAI.toLocaleDateString(undefined, options)} - {USDCDAI.toLocaleTimeString()}</p1></span>}</RightButton>
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheBananaWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BananaWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BananaWMATIC.toLocaleDateString(undefined, options)} - {BananaWMATIC.toLocaleTimeString()}</p1></span>}</RightButton>
-            <RightButton onClick={() => { if(isAuthenticated) { pushTheBIFIButton()}else{handleNetworkSwitch("polygon"); login();}}} onMouseEnter={ handleMouseEnter2 } onMouseLeave={ handleMouseLeave2 }>{Number(BIFI) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BIFI.toLocaleDateString(undefined, options)} - {BIFI.toLocaleTimeString()}</p1></span>}</RightButton>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheUSDCDAIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{USDCDAI.toLocaleDateString(undefined, options)} - {USDCDAI.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBananaWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BananaWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BananaWMATIC.toLocaleDateString(undefined, options)} - {BananaWMATIC.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBIFIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BIFI) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BIFI.toLocaleDateString(undefined, options)} - {BIFI.toLocaleTimeString()}</p1></span>}</div>
         </ButtonGroup> 
+        <ButtonTitles><p1 className = "p10">Pay Day</p1></ButtonTitles>
+        <ButtonGroup>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushThePayDayButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">Earn 0.5 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{PayDay.toLocaleDateString(undefined, options)} - {PayDay.toLocaleTimeString()}</p1></span>}</div>
+        </ButtonGroup>
         </Buttons> 
         <ItemText3>
-          <p1 className = "p5"><p1 className="p10">📖 WHY REWARDS? 📖</p1><br/><br/> By pushing the buttons you are executing functions <br/> for the CRΞATIVΞZ ecosystem including: claiming staking rewards, <br/> sending rewards to the deployer contract, reinvesting into other contracts <br/> & sending rewards to NFT holders. As an incentive and a way to say thank-you, <br/> the contract will reward you upon successful execution of a CRΞATIVΞZ contract function.</p1>
-        </ItemText3>                         
+          <p1 className = "p5"><p1 className="p10">📖 WHY REWARDS? 📖</p1><br/><br/> By pushing the buttons you are executing functions <br/><br/> for the CRΞATIVΞZ ecosystem including: claiming staking rewards, <br/><br/> sending rewards to the deployer contract, reinvesting into other contracts <br/><br/> & sending rewards to NFT holders. As an incentive and a way to say thank-you, <br/><br/> the contract will reward you upon successful execution of a CRΞATIVΞZ contract function.</p1>
+        </ItemText3>
+        <ItemText4>
+          <p1 className = "p5"><p1 className="p10">REWARD RULES</p1><br/><br/> 1. You can't push the same button twice in a row (the contract restricts an address pushing twice in a row - lets others addresses have a chance) <br/><br/> 2. No front running bot contracts will be tolerated. The offending address will be added to a ban list  <br/><br/> 3. The reward value is subject to change but will aim to be at minimum 2 times the cost of gas required for an average - fast transaction <br/><br/> 4. Your net MATIC reward will be: reward - gas fees spent executing the function (avoid overpaying on gas)<br/><br/> 5. The Pay Day (MATIC airdrop for CRΞATIVΞZ NFT Holders) occurs over 10 button pushes to prevent the transaction exceeding the gas limit</p1>
+        </ItemText4>                           
     <Footer /> 
     </Wrap2>
     </Wrap>   
@@ -358,8 +403,8 @@ const Wrap2 = styled.div`
 
 const ButtonGroup = styled.div`
     display: flex;
-    margin-top: 50px;
-    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 50px;
     justify-content: center;
     z-index: 100;
     height:100%;
@@ -369,31 +414,21 @@ const ButtonGroup = styled.div`
     }
 `
 
-const LeftButton = styled.div`
-    background-color: rgba(170, 44, 255, 0.6);
-    height: 100px;
-    width: 300px;
-    color: white;
+const ButtonTitles = styled.div`
     display: flex;
+    margin-top: 80px;
+    margin-bottom: 20px;
     justify-content: center;
-    align-items: center;
-    border-radius: 100px;
-    opacity: 0.85;
-    text-transform: uppercase;
-    font-size: 24px;
-    cursor: pointer;
-    margin: 10px 20px;
-    box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 0.4);
-`
-
-const RightButton = styled(LeftButton)`
-    background-color: rgba(170, 44, 255, 0.6);
-    opacity: 1;
-    color: white;
+    z-index: 100;
+    height:100%;
+    @media (max-width: 1000px) {
+      flex-direction: column;
+      align-items: center;
+    }
 `
 
 const Buttons = styled.div`
-margin-top: 300px;
+margin-top: 250px;
 
 `
 
@@ -418,16 +453,19 @@ const ItemText3 = styled.div`
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-bottom: 150px;
-    margin-top:250px;
+    margin-bottom: 100px;
+    margin-top:150px;
     bottom: 0;   
 `
 
-function handleMouseEnter2(e) {
-  e.target.className = 'mouseEnterButtons2';
-}
+const ItemText4 = styled.div`
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 150px;
+    margin-top:0px;
+    bottom: 0;   
+`
 
-function handleMouseLeave2(e) {
-  e.target.className = 'mouseLeaveButtons2';
-}
 
