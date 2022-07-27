@@ -1,12 +1,10 @@
 import React from 'react'
 import styled from "styled-components"
 import Fade from 'react-reveal/Fade';
-import { useNavigate } from "react-router-dom"
 import Footer from './Footer';
 import VoteCode from '../components/VoteCode'
 
 function Voting() {
-    let navigate = useNavigate();
   return (
     <Wrap>
         <Fade top>
@@ -17,9 +15,9 @@ function Voting() {
             <VoteCode/>
         </VotingVials>            
         </Fade>
-        <ItemText3>
-          <p1 className = "p5"><p1 className="p10">📖 VOTING INFORMATION 📖</p1><br/><br/><br/>1. One vote per wallet address during the voting period <br/>(e.g. If you hold three (3) CRΞATIVΞZ NFTs in your wallet = three (3) votes towards your chosen option above) <br/><br/> 2. Must hold at least one CRΞATIVΞZ NFT in your wallet (that hasn't voted during this voting period) <br/><br/> 3. Once you have voted, your vote is stored on the blockchain and cannot be altered</p1>
-        </ItemText3>  
+        <ItemImage>
+          <img src = "images/Voting_Info.png" alt="" className='ItemImage'/>
+        </ItemImage>  
         <Footer />         
     </Wrap>
   )
@@ -47,7 +45,7 @@ const ItemText = styled.div`
 
 const VotingVials = styled.div`
     padding-top: 0vh;
-    padding-bottom: 10vh;
+    padding-bottom: 3vh;
     text-align: center;
     display: flex;
     flex-direction: row;
@@ -58,13 +56,12 @@ const VotingVials = styled.div`
     }
 `
 
-const ItemText3 = styled.div`
+const ItemImage = styled.div`
     text-align: center;
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-bottom: 150px;
-    margin-top:00px;
-    bottom: 0;   
+    margin-bottom: 130px;
+    max-width: 100%;
 `
 

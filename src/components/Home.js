@@ -125,7 +125,7 @@ function Section() {
         </ReactCardFlip>  
         <ReactCardFlip isFlipped={isFlipped4} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick4 }>
-          <img src = "images/Exotic_Card_Back.jpg" alt="CardPic" className='image'/>     
+          <img src = "images/Exotic_Card_Front.jpg" alt="CardPic" className='image'/>     
         </div> 
         <div className='card' onClick={ handleClick4 }>
           <img src = "images/Exotic_Card_Back.jpg" alt="CardPic" className='image'/>     

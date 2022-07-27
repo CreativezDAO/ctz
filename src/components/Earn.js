@@ -342,7 +342,7 @@ const Earn = () => {
     <video autoPlay loop muted style={{position: "absolute", width: "100%", left: "50%", top: "50%", height: "100%", objectFit: "cover", transform: "translate(-50%, -50%", zIndex: "-1"}}>
       <source src={background} type="video/mp4"/>
     </video>    
-    <Fade top delay={100} duration={2500}>  
+    <Fade top delay={100} duration={1200}>  
         <ItemText1>
         <p1 className = "p3"> <br/><p1 className = "p8">__</p1>THREE WAYS TO EARN FROM CRΞATIVΞZ <p1 className = "p8">__</p1> <br/><br/> <ItemText2><p1 className = "p6"> 1.  <p1 className = "p7">Hold a CRΞATIVΞZ NFT</p1> and receive a MATIC airdrop fortnightly <br/>2. <p1 className = "p7">Push the buttons below for a small MATIC reward</p1> <br/>3. <p1 className = "p7">TBA</p1></p1></ItemText2></p1>
         </ItemText1>
@@ -366,12 +366,9 @@ const Earn = () => {
             <div className='buttons5' onClick={() => { if(isAuthenticated) { pushThePayDayButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">Earn 0.5 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{PayDay.toLocaleDateString(undefined, options)} - {PayDay.toLocaleTimeString()}</p1></span>}</div>
         </ButtonGroup>
         </Buttons> 
-        <ItemText3>
-          <p1 className = "p5"><p1 className="p10">📖 WHY REWARDS? 📖</p1><br/><br/> By pushing the buttons you are executing functions <br/><br/> for the CRΞATIVΞZ ecosystem including: claiming staking rewards, <br/><br/> sending rewards to the deployer contract, reinvesting into other contracts <br/><br/> & sending rewards to NFT holders. As an incentive and a way to say thank-you, <br/><br/> the contract will reward you upon successful execution of a CRΞATIVΞZ contract function.</p1>
-        </ItemText3>
-        <ItemText4>
-          <p1 className = "p5"><p1 className="p10">REWARD RULES</p1><br/><br/> 1. You can't push the same button twice in a row (the contract restricts an address pushing twice in a row - lets others addresses have a chance) <br/><br/> 2. No front running bot contracts will be tolerated. The offending address will be added to a ban list  <br/><br/> 3. The reward value is subject to change but will aim to be at minimum 2 times the cost of gas required for an average - fast transaction <br/><br/> 4. Your net MATIC reward will be: reward - gas fees spent executing the function (avoid overpaying on gas)<br/><br/> 5. The Pay Day (MATIC airdrop for CRΞATIVΞZ NFT Holders) occurs over 10 button pushes to prevent the transaction exceeding the gas limit</p1>
-        </ItemText4>                           
+        <ItemImage>
+          <img src = "images/Rewards_Info.png" alt="" className='ItemImage2'/> 
+        </ItemImage>                     
     <Footer /> 
     </Wrap2>
     </Wrap>   
@@ -448,24 +445,15 @@ const ItemText2 = styled.div`
     margin-bottom: 50px;    
 `
 
-const ItemText3 = styled.div`
+const ItemImage = styled.div`
     text-align: center;
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-bottom: 100px;
-    margin-top:150px;
-    bottom: 0;   
+    margin-bottom: 130px;
+    margin-top: 100px;
+    max-width: 100%;
 `
 
-const ItemText4 = styled.div`
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    margin-bottom: 150px;
-    margin-top:0px;
-    bottom: 0;   
-`
 
 

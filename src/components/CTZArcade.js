@@ -10,7 +10,7 @@ function CTZArcade() {
     <video autoPlay muted style={{position: "absolute", width: "100%", left: "50%", top: "50%", height: "100%", objectFit: "cover", transform: "translate(-50%, -50%", zIndex: "-1"}}>
     <source src={background} type="video/mp4"/>
   </video>
-  <Fade top delay={100} duration={2000}>  
+  <Fade top delay={100} duration={1200}>  
         <ItemText1>
         <p1 className = "p3"> <br/><p1 className = "p8">__</p1>THE ARCADE IS UNDER CONSTRUCTION<p1 className = "p8">__</p1> <br/><p1 className = "p8">Hidden Message Bonus Points!!</p1></p1>
         </ItemText1>
