@@ -3,7 +3,7 @@ import {Bar, Doughnut} from "react-chartjs-2";
 import React, {useState, useEffect } from "react";
 import styled from "styled-components"
 import Footer from './Footer'
-import {useWeb3ExecuteFunction, useMoralisWeb3Api, useMoralis } from "react-moralis"
+import {useMoralis } from "react-moralis"
 
 ChartJS.register(
   CategoryScale, LinearScale, BarElement, ArcElement, Title, Tooltip
@@ -12,7 +12,7 @@ let delayed;
 
 const Stats = () => {
 
-  const {Moralis, isInitialized, isAuthenticated, authenticate} = useMoralis();
+  const {Moralis, isInitialized} = useMoralis();
 
   const [Count, setCount] = useState ();
 

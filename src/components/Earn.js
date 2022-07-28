@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import {useWeb3ExecuteFunction, useMoralisWeb3Api, useMoralis } from "react-moralis"
+import {useWeb3ExecuteFunction, useMoralis } from "react-moralis"
 import styled from "styled-components"
 import Fade from 'react-reveal/Fade'
 import Footer from './Footer'
@@ -7,7 +7,7 @@ import background from '../animations/polygon.mp4'
 
 const Earn = () => {
   const contractProcessor = useWeb3ExecuteFunction();
-  const {Moralis, isInitialized, isAuthenticated, authenticate, user} = useMoralis();
+  const {Moralis, isInitialized, isAuthenticated, authenticate} = useMoralis();
   const [BeQi, setBeQi] = useState (new Date ());
   const [WETHWMATIC, setWETHWMATIC] = useState (new Date ());
   const [BNBWMATIC, setBNBWMATIC] = useState (new Date ());

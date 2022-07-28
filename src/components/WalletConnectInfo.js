@@ -23,7 +23,7 @@ function WalletConnectInfo() {
     };
   }, []);
 
-  const { authenticate, isAuthenticated, user, Moralis} = useMoralis();
+  const { authenticate, Moralis} = useMoralis();
 
    const login = async () => {
       const address = await window.eth_requestAccounts;
