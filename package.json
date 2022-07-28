@@ -66,7 +66,7 @@
   },
   "scripts": {
     "start": "set \"GENERATE_SOURCEMAP=false\" && react-app-rewired start",
-    "build": "react-app-rewired build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "connect": "moralis-admin-cli connect-local-devchain",
