@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import styled from "styled-components"
-import Fade from 'react-reveal/Fade'
 import ReactCardFlip from 'react-card-flip'
 import animationData from '../animations/animationTitleV7.json'
 import Lottie from "react-lottie"
@@ -18,7 +17,6 @@ function Section() {
     const {Moralis, isInitialized, isAuthenticated, user, isWeb3Enabled} = useMoralis();
     const [Minted, setMinted] = useState (String ());
     const [presale, setPresale] = useState (Boolean());
-    const [publicsale, setPublicsale] = useState (Boolean);
     const [freeMint, setFreeMint] = useState (Boolean);
 
     useEffect(() => {
@@ -42,8 +40,8 @@ function Section() {
           query.equalTo("userAddress", currentAddress);
           const test = await query.count();
           if (test === 0){
-            const notOnList = Boolean(true);      
-            setPublicsale(notOnList);
+            const notOnList = Boolean(true);  
+            console.log(notOnList);    
           }
           else {
             const result = await query.first();
@@ -164,7 +162,7 @@ const Wrap2 = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: #010308;
 `
 
 const ItemTitle = styled.div`

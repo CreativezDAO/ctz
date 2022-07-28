@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+// import React, {useEffect} from 'react';
 import './App.css';
 import Header from "./components/Header"
 import Home from "./components/Home"
@@ -7,9 +7,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import CTZArcade from './components/CTZArcade';
 import Stats from './components/Stats';
 import Earn from './components/Earn';
-import {useMoralis} from "react-moralis"
+// import {useMoralis} from "react-moralis"
 import ScrollToTop from './components/ScrollToTop';
-
 
 function App() {
 

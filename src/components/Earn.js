@@ -401,7 +401,7 @@ const Wrap2 = styled.div`
 const ButtonGroup = styled.div`
     display: flex;
     margin-top: 0px;
-    margin-bottom: 50px;
+    margin-bottom: 0px;
     justify-content: center;
     z-index: 100;
     height:100%;

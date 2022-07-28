@@ -4,18 +4,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { useMoralis } from "react-moralis";
 import { Link, NavLink } from "react-router-dom"
-import detectEthereumProvider from '@metamask/detect-provider';
+import {ConnectButton, CryptoLogos, Button} from "web3uikit";
 
 function Header() {
 
-  const provider = detectEthereumProvider();
+  const {Moralis, isWeb3Enabled} = useMoralis();
 
   const [burgerStatus, setBurgerStatus] = useState(false);
+
+  const chainId = Moralis.chainId;
 
   const [setError] = useState();
 
   const handleNetworkSwitch = async (networkName) => {
-    setError();
     await changeNetwork({ networkName, setError });
   };
 
@@ -30,30 +31,7 @@ function Header() {
       window.ethereum.removeListener("chainChanged", networkChanged);
     };
   }, []);
-
-  const { authenticate, isAuthenticated, logout, user, Moralis, isWeb3Enabled} = useMoralis();
-
-   const login = async () => {
-      const address = await window.eth_requestAccounts;
-      console.log(address);
-      await Moralis.enableWeb3()
-      await authenticate({signingMessage: "Log in using Metamask" })
-        .then(function (user) {
-          console.log("logged in user:", user);
-          console.log(user.get("ethAddress"));          
-        })        
-        console.log("updating page")
-        .catch(function (error) {
-          console.log(error);
-        });
-      window.location.reload();
-    };
-
-  const logOut = async () => {
-    await logout();
-    console.log("logged out");
-  }
-
+  
   return (
     <Container>
     <div>
@@ -66,11 +44,19 @@ function Header() {
       <NavLink to="/ctzarcade" className={"navbar"}>ARCADE</NavLink>
       <NavLink to="/stats" className={"navbar"}>STATS</NavLink>
     </Menu>
-    <RightMenu>
-    {isAuthenticated && isWeb3Enabled && provider !== window.ethereum ? (<RightButtonLogout onClick={logOut} onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Disconnect</RightButtonLogout>
-    ) : ( 
-      <RightButtonLogin onClick={() => {handleNetworkSwitch("polygon"); login();}}  onMouseEnter={ handleMouseEnterButtons1 } onMouseLeave={ handleMouseLeaveButtons1 }>Connect Wallet</RightButtonLogin>
-    )}    
+    <RightMenu> 
+      {(() => {if( chainId !== '0x89' && isWeb3Enabled){return <Button
+  color="red"
+  onClick={() => {handleNetworkSwitch("polygon");}}
+  text="Switch to Polygon Network"
+  theme="colored"
+/>} else {return <CryptoLogos
+    chain="polygon"
+    onClick={function noRefCheck(){}}
+    size="38px"
+    /> }})()}     
+      
+    <div className=''><ConnectButton /></div>   
           <CustomMenu onClick={()=>setBurgerStatus(true)}/>
     </RightMenu>
     <BurgerNav show={burgerStatus}>
@@ -105,14 +91,6 @@ function handleMouseLeaveBurger(e) {
   e.target.className = 'mouseLeaveBurger';
 }
 
-function handleMouseEnterButtons1(e) {
-  e.target.className = 'mouseEnterButtons1';
-}
-
-function handleMouseLeaveButtons1(e) {
-  e.target.className = 'mouseLeaveButtons1';
-}
-
 function scrollToBottom() {
   window.scrollTo(0, document.body.scrollHeight)
 }
@@ -136,6 +114,7 @@ const Menu = styled.div `
     color: #060420;
     font-weight: 600;
     font-size: 13px;
+    
 
  
  a {
@@ -153,43 +132,9 @@ const Menu = styled.div `
  }
 
 
-    @media(max-width: 1350px) {
+    @media(max-width: 1470px) {
       display: none;
     }
-`
-
-const RightButtonLogin = styled.div`
-    background-color: #060420;
-    height: 40px;
-    width: 150px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100px;
-    opacity: 0.85;
-    text-transform: uppercase;
-    font-size: 13px;
-    cursor: pointer;
-    margin: 8px;
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
-`
-
-const RightButtonLogout = styled.div`
-    background-color: #060420;
-    height: 40px;
-    width: 150px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 100px;
-    opacity: 0.85;
-    text-transform: uppercase;
-    font-size: 13px;
-    cursor: pointer;
-    margin: 8px;
-    box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
 `
 
 const RightMenu = styled.div`
@@ -199,6 +144,12 @@ const RightMenu = styled.div`
       font-weight: 600;
       text-transform: uppercase;
       margin-right: 10px;
+    }
+
+    @media(max-width: 790px) {
+      flex-direction:column;
+      align-items:left;
+      justify-content:flex-end;
     }
 `
 
