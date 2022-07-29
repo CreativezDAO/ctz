@@ -189,10 +189,14 @@ const BarChart = styled.div`
     margin-bottom: 60px;
     box-shadow: 0px 0px 15px 5px rgba(255,105,255,1);
     padding: 40px;
-    height: 40vh;
-    width: 35%;
+    height: 50vh;
+    width: 50%;
     border-radius: 10px;
     background-color: #060420;
+
+    @media (max-width: 1000px) {
+      width: 70vw;
+    }
 `
 
 const DoughnutChart = styled.div`
@@ -200,12 +204,17 @@ const DoughnutChart = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 30%;
-    width: 30%;
+    height: 40%;
+    width: 40%;
     margin-bottom: 60px;
     box-shadow: 0px 0px 25px 8px rgba(255,105,255,1);
     border-radius: 1000px;   
     background-color: #060420; 
+
+    @media (max-width: 1000px) {
+      height: 50%;
+      width: 50%;
+    }
 `
 
 const ButtonPushCounter = styled.div`
@@ -213,12 +222,14 @@ const ButtonPushCounter = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    height: 30%;
+    height: 50%;
     margin-bottom: 60px;
     box-shadow: 0px 0px 25px 8px rgba(255,105,255,1);
     border-radius: 1000px;   
     padding: 50px;
     background-color: #060420; 
+
+    
 `
 
 const ItemText1 = styled.div`

@@ -417,6 +417,13 @@ const ItemText1 = styled.div`
     align-items: center;
     display: flex;    
     height: 100vh; 
+
+    @media (max-width: 600px) {
+      flex-direction: row;
+      align-items: center;
+      width: 90vw;
+      justify-content: center;
+    }
 `
 
 const ItemText2 = styled.div`
@@ -424,7 +431,12 @@ const ItemText2 = styled.div`
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-bottom: 50px;    
+    margin-bottom: 50px;  
+    
+    @media (max-width: 600px) {
+      text-align: center;
+    }
+  
 `
 
 const ItemImage = styled.div`
