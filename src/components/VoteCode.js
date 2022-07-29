@@ -130,10 +130,6 @@ function VoteCode() {
         await changeNetwork({ networkName, setError });
       };
 
-      const networkChanged = (chainId) => {
-
-      };
-
       const [setError] = useState();
 
       const polygon = {
@@ -165,14 +161,6 @@ function VoteCode() {
           setError(err.message);
         }
       };
-    
-      useEffect(() => {
-        window.ethereum.on("chainChanged", networkChanged);
-    
-        return () => {
-          window.ethereum.removeListener("chainChanged", networkChanged);
-        };
-      }, []);
 
       const login = async () => {
 

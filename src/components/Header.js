@@ -135,7 +135,7 @@ const RightMenu = styled.div`
 
     @media(max-width: 790px) {
       flex-direction:column;
-      align-items:left;
+      margin-left: 3px;
       justify-content:flex-end;
       max-height: 100px;
     }
