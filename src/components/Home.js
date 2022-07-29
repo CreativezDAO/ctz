@@ -173,6 +173,9 @@ const ItemTitle = styled.div`
       height: 100%;
       width: 100%;
     }
+    @media (max-width: 790px) {
+      margin-top: 50px;
+    }
 `
 
 const ItemText2 = styled.div`
