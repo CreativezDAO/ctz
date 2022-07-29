@@ -18,5 +18,14 @@ module.exports = function override(config, env) {
     }),
   );
 
+  const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
+
+  module.exports = {
+	// Other rules...
+	plugins: [
+		new NodePolyfillPlugin()
+	]
+};
+
   return config;
 };
