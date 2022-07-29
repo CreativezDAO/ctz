@@ -174,7 +174,7 @@ const ItemTitle = styled.div`
       width: 100%;
     }
     @media (max-width: 790px) {
-      margin-top: 50px;
+      margin-top: 100px;
     }
 `
 

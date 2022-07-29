@@ -275,10 +275,6 @@ const Earn = () => {
               await changeNetwork({ networkName, setError });
             };
 
-            const networkChanged = (chainId) => {
-              
-            };
-
             const [setError] = useState();
 
             const polygon = {
@@ -309,19 +305,11 @@ const Earn = () => {
               } catch (err) {
                 setError(err.message);
               }
-            };
-          
-            useEffect(() => {
-              window.ethereum.on("chainChanged", networkChanged);
-          
-              return () => {
-                window.ethereum.removeListener("chainChanged", networkChanged);
-              };
-            }, []);
+            };      
 
             const login = async () => {                
                 await Moralis.enableWeb3()
-                await authenticate({signingMessage: "Log in using Metamask" })
+                await authenticate({signingMessage: "Sign To Connect" })
                   .then(function (user) {                             
                   })        
                   .catch(function (error) {
