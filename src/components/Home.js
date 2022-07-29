@@ -151,10 +151,6 @@ function Section() {
 export default Section
 
 const Wrap = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 `
 
 const Wrap2 = styled.div`

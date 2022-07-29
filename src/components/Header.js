@@ -137,6 +137,7 @@ const RightMenu = styled.div`
       flex-direction:column;
       align-items:left;
       justify-content:flex-end;
+      max-height: 100px;
     }
 `
 

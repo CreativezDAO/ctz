@@ -36,7 +36,7 @@ export default Footer
 const Container = styled.div`
     width: 100vw;
     min-height: 60px;
-    position: fixed;
+    position: center;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -55,6 +55,10 @@ const Menu = styled.div `
     a {
         padding: 0 18px;
         color: #060420;
+    }
+
+    @media(max-width: 790px) {
+      width:100%;
     }
 `
 
