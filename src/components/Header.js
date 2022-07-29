@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState} from 'react'
 import styled from "styled-components"
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -19,18 +19,6 @@ function Header() {
   const handleNetworkSwitch = async (networkName) => {
     await changeNetwork({ networkName, setError });
   };
-
-  const networkChanged = (chainId) => {
-
-  };
-
-  useEffect(() => {
-    window.ethereum.on("chainChanged", networkChanged);
-
-    return () => {
-      window.ethereum.removeListener("chainChanged", networkChanged);
-    };
-  }, []);
   
   return (
     <Container>
@@ -73,8 +61,7 @@ function Header() {
       <li><a href="https://github.com/CreativezDApp" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>GITHUB</a></li>
       <li><a href="https://twitter.com/Creativez_DApp" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>TWITTER</a></li>
       <li><a href="https://www.youtube.com/channel/UCovn1niyPXt5jy84y8cQV6A/featured" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>YOUTUBE</a></li>
-      <li><a href="https://discord.gg/Uj7fmHbTWj" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DISCORD</a></li>
-      
+      <li><a href="https://discord.gg/Uj7fmHbTWj" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DISCORD</a></li>    
 
     </BurgerNav>
     </Container>
