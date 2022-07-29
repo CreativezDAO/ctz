@@ -418,11 +418,12 @@ const ItemText1 = styled.div`
     display: flex;    
     height: 100vh; 
 
-    @media (max-width: 600px) {
+    @media (max-width: 790px) {
       flex-direction: row;
       align-items: center;
       width: 90vw;
       justify-content: center;
+      font-size:80%;
     }
 `
 

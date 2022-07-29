@@ -5,20 +5,20 @@ function WalletConnectInfo() {
 
   return (
     <Wrap>
-    <ItemText2>  
-      <p1 className ="p1"><p1 className = "p13">🦊 Connect Metamask Wallet to Access Minting 🦊</p1></p1>    
-    </ItemText2>    
+    <OuterBorder>  
+      <p1 className ="p1"><p1 className = "p13">🦊 Connect Metamask Wallet to Access Minting 🦊</p1></p1>          
       <div className=''><ConnectButton /></div>   
+    </OuterBorder>  
     </Wrap>    
   )
 }
 
 export default WalletConnectInfo
 
-  const ItemText2 = styled.div`
+  const OuterBorder = styled.div`
     text-align: center;
     justify-content:center;
-    margin-bottom: 5vh;    
+    margin: 5px; 
 `
 
 const Wrap = styled.div`
@@ -27,3 +27,4 @@ const Wrap = styled.div`
     justify-content: space-between;
     align-items: center;
 `
+

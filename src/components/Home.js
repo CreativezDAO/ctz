@@ -104,7 +104,8 @@ function Section() {
         <div className='card' onClick={ handleClick1 }>
           <img src = "images/Human_Card_Back.jpg" alt="CardPic" className='image'/>     
         </div>           
-        </ReactCardFlip>       
+        </ReactCardFlip> 
+        <Spacer/>      
         <ReactCardFlip isFlipped={isFlipped2} flipDirection="horizontal">
         <div className='card' onClick={ handleClick2 }>
           <img src = "images/Cyberpunk_Card_Front.jpg" alt="CardPic" className='image'/>     
@@ -113,6 +114,7 @@ function Section() {
           <img src = "images/Cyberpunk_Card_Back.jpg" alt="CardPic" className='image'/>     
         </div>   
         </ReactCardFlip>
+        <Spacer/>
         <ReactCardFlip isFlipped={isFlipped3} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick3 }>
           <img src = "images/Undead_Card_Front.jpg" alt="CardPic" className='image'/>     
@@ -120,7 +122,8 @@ function Section() {
         <div className='card' onClick={ handleClick3 }>
           <img src = "images/Undead_Card_Back.jpg" alt="CardPic" className='image'/>     
         </div>   
-        </ReactCardFlip>  
+        </ReactCardFlip> 
+        <Spacer/> 
         <ReactCardFlip isFlipped={isFlipped4} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick4 }>
           <img src = "images/Exotic_Card_Front.jpg" alt="CardPic" className='image'/>     
@@ -131,15 +134,18 @@ function Section() {
         </ReactCardFlip>                
         </CardBox>             
         <Buttons>
+        <OuterBorder>        
         <ItemText3>
-            <p1 className = "p14">{Minted} / 5000</p1>
+            <p1 className = "p17">MINT YOUR CRΞATIVΞZ HERE</p1>
+            <p1 className = "p16">{Minted} / 5000</p1>
         </ItemText3>   
         <ButtonGroup>
           {(() => {if(Minted === "5000"){return <MintedOutInfo/>} else if(!isAuthenticated || !isWeb3Enabled){return <WalletConnectInfo/>} else if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else {return <PublicsaleInfo/>}})()}
         </ButtonGroup>
             <ItemText2>
             <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   
-            </ItemText2>            
+            </ItemText2>      
+        </OuterBorder>      
         </Buttons> 
         <Footer />
         </Wrap2>
@@ -151,6 +157,26 @@ function Section() {
 export default Section
 
 const Wrap = styled.div`
+`
+const OuterBorder = styled.div`
+    text-align: center;
+    justify-content:center;
+    margin: 5px; 
+    background-color: #010308;  
+    width: 800px;
+    min-height: 400px;
+    display:flex;
+    flex-direction: column;
+    align-items: center; 
+    border-radius: 50px;
+    box-shadow: 0px 0px 5px 5px rgba(170, 44, 255, 1);
+    @media (max-width: 1550px) {
+    width:350px;
+    font-size: 80%;
+`
+
+const Spacer = styled.div`
+    margin-bottom: 50px;
 `
 
 const Wrap2 = styled.div`
@@ -190,6 +216,8 @@ const ItemText3 = styled.div`
     justify-content:center;
     margin-bottom: 3vh;  
     margin-top: 3vh;  
+    flex-direction: column;
+    display: flex;
 `
 
 const ButtonGroup = styled.div`
@@ -208,24 +236,24 @@ const CardBox = styled.div`
 margin-top: 9vh;
 display: flex;
 align-items: center;
-justify-content: space-between;
 height: 100%;
-@media (max-width: 1800px) {
-  margin: 25px 200px;
+@media (max-width: 1550px) {
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   height: 100%;
+  margin: 50px 200px;
+  flex-direction: column;
 }
 `
 
 const Buttons = styled.div`
     height: 100%;
     width: 100vw;
+    display:flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 150px;
-    margin-top: 40px;
+    margin-top: 150px;
     @media (max-width: 1800px) {
   align-items: center;
   justify-content: center;
