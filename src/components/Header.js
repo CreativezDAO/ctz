@@ -21,7 +21,7 @@ function Header() {
   };
 
   const networkChanged = (chainId) => {
-    console.log({ chainId });
+
   };
 
   useEffect(() => {

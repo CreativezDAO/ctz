@@ -32,7 +32,7 @@ function PresaleInfo() {
       await contractProcessor.fetch({
         params: options,
         onSuccess: () => {
-          console.log("mint successful");
+
         },
         onError: (error) => {
           alert(error.data.message)
@@ -40,7 +40,6 @@ function PresaleInfo() {
       });
     }
   
-    console.log(mintAmount)
 
   return (
     //link to when presale is open - presale open ? "presale is open" : date when open (like on Earn) >> can be TBA till we decide on a date

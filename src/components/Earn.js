@@ -29,7 +29,7 @@ const Earn = () => {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("button push succesful");
+        
       },
       onError: (error) => {
         alert(error.data.message)
@@ -49,7 +49,7 @@ const Earn = () => {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("button push succesful");
+        
       },
       onError: (error) => {
         alert(error.data.message)
@@ -69,7 +69,7 @@ const Earn = () => {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("button push succesful");
+        
       },
       onError: (error) => {
         alert(error.data.message)
@@ -89,7 +89,7 @@ const Earn = () => {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("button push succesful");
+        
       },
       onError: (error) => {
         alert(error.data.message)
@@ -109,7 +109,7 @@ const Earn = () => {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("button push succesful");
+        
       },
       onError: (error) => {
         alert(error.data.message)
@@ -129,7 +129,7 @@ const Earn = () => {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("button push succesful");
+        
       },
       onError: (error) => {
         alert(error.data.message)
@@ -149,7 +149,7 @@ const Earn = () => {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("button push succesful");
+        
       },
       onError: (error) => {
         alert(error.data.message)
@@ -276,7 +276,7 @@ const Earn = () => {
             };
 
             const networkChanged = (chainId) => {
-              console.log({ chainId });
+              
             };
 
             const [setError] = useState();
@@ -319,18 +319,12 @@ const Earn = () => {
               };
             }, []);
 
-            const login = async () => {
-                const address = await window.eth_requestAccounts;
-                console.log(address);
+            const login = async () => {                
                 await Moralis.enableWeb3()
                 await authenticate({signingMessage: "Log in using Metamask" })
-                  .then(function (user) {
-                    console.log("logged in user:", user);
-                    console.log(user.get("ethAddress"));          
+                  .then(function (user) {                             
                   })        
-                  console.log("updating page")
                   .catch(function (error) {
-                    console.log(error);
                   });
                 window.location.reload();
               };

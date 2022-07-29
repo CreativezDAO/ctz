@@ -19,7 +19,7 @@ function FreeMintInfo() {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("mint successful");
+        
       },
       onError: (error) => {
         alert(error.data.message)

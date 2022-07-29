@@ -41,7 +41,7 @@ function Section() {
           const test = await query.count();
           if (test === 0){
             const notOnList = Boolean(true);  
-            console.log(notOnList);    
+
           }
           else {
             const result = await query.first();

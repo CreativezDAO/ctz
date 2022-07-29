@@ -34,7 +34,7 @@ function VoteCode() {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("vote succesful");
+
       },
       onError: (error) => {
         alert(error.data.message)
@@ -54,7 +54,7 @@ function VoteCode() {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("vote succesful");
+
       },
       onError: (error) => {
         alert(error.data.message)
@@ -74,7 +74,7 @@ function VoteCode() {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("vote succesful");
+
       },
       onError: (error) => {
         alert(error.data.message)
@@ -90,12 +90,6 @@ function VoteCode() {
       const option1_Count = Number(result.attributes.option1Count);
       const option2_Count = Number(result.attributes.option2Count);
       const option3_Count = Number(result.attributes.option3Count);
-      const totalCount = Number(result.attributes.count);
-
-      console.log("Option 1 Votes = " + option1_Count);
-      console.log("Option 2 Votes = " +option2_Count);
-      console.log("Option 3 Votes = " +option3_Count);
-      console.log("Last User Voted = " +totalCount + " Times");
 
     setPerc1(Math.round(option1_Count / (option1_Count+option2_Count+option3_Count) * 100));
     setPerc2(Math.round(option2_Count / (option1_Count+option2_Count+option3_Count) * 100));
@@ -137,7 +131,7 @@ function VoteCode() {
       };
 
       const networkChanged = (chainId) => {
-        console.log({ chainId });
+
       };
 
       const [setError] = useState();
@@ -181,17 +175,15 @@ function VoteCode() {
       }, []);
 
       const login = async () => {
-          const address = await window.eth_requestAccounts;
-          console.log(address);
+
           await Moralis.enableWeb3()
           await authenticate({signingMessage: "Log in using Metamask" })
             .then(function (user) {
-              console.log("logged in user:", user);
-              console.log(user.get("ethAddress"));          
+       
             })        
-            console.log("updating page")
+
             .catch(function (error) {
-              console.log(error);
+
             });
           window.location.reload();
         };

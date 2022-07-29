@@ -31,7 +31,7 @@ function PublicsaleInfo() {
     await contractProcessor.fetch({
       params: options,
       onSuccess: () => {
-        console.log("mint successful");
+
       },
       onError: (error) => {
         alert(error.data.message)
@@ -39,7 +39,7 @@ function PublicsaleInfo() {
     });
   }
 
-  console.log(mintAmount)
+
 
   return (
 

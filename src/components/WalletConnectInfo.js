@@ -12,7 +12,7 @@ function WalletConnectInfo() {
   };
 
   const networkChanged = (chainId) => {
-    console.log({ chainId });
+
   };
 
   useEffect(() => {
@@ -26,17 +26,15 @@ function WalletConnectInfo() {
   const { authenticate, Moralis} = useMoralis();
 
    const login = async () => {
-      const address = await window.eth_requestAccounts;
-      console.log(address);
+
       await Moralis.enableWeb3()
       await authenticate({signingMessage: "Log in using Metamask" })
         .then(function (user) {
-          console.log("logged in user:", user);
-          console.log(user.get("ethAddress"));
+
         })
-        console.log("updating page")
+
         .catch(function (error) {
-          console.log(error);
+
         });
       window.location.reload();
     };
