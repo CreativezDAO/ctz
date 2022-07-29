@@ -4,6 +4,8 @@ module.exports = function override(config, env) {
     url: require.resolve("url"),
     fs: require.resolve("fs"),
     assert: require.resolve("assert"),
+    console: require.resolve('console-browserify'),
+		constants: require.resolve('constants-browserify'),
     crypto: require.resolve("crypto-browserify"),
     http: require.resolve("stream-http"),
     https: require.resolve("https-browserify"),
@@ -17,15 +19,6 @@ module.exports = function override(config, env) {
       Buffer: ["buffer", "Buffer"],
     }),
   );
-
-  const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
-
-  module.exports = {
-	// Other rules...
-	plugins: [
-		new NodePolyfillPlugin()
-	]
-};
 
   return config;
 };
