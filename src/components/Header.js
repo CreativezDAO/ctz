@@ -92,7 +92,7 @@ const Container = styled.div`
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 5;
     background: white;
     box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.3);
 `
@@ -101,7 +101,7 @@ const Menu = styled.div `
     color: #060420;
     font-weight: 600;
     font-size: 13px;
-    
+    z-index: 5;   
 
  
  a {
@@ -143,6 +143,7 @@ const RightMenu = styled.div`
 
 const CustomMenu = styled(MenuIcon)`
     cursor: pointer;
+    z-index: 5;
 `
 
 const BurgerNav = styled.div`

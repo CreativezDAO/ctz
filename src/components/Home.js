@@ -253,7 +253,7 @@ const ItemText3 = styled.div`
 const ButtonGroup = styled.div`
     display: flex;
     justify-content: center;
-    z-index: 100;
+    z-index: 1;
     margin-top: 2vh;
     margin-bottom: 2vh;
     @media (max-width: 1550px) {

@@ -28,15 +28,23 @@ function FreeMintInfo() {
   }
 
   return (
-    //<p1> presale instructions - Presale can mint up to 3 NFTs at a discounted price. Wallets can only perform the minting function once - so make sure you choose the desired amount before executing.
     <Wrap>
-      <ItemText2>
-        <p1 className = "p13">🔥 Congrats! You made the Free Mint List 🔥<br/><br/> Press the button to mint 1 free CRΞATIVΞZ NFT </p1>  
-      </ItemText2>    
-      <Button onClick={mint} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>free mint</Button>
+      <OuterBorder>  
+      <p1 className ="p1"><p1 className = "p17">MINTING RULES</p1></p1> 
+      <Rules>
+      <p1 className ="p1"><p1 className = "p18">1) One free NFT mint for early supporters / competition winners</p1></p1> 
+      <p1 className ="p1"><p1 className = "p18">2) Max three NFT mints for presale wallets @ 70 MATIC each</p1></p1> 
+      <p1 className ="p1"><p1 className = "p18">3) Max five NFT mints for public sale wallets @ 100 MATIC each</p1></p1> 
+      </Rules>
+      <ButtonSection>
+      <Button onClick={mint} onMouseEnter={ handleMouseEnter3 } onMouseLeave={ handleMouseLeave3 }>free mint</Button>   
+      </ButtonSection>
+    </OuterBorder> 
     </Wrap>
   )
 }
+
+
 
 export default FreeMintInfo
 
@@ -65,15 +73,34 @@ function handleMouseLeave3(e) {
   e.target.className = 'mouseLeaveButtons3';
 }
 
-const ItemText2 = styled.div`
-    text-align: center;
-    justify-content:center;
-    margin-bottom: 5vh;    
-`
-
 const Wrap = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+`
+
+const Rules = styled.div`
+    text-align: left;
+    justify-content:center;
+    margin: 5px; 
+    flex-direction: column;
+    display: flex;
+`
+
+const OuterBorder = styled.div`
+    text-align: left;
+    justify-content:center;
+    margin: 5px; 
+    flex-direction: column;
+    display: flex;
+`
+
+const ButtonSection = styled.div`
+    text-align: center;
+    align-items: center;
+    justify-content:center;
+    margin-top: 30px; 
+    flex-direction: column;
+    display: flex;
 `

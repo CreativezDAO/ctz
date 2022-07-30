@@ -42,17 +42,23 @@ function PresaleInfo() {
   
 
   return (
-    //link to when presale is open - presale open ? "presale is open" : date when open (like on Earn) >> can be TBA till we decide on a date
     <Wrap>
-      <ItemText2>
-        <p1 className ="p1"><p1 className = "p13">🥳 Congrats - you made the Presale List! 🥳</p1> <br/><br/> Presale can mint up to 3 NFTs at a discounted price. <br/> Wallets can only perform the presale minting function once <br/>so make sure you choose the desired amount before executing.<br/><br/><p1 className="p13">Presale Open Time: TBA</p1></p1> 
-        <p1 className ="p1"><p1 className = "p13"><br/>{mintAmount} CRΞATIVΞZ NFT = {Math.round(mintAmount *0.03 * 100) / 100} MATIC</p1></p1>     
-      </ItemText2>    
-      <Button onClick={mint} onMouseEnter={ handleMouseEnter5 } onMouseLeave={ handleMouseLeave5 }>presale</Button>
+      <OuterBorder>  
+      <p1 className = "p17">MINTING RULES</p1> 
+      <Rules>
+      <p1 className ="p18">1) One free NFT mint for early supporters / competition winners</p1> 
+      <p1 className = "p18">2) Max three NFT mints for presale wallets @ 70 MATIC each</p1>
+      <p1 className = "p18">3) Max five NFT mints for public sale wallets @ 100 MATIC each</p1>
+      </Rules>
+      <ButtonSection>
+      <Button onClick={mint} onMouseEnter={ handleMouseEnter5 } onMouseLeave={ handleMouseLeave5 }>presale</Button> 
+      <p1 className ="p1"><p1 className = "p18"><br/>{mintAmount} CRΞATIVΞZ NFT = {Math.round(mintAmount *70 * 100) / 100} MATIC</p1></p1> 
+      </ButtonSection>
       <WrapCounter>
-      <SmallButton onClick={decrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>-</SmallButton><span><p1 className = "p13">{mintAmount}</p1></span><SmallButton onClick={incrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>+</SmallButton>
-      </WrapCounter> 
-    </Wrap>        
+      <SmallButton onClick={decrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>-</SmallButton><span><p1 className = "p18">{mintAmount}</p1></span><SmallButton onClick={incrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>+</SmallButton>
+      </WrapCounter>
+    </OuterBorder> 
+    </Wrap>    
   )
 }
 
@@ -126,4 +132,29 @@ const WrapCounter = styled.div`
     margin-top: 3vh;  
     flex-direction: row;
     display: flex;  
+`
+
+const Rules = styled.div`
+    text-align: left;
+    justify-content:center;
+    margin: 5px; 
+    flex-direction: column;
+    display: flex;
+`
+
+const OuterBorder = styled.div`
+    text-align: left;
+    justify-content:center;
+    margin: 5px; 
+    flex-direction: column;
+    display: flex;
+`
+
+const ButtonSection = styled.div`
+    text-align: center;
+    align-items: center;
+    justify-content:center;
+    margin-top: 30px; 
+    flex-direction: column;
+    display: flex;
 `

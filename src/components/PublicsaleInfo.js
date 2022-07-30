@@ -40,17 +40,22 @@ function PublicsaleInfo() {
   }
 
   return (
-
-    //link to when presale is open - presale open ? "presale is open" : date when open (like on Earn) >> can be TBA till we decide on a date
     <Wrap>
-    <ItemText2>  
-      <p1 className ="p1"><p1 className = "p13">🔥 Public Sale Open Time: TBA 🔥</p1></p1>    
-      <p1 className ="p1"><p1 className = "p13"><br/>{mintAmount} CRΞATIVΞZ NFT = {Math.round(mintAmount *0.05 * 100) / 100} MATIC</p1></p1>  
-    </ItemText2>    
-    <Button onClick={mint} onMouseEnter={ handleMouseEnter5 } onMouseLeave={ handleMouseLeave5 }>M I N T</Button>
-    <WrapCounter>
-      <SmallButton onClick={decrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>-</SmallButton><span><p1 className = "p13">{mintAmount}</p1></span><SmallButton onClick={incrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>+</SmallButton>
-    </WrapCounter>
+      <OuterBorder>  
+      <p1 className = "p17">MINTING RULES</p1> 
+      <Rules>
+      <p1 className ="p18">1) One free NFT mint for early supporters / competition winners</p1> 
+      <p1 className = "p18">2) Max three NFT mints for presale wallets @ 70 MATIC each</p1>
+      <p1 className = "p18">3) Max five NFT mints for public sale wallets @ 100 MATIC each</p1>
+      </Rules>
+      <ButtonSection>
+      <Button onClick={mint} onMouseEnter={ handleMouseEnter5 } onMouseLeave={ handleMouseLeave5 }>M I N T</Button> 
+      <p1 className ="p1"><p1 className = "p18"><br/>{mintAmount} CRΞATIVΞZ NFT = {Math.round(mintAmount *100 * 100) / 100} MATIC</p1></p1> 
+      </ButtonSection>
+      <WrapCounter>
+      <SmallButton onClick={decrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>-</SmallButton><span><p1 className = "p18">{mintAmount}</p1></span><SmallButton onClick={incrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>+</SmallButton>
+      </WrapCounter>
+    </OuterBorder> 
     </Wrap>
   )
 }
@@ -90,12 +95,6 @@ function handleMouseLeave4(e) {
   e.target.className = 'mouseLeaveButtons4';
 }
 
-const ItemText2 = styled.div`
-    text-align: center;
-    justify-content:center;
-    margin-bottom: 5vh;    
-`
-
 const WrapCounter = styled.div`
     align-items: center;
     justify-content:center;
@@ -125,4 +124,29 @@ const SmallButton = styled.div`
     cursor: pointer;
     margin: 0px 20px;
     box-shadow: box-shadow: 0px 0px 3px 3px rgba(90, 0, 150, 0.8);
+`
+
+const Rules = styled.div`
+    text-align: left;
+    justify-content:center;
+    margin: 5px; 
+    flex-direction: column;
+    display: flex;
+`
+
+const OuterBorder = styled.div`
+    text-align: left;
+    justify-content:center;
+    margin: 5px; 
+    flex-direction: column;
+    display: flex;
+`
+
+const ButtonSection = styled.div`
+    text-align: center;
+    align-items: center;
+    justify-content:center;
+    margin-top: 30px; 
+    flex-direction: column;
+    display: flex;
 `
