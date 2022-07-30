@@ -350,6 +350,9 @@ const Earn = () => {
         </Buttons> 
         <ItemImage>
           <img src = "images/Rewards_Info.png" alt="" className='ItemImage2'/> 
+        </ItemImage> 
+        <ItemImage>
+          <img src = "images/Crystals_Large.png" alt="" className=''/>
         </ItemImage>                     
     <Footer /> 
     </Wrap2>
@@ -445,7 +448,6 @@ const ItemImage = styled.div`
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-bottom: 130px;
     margin-top: 100px;
     max-width: 100%;
 `

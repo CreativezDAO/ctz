@@ -14,7 +14,7 @@ function PresaleInfo() {
     }
   
     function incrementCount() {
-      if(mintAmount < 3){
+      if(mintAmount < 2){
         setMintAmount(prevCount => prevCount + 1)
       }
     }

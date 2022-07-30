@@ -11,6 +11,10 @@ import WalletConnectInfo from './WalletConnectInfo';
 import MintedOutInfo from './MintedOutInfo';
 import background from '../animations/CyberPunkBackground.mp4'
 import {useMoralis } from "react-moralis"
+import { FaQuestionCircle } from "react-icons/fa"
+import Tippy from "@tippy.js/react"
+import "tippy.js/dist/tippy.css"
+
 
 function Section() {    
 
@@ -96,6 +100,11 @@ function Section() {
           <Lottie options ={defaultOptions}/>          
         </ItemTitle>
         <Wrap2>
+        <WrappedBorder>
+        <ItemImage>
+        <img src = "images/Creativez_NFTCollection.png" alt="" className='ItemImage3'/>
+        </ItemImage> 
+        </WrappedBorder>       
         <CardBox> 
         <ReactCardFlip isFlipped={isFlipped1} flipDirection="horizontal">    
         <div className='card' onClick={ handleClick1 }>
@@ -135,18 +144,23 @@ function Section() {
         </CardBox>             
         <Buttons>
         <OuterBorder>        
-        <ItemText3>
+        <ItemText3>    
+        <Tippy content={<span style={{ color: "white"}} >CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</span>}>
+        <ItemText2>
+          <p1 className = "p18"><FaQuestionCircle /></p1>
+        </ItemText2>        
+        </Tippy>
             <p1 className = "p17">MINT YOUR CRΞATIVΞZ HERE</p1>
             <p1 className = "p16">{Minted} / 5000</p1>
         </ItemText3>   
         <ButtonGroup>
-          {(() => {if(Minted === "5000"){return <MintedOutInfo/>} else if(!isAuthenticated || !isWeb3Enabled){return <WalletConnectInfo/>} else if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else {return <PublicsaleInfo/>}})()}
+          {(() => {if(Minted === "5000"){return <MintedOutInfo/>} else if(!isAuthenticated || !isWeb3Enabled){return <WalletConnectInfo/>} else if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else {return <PublicsaleInfo/>}})()}          
         </ButtonGroup>
-            <ItemText2>
-            <p1 className = "p1">CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly <br/> generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</p1>   
-            </ItemText2>      
-        </OuterBorder>      
-        </Buttons> 
+        </OuterBorder>     
+        <ItemImage>
+          <img src = "images/Crystals_Large.png" alt="" className=''/>
+        </ItemImage> 
+        </Buttons>  
         <Footer />
         </Wrap2>
         </Wrap>       
@@ -163,7 +177,7 @@ const OuterBorder = styled.div`
     justify-content:center;
     margin: 5px; 
     background-color: #010308;  
-    width: 800px;
+    width: 750px;
     min-height: 400px;
     display:flex;
     flex-direction: column;
@@ -177,6 +191,14 @@ const OuterBorder = styled.div`
 
 const Spacer = styled.div`
     margin-bottom: 50px;
+`
+
+const ItemImage = styled.div`
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100vw;
 `
 
 const Wrap2 = styled.div`
@@ -205,19 +227,27 @@ const ItemTitle = styled.div`
 `
 
 const ItemText2 = styled.div`
-    text-align: center;
-    justify-content:center;
-    margin-bottom: 20px;  
-    margin-top: 3vh;  
+    text-align: left;
+    justify-content:left;   
+    display:flex;
+    max-width:19.2px;
 `
 
 const ItemText3 = styled.div`
-    text-align: center;
-    justify-content:center;
-    margin-bottom: 3vh;  
+    text-align: left;
+    justify-content:left;  
+    align-items: left;
     margin-top: 3vh;  
+    margin-right: 170px;
     flex-direction: column;
     display: flex;
+    @media (max-width: 1550px) {
+      flex-direction: column;
+      align-items: left;
+      justify-content: center;
+      text-align: center;
+      margin-right: 0px;
+    }
 `
 
 const ButtonGroup = styled.div`
@@ -226,9 +256,10 @@ const ButtonGroup = styled.div`
     z-index: 100;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    @media (max-width: 768px) {
+    @media (max-width: 1550px) {
       flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
 `
 
@@ -250,13 +281,27 @@ const Buttons = styled.div`
     height: 100%;
     width: 100vw;
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 150px;
+    margin-bottom: 10px;
     margin-top: 150px;
+    background-image: "../../public/images/Crystals.png"
     @media (max-width: 1800px) {
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+`
+
+const WrappedBorder = styled.div`
+text-align: center;
+    justify-content:center;
+    margin-top: 100px; 
+    display:flex;
+    flex-direction: column;
+    align-items: center; 
+    border-radius: 100px;
+    padding: 40px 40px;
 }
 `

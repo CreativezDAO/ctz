@@ -13,7 +13,7 @@ function PublicsaleInfo() {
   }
 
   function incrementCount() {
-    if(mintAmount < 20){
+    if(mintAmount < 5){
       setMintAmount(prevCount => prevCount + 1)
     }
   }
@@ -38,8 +38,6 @@ function PublicsaleInfo() {
       }
     });
   }
-
-
 
   return (
 

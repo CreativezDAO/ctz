@@ -153,6 +153,16 @@
     }
   }
 
+  .ItemImage3{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-position: center;
+    position: relative;
+    max-width: 80vw;    
+  }
+
 
 
 
