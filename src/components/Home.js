@@ -199,6 +199,7 @@ const ItemImage = styled.div`
     align-items: center;
     display: flex;
     width: 100vw;
+    overflow-x: hidden;
 `
 
 const Wrap2 = styled.div`
