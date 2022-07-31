@@ -332,6 +332,9 @@ const Earn = () => {
         <Wrap2>
         <div className='strip'><p1><br/></p1></div>
         <Buttons>
+        <ItemImage>
+        <img src = "images/EarnMatic.png" alt="" className='ItemImage3'/>
+        </ItemImage> 
         <ButtonTitles><p1 className="p10">Staking Contracts</p1></ButtonTitles>
         <ButtonGroup>    
             <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}</p1></span>}</div>
@@ -410,7 +413,7 @@ const ButtonTitles = styled.div`
 `
 
 const Buttons = styled.div`
-margin-top: 250px;
+margin-top: 150px;
 
 `
 
@@ -448,8 +451,9 @@ const ItemImage = styled.div`
     justify-content: center;
     align-items: center;
     display: flex;
-    margin-top: 100px;
     max-width: 100%;
+    overflow-x: hidden;
+    margin-bottom: 100px;
 `
 
 

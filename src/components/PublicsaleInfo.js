@@ -63,7 +63,7 @@ function PublicsaleInfo() {
 export default PublicsaleInfo
 
 const Button = styled.div`
-    background-color: #060420;
+    background-color: rgb(90, 0, 150);
     opacity: 0.9;
     height: 60px;
     width: 240px;

@@ -65,7 +65,7 @@ function PresaleInfo() {
 export default PresaleInfo
 
 const Button = styled.div`
-    background-color: #060420;
+    background-color: rgba(90, 0, 150, 1);
     opacity: 0.9;
     height: 60px;
     width: 240px;
@@ -94,12 +94,6 @@ const Wrap = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-`
-
-const ItemText2 = styled.div`
-    text-align: center;
-    justify-content:center;
-    margin-bottom: 5vh;    
 `
 
 const SmallButton = styled.div`

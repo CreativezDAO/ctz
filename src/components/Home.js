@@ -9,6 +9,8 @@ import FreeMintInfo from './FreeMintInfo';
 import PublicsaleInfo from './PublicsaleInfo';
 import WalletConnectInfo from './WalletConnectInfo';
 import MintedOutInfo from './MintedOutInfo';
+import BeforePresale from './BeforePresale';
+import BeforePublicsale from './BeforePublicsale';
 import background from '../animations/CyberPunkBackground.mp4'
 import {useMoralis } from "react-moralis"
 import { FaQuestionCircle } from "react-icons/fa"
@@ -91,6 +93,10 @@ function Section() {
       }
     }
 
+    const presaleDate = new Date('October 21, 2022 00:00:00').getTime();
+    const publicsaleDate = new Date('October 22, 2022 00:00:00').getTime();
+    const now = new Date().getTime();            
+
   return (
     <Wrap>  
         <ItemTitle>
@@ -150,11 +156,10 @@ function Section() {
           <p1 className = "p18"><FaQuestionCircle /></p1>
         </ItemText2>        
         </Tippy>
-            <p1 className = "p17">MINT YOUR CRΞATIVΞZ HERE</p1>
-            <p1 className = "p16">{Minted} / 5000</p1>
+        {(() => {if(publicsaleDate < now){return <p1><p1 className = "p17">MINT YOUR CRΞATIVΞZ HERE</p1><br/><p1 className = "p16">{Minted} / 5000</p1></p1>} else {return <p1 className = "p17">MINT YOUR CRΞATIVΞZ HERE</p1>}})()}         
         </ItemText3>   
         <ButtonGroup>
-          {(() => {if(Minted === "5000"){return <MintedOutInfo/>} else if(!isAuthenticated || !isWeb3Enabled){return <WalletConnectInfo/>} else if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else {return <PublicsaleInfo/>}})()}          
+          {(() => {if(Minted === "5000"){return <MintedOutInfo/>} else if(!isAuthenticated || !isWeb3Enabled){return <WalletConnectInfo/>} else if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (presaleDate > now && Boolean(presale) === true){return <BeforePresale/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else if (publicsaleDate > now){return <BeforePublicsale/>} else {return <PublicsaleInfo/>}})()}          
         </ButtonGroup>
         </OuterBorder>     
         <ItemImage>
