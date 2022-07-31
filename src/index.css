@@ -277,7 +277,7 @@ body {
 }
 
 .p1 {
-    font-family: "Marcellus", serif;
+    font-family: "Marcellus", sans-serif;
     color: #000000;
     margin: 0;
     padding: 0;
@@ -285,7 +285,7 @@ body {
 }
 
 .p2 {
-  font-family: "Marcellus", serif;
+  font-family: "Marcellus", sans-serif;
   color: white;
   margin: 0;
   padding: 0;
@@ -294,7 +294,7 @@ body {
 }
 
 .p3 {
-  font-family: "Marcellus", serif;
+  font-family: "Marcellus", sans-serif;
   color: white;
   margin: 0;
   padding: 0;
@@ -307,7 +307,7 @@ body {
 }
 
 .p4 {
-font-family: "Marcellus", serif;
+font-family: "Marcellus", sans-serif;
 color: #8cffee;
 margin: 0;
 padding: 0;
@@ -316,7 +316,7 @@ font-size: 100%;
 }
 
 .p5 {
-  font-family: "Marcellus", serif;
+  font-family: "Marcellus", sans-serif;
   color: white;
   margin: 0;
   padding: 0;
@@ -325,7 +325,7 @@ font-size: 100%;
 }
 
 .p6 {
-  font-family: "Marcellus", serif;
+  font-family: "Marcellus", sans-serif;
   color: white;
   margin: 0;
   padding: 0;
@@ -335,7 +335,7 @@ font-size: 100%;
 }
 
 .p7 {
-  font-family: "Marcellus", serif;
+  font-family: "Marcellus", sans-serif;
   color: #ffffff;
   margin: 0;
   padding: 0;
@@ -345,7 +345,7 @@ font-size: 100%;
   }
 
   .p8 {
-    font-family: "Marcellus", serif;
+    font-family: "Marcellus", sans-serif;
     color: #8cffee00;
     margin: 0;
     padding: 0;
@@ -355,7 +355,7 @@ font-size: 100%;
     }
 
   .p9 {
-      font-family: "Marcellus", serif;
+      font-family: "Marcellus", sans-serif;
       color: #ffffff;
       margin: 0;
       padding: 0;
@@ -365,7 +365,7 @@ font-size: 100%;
   }
 
   .p10 {
-    font-family: "Marcellus", serif;
+    font-family: "Marcellus", sans-serif;
     color: white;
     margin: 0;
     padding: 0;
@@ -374,7 +374,7 @@ font-size: 100%;
   }
 
   .p11 {
-    font-family: "Marcellus", serif;
+    font-family: "Marcellus", sans-serif;
     color: white;
     margin: 0;
     padding: 0;
@@ -384,7 +384,7 @@ font-size: 100%;
   }
 
   .p12 {
-    font-family: "Marcellus", serif;
+    font-family: "Marcellus", sans-serif;
     color: rgba(255, 255, 255, 1);
     margin: 0;
     padding: 0;
@@ -394,7 +394,7 @@ font-size: 100%;
   }   
 
   .p13 {
-    font-family: "Marcellus", serif;
+    font-family: "Marcellus", sans-serif;
     color: black;
     margin: 0;
     padding: 0;
@@ -403,7 +403,7 @@ font-size: 100%;
   }
 
   .p14 {
-    font-family: "Marcellus", serif;
+    font-family: "Marcellus", sans-serif;
     color: black;
     margin: 0;
     padding: 0;
@@ -412,7 +412,7 @@ font-size: 100%;
   }
 
   .p15 {
-    font-family: "Marcellus", serif;
+    font-family: "Marcellus", sans-serif;
     color: black;
     margin: 0;
     padding: 0;
@@ -421,7 +421,7 @@ font-size: 100%;
   }  
 
   .p16 {
-    font-family: "Marcellus", serif;
+    font-family: "Marcellus", sans-serif;
     color: white;
     margin: 0;
     padding: 0;
@@ -430,7 +430,7 @@ font-size: 100%;
   }
 
   .p17 {
-    font-family: "Marcellus", serif;
+    font-family: "Marcellus", sans-serif;
     color: rgba(170, 44, 255, 1);
     margin: 0;
     padding: 0;
@@ -439,16 +439,7 @@ font-size: 100%;
   }
 
   .p18 {
-    font-family: "Marcellus", serif;
-    color: rgba(170, 44, 255, 1);
-    margin: 0;
-    padding: 0;
-    font-weight: 500;
-    font-size: 300%;
-  }
-
-  .p18 {
-    font-family: "Marcellus", serif;
+    font-family: "Marcellus", sans-serif;
     color: white;
     margin: 0;
     padding: 0;
