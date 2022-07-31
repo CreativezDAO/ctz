@@ -42,7 +42,7 @@ function Header() {
     chain="polygon"
     onClick={function noRefCheck(){}}
     size="38px"
-    /> }})()}     
+    /> }})()}  
       
     <div className=''><ConnectButton /></div>   
           <CustomMenu onClick={()=>setBurgerStatus(true)}/>
@@ -62,7 +62,6 @@ function Header() {
       <li><a href="https://twitter.com/Creativez_DApp" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>TWITTER</a></li>
       <li><a href="https://www.youtube.com/channel/UCovn1niyPXt5jy84y8cQV6A/featured" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>YOUTUBE</a></li>
       <li><a href="https://discord.gg/Uj7fmHbTWj" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DISCORD</a></li>    
-
     </BurgerNav>
     </Container>
   )
@@ -94,6 +93,7 @@ const Container = styled.div`
     right: 0;
     z-index: 5;
     background: white;
+    width: 100vw;
     box-shadow: 0px 0px 40px 0px rgba(0,0,0,0.3);
 `
 
@@ -127,6 +127,7 @@ const Menu = styled.div `
 const RightMenu = styled.div`
     display: flex;
     align-items: center;
+    flex-direction: row;
     a{
       font-weight: 600;
       text-transform: uppercase;

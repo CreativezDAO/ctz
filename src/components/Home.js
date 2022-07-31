@@ -208,6 +208,7 @@ const Wrap2 = styled.div`
     justify-content: space-between;
     align-items: center;
     background-color: #010308;
+    width: 100vw;
 `
 
 const ItemTitle = styled.div`
