@@ -261,11 +261,6 @@ const ButtonGroup = styled.div`
     z-index: 1;
     margin-top: 2vh;
     margin-bottom: 2vh;
-    @media (max-width: 1550px) {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
 `
 
 const CardBox = styled.div`
