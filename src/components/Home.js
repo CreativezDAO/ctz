@@ -24,6 +24,24 @@ function Section() {
     const [Minted, setMinted] = useState (String ());
     const [presale, setPresale] = useState (Boolean());
     const [freeMint, setFreeMint] = useState (Boolean);
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+
+    useEffect(()=> {
+      function handleWindowResize() {
+        setWindowSize(getWindowSize());
+      }
+
+      window.addEventListener('resize', handleWindowResize);
+
+      return () => {
+        window.removeEventListener('resize', handleWindowResize);
+      };
+    }, []);
+
+    function getWindowSize() {
+      const {innerWidth, innerHeight} = window;
+      return {innerWidth, innerHeight};
+    }
 
     useEffect(() => {
       async function calculateMinted () {
@@ -108,7 +126,7 @@ function Section() {
         <Wrap2>
         <WrappedBorder>
         <ItemImage>
-        <img src = "images/Creativez_NFTCollection.png" alt="" className='ItemImage3'/>
+        {(() => {if(windowSize.innerWidth >= 1550){return <img src = "images/Creativez_NFTCollection2.png" alt="" className='ItemImage3'/>} else {return <img src = "images/Creativez_NFTCollection3.png" alt="" className='ItemImage3'/>}})()}  
         </ItemImage> 
         </WrappedBorder>       
         <CardBox> 
