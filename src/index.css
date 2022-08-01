@@ -54,6 +54,7 @@
     margin: 8px;
     transition-duration: 0.5s;
     box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.4);
+    font-family: "Marcellus", sans-serif;
 }
 
 .test{
@@ -75,6 +76,7 @@ font-size: 13px;
 cursor: pointer;
 margin: 8px;
 box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
+font-family: "Marcellus", sans-serif;
 }
 
 .mouseEnterButtons2 {
@@ -93,6 +95,7 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
     margin: 10px 20px;
     transition-duration: 0.5s;
     box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 1);
+    font-family: "Marcellus", sans-serif;
 }
 
 .mouseLeaveButtons2 {
@@ -110,6 +113,7 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
     cursor: pointer;
     margin: 10px 20px;
     box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 0.4);
+    font-family: "Marcellus", sans-serif;
     }
 
     .mouseEnterButtons3 {
@@ -127,6 +131,7 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
       margin: 0px 22px;
       transition-duration: 0.5s;
       box-shadow: 0px 0px 6px 6px rgba(121, 0, 202, 0.6);
+      font-family: "Marcellus", sans-serif;
   }
   
   .mouseLeaveButtons3 {
@@ -143,6 +148,7 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
   cursor: pointer;
   margin: 0px 20px;
   box-shadow: 0px 0px 7px 7px rgba(90, 0, 150, 0.4);
+  font-family: "Marcellus", sans-serif;
   }
 
   .mouseEnterButtons4 {
@@ -160,6 +166,7 @@ box-shadow: 0px 3px 18px 3px rgba(0,0,0,0.2);
     margin: 0px 20px;
     transition-duration: 0.5s;
     box-shadow: 0px 0px 6px 6px rgba(121, 0, 202, 0.4);
+    font-family: "Marcellus", sans-serif;
 }
 
 .mouseLeaveButtons4 {
@@ -176,6 +183,7 @@ font-size: 30px;
 cursor: pointer;
 margin: 0px 20px;
 box-shadow: 0px 0px 3px 3px rgba(90, 0, 150, 0.8);
+font-family: "Marcellus", sans-serif;
 }
 
 .mouseEnterButtons5 {
@@ -193,6 +201,7 @@ box-shadow: 0px 0px 3px 3px rgba(90, 0, 150, 0.8);
     cursor: pointer;
     margin: 0px 20px;
     box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.7);
+    font-family: "Marcellus", sans-serif;
 }
 
 .mouseLeaveButtons5 {
@@ -210,6 +219,7 @@ box-shadow: 0px 0px 3px 3px rgba(90, 0, 150, 0.8);
     cursor: pointer;
     margin: 0px 20px;
     box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
+    font-family: "Marcellus", sans-serif;
 }
 
 .gradient-text {
@@ -426,7 +436,7 @@ font-size: 100%;
     margin: 0;
     padding: 0;
     font-weight: 500;
-    font-size: 400%;
+    font-size: 300%;
   }
 
   .p17 {
@@ -457,6 +467,16 @@ font-size: 100%;
     width: 90px;
     height: 100%;
     box-shadow: 0px 0px 3px 3px rgba(170, 44, 255, 1);
+  }
+
+  .p20 {
+    font-family: "Marcellus", sans-serif;
+    color: rgba(170, 44, 255, 1);
+    margin: 0;
+    padding: 0;
+    font-weight: 500;
+    font-size: 120%;
+    z-index: 5;
   }
   
 

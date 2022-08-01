@@ -149,16 +149,16 @@ function Section() {
         </ReactCardFlip>                
         </CardBox>             
         <Buttons>
-        <OuterBorder>        
-        <ItemText3>    
+        <ItemText4>
+        {(() => {if(publicsaleDate < now || Boolean(freeMint) === true){return <p1><img src = "images/MintYourCreativezHere.png" alt="" className='ItemImage5'/><p1 className = "p16"><br/>Minted: {Minted} / 5000</p1></p1>} else if (presaleDate < now && Boolean(presale) === true) {return <p1><p1 className = "p17">MINT YOUR CRΞATIVΞZ HERE</p1><br/><p1 className = "p16">{Minted} / 5000</p1></p1>} else {return <img src = "images/CreativezMintComingSoon.png" alt="" className='ItemImage4'/>}})()}  
+        </ItemText4>
+        <OuterBorder>   
+        <ButtonGroup>     
         <Tippy content={<span style={{ color: "white"}} >CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</span>}>
         <ItemText2>
           <p1 className = "p18"><FaQuestionCircle /></p1>
         </ItemText2>        
-        </Tippy>
-        {(() => {if(publicsaleDate < now){return <p1><p1 className = "p17">MINT YOUR CRΞATIVΞZ HERE</p1><br/><p1 className = "p16">{Minted} / 5000</p1></p1>} else {return <p1 className = "p17">MINT YOUR CRΞATIVΞZ HERE</p1>}})()}         
-        </ItemText3>   
-        <ButtonGroup>
+        </Tippy>        
           {(() => {if(Minted === "5000"){return <MintedOutInfo/>} else if(!isAuthenticated || !isWeb3Enabled){return <WalletConnectInfo/>} else if(Boolean(freeMint) === true) {return <FreeMintInfo/>} else if (presaleDate > now && Boolean(presale) === true){return <BeforePresale/>} else if (Boolean(presale) === true){return <PresaleInfo/>} else if (publicsaleDate > now){return <BeforePublicsale/>} else {return <PublicsaleInfo/>}})()}          
         </ButtonGroup>
         </OuterBorder>     
@@ -234,18 +234,15 @@ const ItemTitle = styled.div`
 `
 
 const ItemText2 = styled.div`
-    text-align: left;
-    justify-content:left;   
-    display:flex;
     max-width:19.2px;
 `
 
-const ItemText3 = styled.div`
-    text-align: left;
-    justify-content:left;  
-    align-items: left;
-    margin-top: 3vh;  
-    margin-right: 170px;
+const ItemText4 = styled.div`
+    text-align: center;
+    justify-content:center;  
+    align-items: center;
+    margin-top: 0vh;  
+    margin-bottom: 90px;
     flex-direction: column;
     display: flex;
     @media (max-width: 1550px) {
@@ -259,7 +256,8 @@ const ItemText3 = styled.div`
 
 const ButtonGroup = styled.div`
     display: flex;
-    justify-content: center;
+    text-align: left;
+    flex-direction: column;
     z-index: 1;
     margin-top: 2vh;
     margin-bottom: 2vh;
@@ -292,7 +290,7 @@ const Buttons = styled.div`
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
-    margin-top: 150px;
+    margin-top: 100px;
     background-image: "../../public/images/Crystals.png"
     @media (max-width: 1800px) {
   align-items: center;
@@ -304,7 +302,7 @@ const Buttons = styled.div`
 const WrappedBorder = styled.div`
 text-align: center;
     justify-content:center;
-    margin-top: 100px; 
+    margin-top: 90px; 
     display:flex;
     flex-direction: column;
     align-items: center; 

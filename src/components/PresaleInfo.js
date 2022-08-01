@@ -47,8 +47,8 @@ function PresaleInfo() {
       <p1 className = "p17">MINTING RULES</p1> 
       <Rules>
       <p1 className ="p18">1) One free NFT mint for early supporters / competition winners</p1> 
-      <p1 className = "p18">2) Max three NFT mints for presale wallets @ 70 MATIC each</p1>
-      <p1 className = "p18">3) Max five NFT mints for public sale wallets @ 100 MATIC each</p1>
+      <p1 className ="p1"><p1 className = "p18">2) Max three NFT mints for presale wallets <p1 className="p20">@ 70 MATIC</p1> each</p1></p1> 
+      <p1 className ="p1"><p1 className = "p18">3) Max five NFT mints for public sale wallets <p1 className="p20">@ 100 MATIC</p1> each</p1></p1> 
       </Rules>
       <ButtonSection>
       <Button onClick={mint} onMouseEnter={ handleMouseEnter5 } onMouseLeave={ handleMouseLeave5 }>presale</Button> 
@@ -79,6 +79,7 @@ const Button = styled.div`
     cursor: pointer;
     margin: 0px 20px;
     box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
+    font-family: "Marcellus", sans-serif;
 `
 
 function handleMouseEnter5(e) {
@@ -110,6 +111,7 @@ const SmallButton = styled.div`
     cursor: pointer;
     margin: 0px 20px;
     box-shadow: box-shadow: 0px 0px 3px 3px rgba(90, 0, 150, 0.8);
+    font-family: "Marcellus", sans-serif;
 `
 
 function handleMouseEnter4(e) {
@@ -148,7 +150,7 @@ const ButtonSection = styled.div`
     text-align: center;
     align-items: center;
     justify-content:center;
-    margin-top: 30px; 
+    margin-top: 50px;  
     flex-direction: column;
     display: flex;
 `

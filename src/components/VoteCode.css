@@ -163,6 +163,38 @@
     max-width: 80vw;    
   }
 
+  .ItemImage4{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-position: center;
+    position: relative;
+    width: 1300px; 
+  }
+    
+    @media (max-width: 1550px) {
+      .ItemImage4{
+        width:650px;
+  }
+}
+
+.ItemImage5{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-position: center;
+  position: relative;
+  width: 1500px; 
+}
+  
+  @media (max-width: 1550px) {
+    .ItemImage5{
+      width:700px;
+}
+}
+
 
 
 

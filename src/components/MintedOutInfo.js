@@ -28,7 +28,7 @@ align-items: center;
 `
 
 const Button = styled.div`
-    background-color: #060420;
+    background-color: rgb(90, 0, 150);
     opacity: 0.9;
     height: 60px;
     width: 240px;
@@ -42,6 +42,7 @@ const Button = styled.div`
     cursor: pointer;
     margin: 0px 20px;
     box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.4);
+    font-family: "Marcellus", sans-serif;
 `
 
 function handleMouseEnter5(e) {
