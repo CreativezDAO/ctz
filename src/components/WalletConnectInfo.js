@@ -9,8 +9,8 @@ function WalletConnectInfo() {
       <p1 className ="p1"><p1 className = "p17">MINTING RULES</p1></p1> 
       <Rules>
       <p1 className ="p1"><p1 className = "p18">1) One free NFT mint for early supporters / competition winners</p1></p1> 
-      <p1 className ="p1"><p1 className = "p18">2) Max three NFT mints for presale wallets @ 70 MATIC each</p1></p1> 
-      <p1 className ="p1"><p1 className = "p18">3) Max five NFT mints for public sale wallets @ 100 MATIC each</p1></p1> 
+      <p1 className ="p1"><p1 className = "p18">2) Max three NFT mints for presale wallets <p1 className="p20">@ 70 MATIC</p1> each</p1></p1> 
+      <p1 className ="p1"><p1 className = "p18">3) Max five NFT mints for public sale wallets <p1 className="p20">@ 100 MATIC</p1> each</p1></p1> 
       </Rules>
       <ButtonSection>
       <div className=''><ConnectButton /></div>   
