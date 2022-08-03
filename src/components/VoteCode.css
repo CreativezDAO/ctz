@@ -163,6 +163,12 @@
     max-width: 80vw;    
   }
 
+  @media screen and (max-width: 1500px){
+    .ItemImage3{
+      max-width: 100%;
+    }
+  }
+
   .ItemImage4{
     text-align: center;
     justify-content: center;
@@ -209,6 +215,22 @@
 @media screen and (max-width: 1500px){
   .ItemImage6{
     max-width: 80%;
+  }
+}
+
+.ItemImage7{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-position: center;
+  position: relative;
+  max-width: 80%;    
+}
+
+@media screen and (max-width: 1500px){
+  .ItemImage7{
+    max-width: 100%;
   }
 }
 

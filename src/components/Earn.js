@@ -359,7 +359,7 @@ const Earn = () => {
         </ItemImage2>
         <div className='strip'><p1><br/></p1></div>
         <ItemImage>
-          <img src = "images/Rewards_Info.png" alt="" className='ItemImage2'/> 
+          <img src = "images/Rewards_Info.png" alt="" className='ItemImage7'/> 
         </ItemImage> 
         <ItemImage>
           <img src = "images/Crystals_Large.png" alt="" className=''/>
