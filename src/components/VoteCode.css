@@ -195,6 +195,23 @@
 }
 }
 
+.ItemImage6{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-position: center;
+  position: relative;
+  margin-bottom:60px;
+  max-width: 55%;    
+}
+
+@media screen and (max-width: 1500px){
+  .ItemImage6{
+    max-width: 80%;
+  }
+}
+
 
 
 

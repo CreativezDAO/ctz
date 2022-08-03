@@ -332,9 +332,9 @@ const Earn = () => {
         <Wrap2>
         <div className='strip'><p1><br/></p1></div>
         <Buttons>
-        <ItemImage>
+        <ItemImage3>
         <img src = "images/EarnMatic.png" alt="" className='ItemImage3'/>
-        </ItemImage> 
+        </ItemImage3> 
         <ButtonTitles><p1 className="p10">Staking Contracts</p1></ButtonTitles>
         <ButtonGroup>    
             <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}</p1></span>}</div>
@@ -351,6 +351,13 @@ const Earn = () => {
             <div className='buttons5' onClick={() => { if(isAuthenticated) { pushThePayDayButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">Earn 0.5 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{PayDay.toLocaleDateString(undefined, options)} - {PayDay.toLocaleTimeString()}</p1></span>}</div>
         </ButtonGroup>
         </Buttons> 
+        <Spacer/>
+        <div className='strip'><p1><br/></p1></div>
+        <ItemImage2>
+          <img src = "images/Creativez_Reward_Title.png" alt="" className='ItemImage6'/> 
+          <img src = "images/Creativez_Rewards_Structure.png" alt="" className='ItemImage2'/> 
+        </ItemImage2>
+        <div className='strip'><p1><br/></p1></div>
         <ItemImage>
           <img src = "images/Rewards_Info.png" alt="" className='ItemImage2'/> 
         </ItemImage> 
@@ -453,7 +460,32 @@ const ItemImage = styled.div`
     display: flex;
     max-width: 100%;
     overflow-x: hidden;
+    margin-top: 50px;
+`
+
+const ItemImage2 = styled.div`
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    max-width: 100%;
+    overflow-x: hidden;
     margin-bottom: 100px;
+    margin-top: 100px;
+    flex-direction: column;
+`
+
+const ItemImage3 = styled.div`
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    max-width: 100%;
+    overflow-x: hidden;
+`
+
+const Spacer = styled.div`
+  margin-top:80px;
 `
 
 
