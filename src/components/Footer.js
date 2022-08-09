@@ -14,7 +14,7 @@ function Footer() {
         <Button href="https://twitter.com/Creativez_DApp" target="_blank" rel="noreferrer"><FaTwitter onMouseEnter={ handleMouseEnter } /></Button>
         </Tippy>
         <Tippy content={<span style={{ color: "white"}}>Discord</span>}>
-        <a href="https://discord.gg/Uj7fmHbTWj" target="_blank" rel="noreferrer"><FaDiscord /></a>
+        <a href="https://discord.gg/VDAyrwSK" target="_blank" rel="noreferrer"><FaDiscord /></a>
         </Tippy>
         <Tippy content={<span style={{ color: "white"}}>GitHub</span>}>
         <a href="https://github.com/CreativezDApp" target="_blank" rel="noreferrer"><FaGithub /></a>
