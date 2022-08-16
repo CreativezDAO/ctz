@@ -11,7 +11,7 @@ function BeforePublicsale() {
     let interval = useRef();
 
     const startTimer = () => {
-        const countdownDate = new Date('October 22, 2022 00:00:00').getTime();
+        const countdownDate = new Date('December 17, 2022 00:00:00').getTime();
 
         interval = setInterval(() => {
             const now = new Date().getTime();
