@@ -172,7 +172,7 @@ function Section() {
         </ItemText4>
         <OuterBorder>   
         <ButtonGroup>     
-        <Tippy content={<span style={{ color: "white"}} >CRΞATIVΞZ is an automated reward distributor NFT collection with 5000 unique randomly generated artworks on the Polygon Network with an integrated Matic airdrop every fortnight.</span>}>
+        <Tippy content={<span style={{ color: "white"}} >By Holding a CRΞATIVΞZ NFT you will earn a compounding passive income. Our treasury smart contract distributes MATIC to your wallet every fortnight.</span>}>
         <ItemText2>
           <p1 className = "p18"><FaQuestionCircle /></p1>
         </ItemText2>        
