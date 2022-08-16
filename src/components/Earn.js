@@ -361,9 +361,9 @@ const Earn = () => {
         <ItemImage>
           <img src = "images/Rewards_Info.png" alt="" className='ItemImage7'/> 
         </ItemImage> 
-        <ItemImage>
+        <ItemImage4>
           <img src = "images/Crystals_Large.png" alt="" className=''/>
-        </ItemImage>                     
+        </ItemImage4>                     
     <Footer /> 
     </Wrap2>
     </Wrap>   
@@ -420,7 +420,7 @@ const ButtonTitles = styled.div`
 `
 
 const Buttons = styled.div`
-margin-top: 150px;
+margin-top: 70px;
 
 `
 
@@ -476,6 +476,15 @@ const ItemImage2 = styled.div`
 `
 
 const ItemImage3 = styled.div`
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    max-width: 100%;
+    overflow-x: hidden;
+`
+
+const ItemImage4 = styled.div`
     text-align: center;
     justify-content: center;
     align-items: center;
