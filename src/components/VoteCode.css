@@ -235,5 +235,21 @@
 }
 
 
+.ItemImage8{
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-position: center;
+  position: relative;
+  max-width: 40vw;    
+}
+
+@media screen and (max-width: 1500px){
+  .ItemImage8{
+    max-width: 90%;
+  }
+}
+
 
 

@@ -13,9 +13,11 @@ import BeforePresale from './BeforePresale';
 import BeforePublicsale from './BeforePublicsale';
 import background from '../animations/CyberPunkBackground.mp4'
 import {useMoralis } from "react-moralis"
-import { FaQuestionCircle } from "react-icons/fa"
+import { FaQuestionCircle, FaBook, FaYoutube } from "react-icons/fa"
 import Tippy from "@tippy.js/react"
 import "tippy.js/dist/tippy.css"
+import { IconContext } from "react-icons";
+import { Button } from "@mui/material";
 
 
 function Section() {    
@@ -128,6 +130,18 @@ function Section() {
         <ItemImage>
         {(() => {if(windowSize.innerWidth >= 1550){return <img src = "images/Creativez_NFTCollection2.png" alt="" className='ItemImage3'/>} else {return <img src = "images/Creativez_NFTCollection3.png" alt="" className='ItemImage3'/>}})()}  
         </ItemImage> 
+        <Spacer/>
+        <ItemImage>
+        <img src = "images/InfoImage.png" alt="" className='ItemImage8'/>        
+        </ItemImage> 
+        <ItemImage2>
+        <Tippy content={<span style={{ color: "white"}}>YouTube</span>}>
+        <a href="https://www.youtube.com/channel/UCovn1niyPXt5jy84y8cQV6A/featured" target="_blank" rel="noreferrer"><FaYoutube /></a>
+        </Tippy>
+        <Tippy content={<span style={{ color: "white"}}>Docs</span>}>
+        <a href="https://creativezdapp.gitbook.io/c-r-ks-a-t-i-v-ks-z/" target="_blank" rel="noreferrer"><FaBook /></a>
+        </Tippy>
+        </ItemImage2>
         </WrappedBorder>       
         <CardBox> 
         <ReactCardFlip isFlipped={isFlipped1} flipDirection="horizontal">    
@@ -172,7 +186,7 @@ function Section() {
         </ItemText4>
         <OuterBorder>   
         <ButtonGroup>     
-        <Tippy content={<span style={{ color: "white"}} >By Holding a CRΞATIVΞZ NFT you will earn a compounding passive income. Our treasury smart contract distributes MATIC to your wallet every fortnight.</span>}>
+        <Tippy content={<span style={{ color: "white"}} >By holding a CRΞATIVΞZ NFT, you will earn a compounding passive income. Our treasury smart contract distributes MATIC to your wallet every fortnight.</span>}>
         <ItemText2>
           <p1 className = "p18"><FaQuestionCircle /></p1>
         </ItemText2>        
@@ -223,6 +237,26 @@ const ItemImage = styled.div`
     display: flex;
     width: 100vw;
     overflow-x: hidden;
+    flex-direction: column;
+`
+
+const ItemImage2 = styled.div`
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    overflow-x: hidden;
+    color: red;
+    font-size: 200%;
+
+    a {
+        padding: 20px 20px;
+        color: #837DFF;
+    }
+
+    @media(max-width: 790px) {
+      width:100%;
+    }
 `
 
 const Wrap2 = styled.div`
@@ -282,7 +316,7 @@ const ButtonGroup = styled.div`
 `
 
 const CardBox = styled.div`
-margin-top: 9vh;
+margin-top: 6vh;
 display: flex;
 align-items: center;
 height: 100%;
