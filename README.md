@@ -6,7 +6,7 @@ To learn more about the CRΞATIVΞZ DApp and team follow these links:
 
 YouTube: https://www.youtube.com/channel/UCovn1niyPXt5jy84y8cQV6A
 
-Docs: https://creativezdapp.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/timeline
+Docs: https://creativezdapp.gitbook.io/c-r-ks-a-t-i-v-ks-z/introduction/what-is-crksativksz
 
 Twitter: https://twitter.com/Creativez_DApp
 
