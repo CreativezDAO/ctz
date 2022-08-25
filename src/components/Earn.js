@@ -326,7 +326,7 @@ const Earn = () => {
     </video>    
     <Fade top delay={100} duration={1200}>  
         <ItemText1>
-        <p1 className = "p3"> <br/><p1 className = "p8">__</p1>THREE WAYS TO EARN FROM CRΞATIVΞZ <p1 className = "p8">__</p1> <br/><br/> <ItemText2><p1 className = "p6"> 1.  <p1 className = "p7">Hold a CRΞATIVΞZ NFT</p1> and receive MATIC fortnightly <br/>2. <p1 className = "p7">Push the buttons below for a small MATIC reward</p1> <br/>3. <p1 className = "p7">TBA</p1></p1></ItemText2></p1>
+        <p1 className = "p3"> <br/><p1 className = "p8">__</p1>THREE WAYS TO EARN FROM CRΞATIVΞZ <p1 className = "p8">__</p1> <br/><br/> <ItemText2><p1 className = "p6"> 1.  <p1 className = "p7">Hold a CRΞATIVΞZ NFT</p1> and receive MATIC fortnightly <br/>2. <p1 className = "p7">Push the buttons below for a small MATIC reward</p1> <br/>3. <p1 className = "p7">P2E Games in the Arcade Section of the DApp</p1></p1></ItemText2></p1>
         </ItemText1>
         </Fade>  
         <Wrap2>
@@ -337,18 +337,18 @@ const Earn = () => {
         </ItemImage3> 
         <ButtonTitles><p1 className="p10">Staking Contracts</p1></ButtonTitles>
         <ButtonGroup>    
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}</p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheWETHWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(WETHWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{WETHWMATIC.toLocaleDateString(undefined, options)} - {WETHWMATIC.toLocaleTimeString()}</p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBNBWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BNBWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BNBWMATIC.toLocaleDateString(undefined, options)} - {BNBWMATIC.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">BeQi</p1> : <span><p1 className="p9">Push This Button On:<br/>{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheWETHWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(WETHWMATIC) < Number(new Date()) ? <p1 className="p9">ETH / MATIC</p1> : <span><p1 className="p9">Push This Button On:<br/>{WETHWMATIC.toLocaleDateString(undefined, options)} - {WETHWMATIC.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBNBWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BNBWMATIC) < Number(new Date()) ? <p1 className="p9">BNB / MATIC</p1> : <span><p1 className="p9">Push This Button On:<br/>{BNBWMATIC.toLocaleDateString(undefined, options)} - {BNBWMATIC.toLocaleTimeString()}</p1></span>}</div>
         </ButtonGroup>
         <ButtonGroup>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheUSDCDAIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{USDCDAI.toLocaleDateString(undefined, options)} - {USDCDAI.toLocaleTimeString()}</p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBananaWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BananaWMATIC) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BananaWMATIC.toLocaleDateString(undefined, options)} - {BananaWMATIC.toLocaleTimeString()}</p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBIFIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BIFI) < Number(new Date()) ? <p1 className="p9">Earn 0.2 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{BIFI.toLocaleDateString(undefined, options)} - {BIFI.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheUSDCDAIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">USDC / DAI</p1> : <span><p1 className="p9">Push This Button On:<br/>{USDCDAI.toLocaleDateString(undefined, options)} - {USDCDAI.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBananaWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BananaWMATIC) < Number(new Date()) ? <p1 className="p9">BANANA / MATIC</p1> : <span><p1 className="p9">Push This Button On:<br/>{BananaWMATIC.toLocaleDateString(undefined, options)} - {BananaWMATIC.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBIFIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BIFI) < Number(new Date()) ? <p1 className="p9">BIFI</p1> : <span><p1 className="p9">Push This Button On:<br/>{BIFI.toLocaleDateString(undefined, options)} - {BIFI.toLocaleTimeString()}</p1></span>}</div>
         </ButtonGroup> 
         <ButtonTitles><p1 className = "p10">Pay Day</p1></ButtonTitles>
         <ButtonGroup>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushThePayDayButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">Earn 0.5 Matic</p1> : <span><p1 className="p9">Push This Button On:<br/>{PayDay.toLocaleDateString(undefined, options)} - {PayDay.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushThePayDayButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">NFT HOLDER REWARDS</p1> : <span><p1 className="p9">Push This Button On:<br/>{PayDay.toLocaleDateString(undefined, options)} - {PayDay.toLocaleTimeString()}</p1></span>}</div>
         </ButtonGroup>
         </Buttons> 
         <Spacer/>

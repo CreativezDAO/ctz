@@ -25,7 +25,7 @@ function VoteCode() {
   async function voteOption1(){
 
     let options = {
-      contractAddress: "0xd20Fc5EDd74Fd46DE9E8515F7d95Aba505277B44",
+      contractAddress: "0x16fA171eEDE7423B27Fe4a6Ea11167b422100D64",
       functionName: "vote",
       abi: [{"inputs":[{"internalType":"address","name":"option","type":"address"}],"name":"vote","outputs":[],"stateMutability":"nonpayable","type":"function"}],
       params: {option: (Option1Address)}
@@ -45,7 +45,7 @@ function VoteCode() {
   async function voteOption2(){
 
     let options = {
-      contractAddress: "0xd20Fc5EDd74Fd46DE9E8515F7d95Aba505277B44",
+      contractAddress: "0x16fA171eEDE7423B27Fe4a6Ea11167b422100D64",
       functionName: "vote",
       abi: [{"inputs":[{"internalType":"address","name":"option","type":"address"}],"name":"vote","outputs":[],"stateMutability":"nonpayable","type":"function"}],
       params: {option: (Option2Address)}
@@ -65,7 +65,7 @@ function VoteCode() {
   async function voteOption3(){
 
     let options = {
-      contractAddress: "0xd20Fc5EDd74Fd46DE9E8515F7d95Aba505277B44",
+      contractAddress: "0x16fA171eEDE7423B27Fe4a6Ea11167b422100D64",
       functionName: "vote",
       abi: [{"inputs":[{"internalType":"address","name":"option","type":"address"}],"name":"vote","outputs":[],"stateMutability":"nonpayable","type":"function"}],
       params: {option: (Option3Address)}
