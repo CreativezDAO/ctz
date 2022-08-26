@@ -581,7 +581,7 @@ font-size: 100%;
     font-size: 24px;
     cursor: pointer;
     margin: 20px 20px;
-    box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 0.4);
+    box-shadow: 0px 0px 8px 8px rgba(170, 44, 255, 0.4);
 }
 
 .buttons5:hover {
@@ -599,7 +599,7 @@ font-size: 100%;
     cursor: pointer;
     margin: 20px 20px;
     transition-duration: 0.5s;
-    box-shadow: 0px 0px 10px 10px rgba(170, 44, 255, 1);
+    box-shadow: 0px 0px 8px 8px rgba(170, 44, 255, 0.9);
 }
 
 .buttons6 {
