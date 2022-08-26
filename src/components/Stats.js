@@ -176,8 +176,7 @@ const Wrap = styled.div`
     align-items: center;
     height: 100%;
     width: 100vw;
-    background-color: #060420;
-    background-image: linear-gradient(45deg, #060420,#190425, #250636, #330949);
+    background-color: #010308;
 `
 
 const BarChart = styled.div`
