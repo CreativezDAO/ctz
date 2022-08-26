@@ -5,9 +5,9 @@ import styled from "styled-components"
 
 function VoteCode() {
   const {Moralis, isInitialized, isAuthenticated, authenticate} = useMoralis();
-  const color1 = '#3f00eb';
-  const color2 = '#66237a';
-  const color3 = "#ffb618";
+  const color1 = '#6059e4';
+  const color2 = '#46b7e3';
+  const color3 = "#9e35ff";
   const contractProcessor = useWeb3ExecuteFunction();
   const [Perc1, setPerc1] = useState ();
   const [Perc2, setPerc2] = useState ();

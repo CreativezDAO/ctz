@@ -29,8 +29,7 @@ const Wrap = styled.div`
     width: 100vw;
     height: 100%;
     background-size: cover;
-    background-color: #060420;
-    background-image: linear-gradient(45deg, #060420,#190425, #250636, #330949);
+    background-color: #010308;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
