@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {useWeb3ExecuteFunction, useMoralis } from "react-moralis"
 import styled from "styled-components"
 import Fade from 'react-reveal/Fade'
@@ -15,6 +15,7 @@ const Earn = () => {
   const [BananaWMATIC, setBananaWMATIC] = useState (new Date ());
   const [BIFI, setBIFI] = useState (new Date ());
   const [PayDay, setPayDay] = useState (new Date ());
+  const [RewardDay, setRewardDay] = useState (new Date ());
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
 
   async function pushTheBeQiButton(){
@@ -157,6 +158,26 @@ const Earn = () => {
     });
   }
 
+  async function pushTheRewardsButton(){
+
+    let options = {
+      contractAddress: "0x376f6ED38e4865D76b16f64940143444F4593b03",
+      functionName: "buttonPushPayDay",
+      abi: [{"inputs":[],"name":"buttonPushPayDay","outputs":[],"stateMutability":"payable","type":"function"}],
+      params: {}
+    }
+
+    await contractProcessor.fetch({
+      params: options,
+      onSuccess: () => {
+        
+      },
+      onError: (error) => {
+        alert(error.data.message)
+      }
+    });
+  }
+
 
   useEffect(() => {
     async function calculateTimeLeftBeQi () {
@@ -270,6 +291,22 @@ const Earn = () => {
               calculateTimeLeftPayDay();
               }, [isInitialized]);
 
+              useEffect(() => {
+                async function calculateTimeLeftRewardDay () {
+                const query = new Moralis.Query("ButtonPushRewardsTracking");
+                query.descending("createdAt");
+                const result = await query.first(); 
+                let start = Number(result.attributes.block_timestamp);
+                let timelocked = Number(result.attributes.timelocked);
+                let end = Number(start+(timelocked*1000));
+                const endDate = new Date(end); 
+            
+                setRewardDay(endDate);
+                } 
+            
+                calculateTimeLeftRewardDay();
+                }, [isInitialized]);
+
             const handleNetworkSwitch = async (networkName) => {
               setError();
               await changeNetwork({ networkName, setError });
@@ -318,6 +355,243 @@ const Earn = () => {
               };
           
 
+
+              const [USDCDAItimerDays, setUSDCDAITimerDays] = useState('00');
+              const [USDCDAItimerHours, setUSDCDAITimerHours] = useState('00');
+              const [USDCDAItimerMinutes, setUSDCDAITimerMinutes] = useState('00');
+              const [USDCDAItimerSeconds, setUSDCDAITimerSeconds] = useState('00');
+          
+              let interval = useRef();
+          
+              const startTimerUSDCDAI = () => {
+                  const countdownDate = new Date(USDCDAI).getTime();
+          
+                  interval = setInterval(() => {
+                      const now = new Date().getTime();
+                      const distance = countdownDate - now;
+          
+                      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      const hours = Math.floor((distance %  (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+                      const minutes = Math.floor((distance %  (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((distance %  (1000 * 60)) / 1000);
+          
+                      if (distance < 0) {
+                          //stop our timer
+                          clearInterval(interval.current);
+                      } else {
+                          //update timer
+                          setUSDCDAITimerDays(days);
+                          setUSDCDAITimerHours(hours);
+                          setUSDCDAITimerMinutes(minutes);
+                          setUSDCDAITimerSeconds(seconds);
+                      }
+          
+                  }, 1000);
+              };
+          
+              //componentDidMount
+              useEffect(() => {
+                  startTimerUSDCDAI();
+                  return () => {
+                      clearInterval(interval.current);
+                  };
+              });
+
+              const [BIFItimerDays, setBIFITimerDays] = useState('00');
+              const [BIFItimerHours, setBIFITimerHours] = useState('00');
+              const [BIFItimerMinutes, setBIFITimerMinutes] = useState('00');
+              const [BIFItimerSeconds, setBIFITimerSeconds] = useState('00');
+          
+              const startTimerBIFI = () => {
+                  const countdownDate = new Date(BIFI).getTime();
+          
+                  interval = setInterval(() => {
+                      const now = new Date().getTime();
+                      const distance = countdownDate - now;
+          
+                      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      const hours = Math.floor((distance %  (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+                      const minutes = Math.floor((distance %  (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((distance %  (1000 * 60)) / 1000);
+          
+                      if (distance < 0) {
+                          //stop our timer
+                          clearInterval(interval.current);
+                      } else {
+                          //update timer
+                          setBIFITimerDays(days);
+                          setBIFITimerHours(hours);
+                          setBIFITimerMinutes(minutes);
+                          setBIFITimerSeconds(seconds);
+                      }
+          
+                  }, 1000);
+              };
+          
+              //componentDidMount
+              useEffect(() => {
+                  startTimerBIFI();
+                  return () => {
+                      clearInterval(interval.current);
+                  };
+              });
+
+              const [BananaWMATICtimerDays, setBananaWMATICTimerDays] = useState('00');
+              const [BananaWMATICtimerHours, setBananaWMATICTimerHours] = useState('00');
+              const [BananaWMATICtimerMinutes, setBananaWMATICTimerMinutes] = useState('00');
+              const [BananaWMATICtimerSeconds, setBananaWMATICTimerSeconds] = useState('00');
+          
+              const startTimerBananaWMATIC = () => {
+                  const countdownDate = new Date(BananaWMATIC).getTime();
+          
+                  interval = setInterval(() => {
+                      const now = new Date().getTime();
+                      const distance = countdownDate - now;
+          
+                      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      const hours = Math.floor((distance %  (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+                      const minutes = Math.floor((distance %  (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((distance %  (1000 * 60)) / 1000);
+          
+                      if (distance < 0) {
+                          //stop our timer
+                          clearInterval(interval.current);
+                      } else {
+                          //update timer
+                          setBananaWMATICTimerDays(days);
+                          setBananaWMATICTimerHours(hours);
+                          setBananaWMATICTimerMinutes(minutes);
+                          setBananaWMATICTimerSeconds(seconds);
+                      }
+          
+                  }, 1000);
+              };
+          
+              //componentDidMount
+              useEffect(() => {
+                  startTimerBananaWMATIC();
+                  return () => {
+                      clearInterval(interval.current);
+                  };
+              });
+
+              const [BNBWMATICtimerDays, setBNBWMATICTimerDays] = useState('00');
+              const [BNBWMATICtimerHours, setBNBWMATICTimerHours] = useState('00');
+              const [BNBWMATICtimerMinutes, setBNBWMATICTimerMinutes] = useState('00');
+              const [BNBWMATICtimerSeconds, setBNBWMATICTimerSeconds] = useState('00');
+          
+              const startTimerBNBWMATIC = () => {
+                  const countdownDate = new Date(BNBWMATIC).getTime();
+          
+                  interval = setInterval(() => {
+                      const now = new Date().getTime();
+                      const distance = countdownDate - now;
+          
+                      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      const hours = Math.floor((distance %  (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+                      const minutes = Math.floor((distance %  (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((distance %  (1000 * 60)) / 1000);
+          
+                      if (distance < 0) {
+                          //stop our timer
+                          clearInterval(interval.current);
+                      } else {
+                          //update timer
+                          setBNBWMATICTimerDays(days);
+                          setBNBWMATICTimerHours(hours);
+                          setBNBWMATICTimerMinutes(minutes);
+                          setBNBWMATICTimerSeconds(seconds);
+                      }
+          
+                  }, 1000);
+              };
+          
+              //componentDidMount
+              useEffect(() => {
+                  startTimerBNBWMATIC();
+                  return () => {
+                      clearInterval(interval.current);
+                  };
+              });
+
+              const [WETHWMATICtimerDays, setWETHWMATICTimerDays] = useState('00');
+              const [WETHWMATICtimerHours, setWETHWMATICTimerHours] = useState('00');
+              const [WETHWMATICtimerMinutes, setWETHWMATICTimerMinutes] = useState('00');
+              const [WETHWMATICtimerSeconds, setWETHWMATICTimerSeconds] = useState('00');
+          
+              const startTimerWETHWMATIC = () => {
+                  const countdownDate = new Date(WETHWMATIC).getTime();
+          
+                  interval = setInterval(() => {
+                      const now = new Date().getTime();
+                      const distance = countdownDate - now;
+          
+                      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      const hours = Math.floor((distance %  (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+                      const minutes = Math.floor((distance %  (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((distance %  (1000 * 60)) / 1000);
+          
+                      if (distance < 0) {
+                          //stop our timer
+                          clearInterval(interval.current);
+                      } else {
+                          //update timer
+                          setWETHWMATICTimerDays(days);
+                          setWETHWMATICTimerHours(hours);
+                          setWETHWMATICTimerMinutes(minutes);
+                          setWETHWMATICTimerSeconds(seconds);
+                      }
+          
+                  }, 1000);
+              };
+          
+              //componentDidMount
+              useEffect(() => {
+                  startTimerWETHWMATIC();
+                  return () => {
+                      clearInterval(interval.current);
+                  };
+              });
+
+              const [BeQitimerDays, setBeQiTimerDays] = useState('00');
+              const [BeQitimerHours, setBeQiTimerHours] = useState('00');
+              const [BeQitimerMinutes, setBeQiTimerMinutes] = useState('00');
+              const [BeQitimerSeconds, setBeQiTimerSeconds] = useState('00');
+          
+              const startTimerBeQi = () => {
+                  const countdownDate = new Date(BeQi).getTime();
+          
+                  interval = setInterval(() => {
+                      const now = new Date().getTime();
+                      const distance = countdownDate - now;
+          
+                      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      const hours = Math.floor((distance %  (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+                      const minutes = Math.floor((distance %  (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((distance %  (1000 * 60)) / 1000);
+          
+                      if (distance < 0) {
+                          //stop our timer
+                          clearInterval(interval.current);
+                      } else {
+                          //update timer
+                          setBeQiTimerDays(days);
+                          setBeQiTimerHours(hours);
+                          setBeQiTimerMinutes(minutes);
+                          setBeQiTimerSeconds(seconds);
+                      }
+          
+                  }, 1000);
+              };
+          
+              //componentDidMount
+              useEffect(() => {
+                  startTimerBeQi();
+                  return () => {
+                      clearInterval(interval.current);
+                  };
+              });
+
            
   return (
     <Wrap>
@@ -334,21 +608,26 @@ const Earn = () => {
         <Buttons>
         <ItemImage3>
         <img src = "images/EarnMatic.png" alt="" className='ItemImage3'/>
-        </ItemImage3> 
-        <ButtonTitles><p1 className="p10">Staking Contracts</p1></ButtonTitles>
+        </ItemImage3>
+        <ButtonTitles><p1 className="p10">Push the Buttons Below to Receive Matic in the Next Pay Cycle</p1></ButtonTitles> 
+        <ButtonTitles><p1 className="p10">STAKING CONTRACTS<br/><p1 className="p9">( pushed every 1-2 days )</p1></p1></ButtonTitles>
         <ButtonGroup>    
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">BeQi</p1> : <span><p1 className="p9">Push This Button On:<br/>{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}</p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheWETHWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(WETHWMATIC) < Number(new Date()) ? <p1 className="p9">ETH / MATIC</p1> : <span><p1 className="p9">Push This Button On:<br/>{WETHWMATIC.toLocaleDateString(undefined, options)} - {WETHWMATIC.toLocaleTimeString()}</p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBNBWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BNBWMATIC) < Number(new Date()) ? <p1 className="p9">BNB / MATIC</p1> : <span><p1 className="p9">Push This Button On:<br/>{BNBWMATIC.toLocaleDateString(undefined, options)} - {BNBWMATIC.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">BeQi</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}<br/> {(() => {if(BeQitimerDays > 0){return <div>{BeQitimerDays} D {BeQitimerHours} H {BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else if(BeQitimerHours > 0){return <div>{BeQitimerHours} H {BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else if(BeQitimerMinutes > 0) {return <div>{BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else {return <div>{BeQitimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheWETHWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(WETHWMATIC) < Number(new Date()) ? <p1 className="p9">ETH / MATIC</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{WETHWMATIC.toLocaleDateString(undefined, options)} - {WETHWMATIC.toLocaleTimeString()}<br/> {(() => {if(WETHWMATICtimerDays > 0){return <div>{WETHWMATICtimerDays} D {WETHWMATICtimerHours} H {WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else if(WETHWMATICtimerHours > 0){return <div>{WETHWMATICtimerHours} H {WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else if(WETHWMATICtimerMinutes > 0) {return <div>{WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else {return <div>{WETHWMATICtimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBNBWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BNBWMATIC) < Number(new Date()) ? <p1 className="p9">BNB / MATIC</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BNBWMATIC.toLocaleDateString(undefined, options)} - {BNBWMATIC.toLocaleTimeString()}<br/> {(() => {if(BNBWMATICtimerDays > 0){return <div>{BNBWMATICtimerDays} D {BNBWMATICtimerHours} H {BNBWMATICtimerMinutes} M {BNBWMATICtimerSeconds} S</div>} else if(BNBWMATICtimerHours > 0){return <div>{BNBWMATICtimerHours} H {BNBWMATICtimerMinutes} M {BNBWMATICtimerSeconds} S</div>} else if(BNBWMATICtimerMinutes > 0) {return <div>{BNBWMATICtimerMinutes} M {BNBWMATICtimerSeconds} S</div>} else {return <div>{BNBWMATICtimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
         </ButtonGroup>
         <ButtonGroup>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheUSDCDAIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">USDC / DAI</p1> : <span><p1 className="p9">Push This Button On:<br/>{USDCDAI.toLocaleDateString(undefined, options)} - {USDCDAI.toLocaleTimeString()}</p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBananaWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BananaWMATIC) < Number(new Date()) ? <p1 className="p9">BANANA / MATIC</p1> : <span><p1 className="p9">Push This Button On:<br/>{BananaWMATIC.toLocaleDateString(undefined, options)} - {BananaWMATIC.toLocaleTimeString()}</p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBIFIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BIFI) < Number(new Date()) ? <p1 className="p9">BIFI</p1> : <span><p1 className="p9">Push This Button On:<br/>{BIFI.toLocaleDateString(undefined, options)} - {BIFI.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheUSDCDAIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">USDC / DAI</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{USDCDAI.toLocaleDateString(undefined, options)} - {USDCDAI.toLocaleTimeString()}<br/>{(() => {if(USDCDAItimerDays > 0){return <div>{USDCDAItimerDays} D {USDCDAItimerHours} H {USDCDAItimerMinutes} M {USDCDAItimerSeconds} S</div>} else if(USDCDAItimerHours > 0){return <div>{USDCDAItimerHours} H {USDCDAItimerMinutes} M {USDCDAItimerSeconds} S</div>} else if(USDCDAItimerMinutes > 0) {return <div>{USDCDAItimerMinutes} M {USDCDAItimerSeconds} S</div>} else {return <div>{USDCDAItimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBananaWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BananaWMATIC) < Number(new Date()) ? <p1 className="p9">BANANA / MATIC</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BananaWMATIC.toLocaleDateString(undefined, options)} - {BananaWMATIC.toLocaleTimeString()}<br/> {(() => {if(BananaWMATICtimerDays > 0){return <div>{BananaWMATICtimerDays} D {BananaWMATICtimerHours} H {BananaWMATICtimerMinutes} M {BananaWMATICtimerSeconds} S</div>} else if(BananaWMATICtimerHours > 0){return <div>{BananaWMATICtimerHours} H {BananaWMATICtimerMinutes} M {BananaWMATICtimerSeconds} S</div>} else if(BananaWMATICtimerMinutes > 0) {return <div>{BananaWMATICtimerMinutes} M {BananaWMATICtimerSeconds} S</div>} else {return <div>{BananaWMATICtimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBIFIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BIFI) < Number(new Date()) ? <p1 className="p9">BIFI</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BIFI.toLocaleDateString(undefined, options)} - {BIFI.toLocaleTimeString()}<br/> {(() => {if(BIFItimerDays > 0){return <div>{BIFItimerDays} D {BIFItimerHours} H {BIFItimerMinutes} M {BIFItimerSeconds} S</div>} else if(BIFItimerHours > 0){return <div>{BIFItimerHours} H {BIFItimerMinutes} M {BIFItimerSeconds} S</div>} else if(BIFItimerMinutes > 0) {return <div>{BIFItimerMinutes} M {BIFItimerSeconds} S</div>} else {return <div>{BIFItimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
         </ButtonGroup> 
-        <ButtonTitles><p1 className = "p10">Pay Day</p1></ButtonTitles>
+        <ButtonTitles><p1 className = "p10">PAY NFT HOLDERS<br/><p1 className="p9">( pushed every 14 days )</p1></p1></ButtonTitles>
         <ButtonGroup>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushThePayDayButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">NFT HOLDER REWARDS</p1> : <span><p1 className="p9">Push This Button On:<br/>{PayDay.toLocaleDateString(undefined, options)} - {PayDay.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushThePayDayButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(PayDay) < Number(new Date()) ? <p1 className="p9">NFT HOLDER REWARDS</p1> : <span><p1 className="p9">Push This Button On:<br/>{PayDay.toLocaleDateString(undefined, options)} - {PayDay.toLocaleTimeString()}</p1></span>}</div>
+        </ButtonGroup>
+        <ButtonTitles><p1 className = "p10">PAY BUTTON PUSHING<br/><p1 className="p9">( pushed every 14 days )</p1></p1></ButtonTitles>
+        <ButtonGroup>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheRewardsButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(RewardDay) < Number(new Date()) ? <p1 className="p9">BUTTON PUSHING REWARDS</p1> : <span><p1 className="p9">Push This Button On:<br/>{PayDay.toLocaleDateString(undefined, options)} - {PayDay.toLocaleTimeString()}</p1></span>}</div>
         </ButtonGroup>
         </Buttons> 
         <Spacer/>
@@ -391,6 +670,18 @@ const Wrap2 = styled.div`
     background-color: #010308;
     height: 100%;
     width: 100%;    
+`
+
+const TimerBoxes = styled.div`
+    text-align: center;
+    align-items: center;
+    justify-content:left;
+    flex-direction: row;
+    display: flex;
+    @media (max-width: 1550px) {
+  flex-direction: column;
+  justify-content:center;
+}
 `
 
 const ButtonGroup = styled.div`

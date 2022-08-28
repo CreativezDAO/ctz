@@ -478,6 +478,15 @@ font-size: 100%;
     font-size: 120%;
     z-index: 5;
   }
+
+  .p21 {
+    font-family: "Marcellus", sans-serif;
+    color: white;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 70%;
+    height: 100%;
+  }
   
 
 @keyframes animateDown {
