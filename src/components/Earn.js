@@ -22,7 +22,7 @@ const Earn = () => {
     let options = {
       contractAddress: "0x0bB982cd7E4D21E58F666188263f7FE4EB6Feb51",
       functionName: "pushTheButton",
-      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
+      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"}],
       params: {}
     }
 
@@ -42,7 +42,7 @@ const Earn = () => {
     let options = {
       contractAddress: "0x42FCCCDaa78a5681F5F92C66758be1fFC8971210",
       functionName: "pushTheButton",
-      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
+      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"}],
       params: {}
     }
 
@@ -62,7 +62,7 @@ const Earn = () => {
     let options = {
       contractAddress: "0xddD74378031F946d21c547DBe1F926aaC1E6AD82",
       functionName: "pushTheButton",
-      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
+      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"}],
       params: {}
     }
 
@@ -82,7 +82,7 @@ const Earn = () => {
     let options = {
       contractAddress: "0x576F044C2cB7636D94366136c73d174E6a32b8fC",
       functionName: "pushTheButton",
-      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
+      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"}],
       params: {}
     }
 
@@ -102,7 +102,7 @@ const Earn = () => {
     let options = {
       contractAddress: "0xFfde542cab2e1Ea70122fD28c070879750217a0D",
       functionName: "pushTheButton",
-      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
+      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"}],
       params: {}
     }
 
@@ -122,7 +122,7 @@ const Earn = () => {
     let options = {
       contractAddress: "0xBaD0B643cf2704e62A4CF59696D59C72f934a5bf",
       functionName: "pushTheButton",
-      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"removeTimelock","outputs":[],"stateMutability":"nonpayable","type":"function"}],
+      abi: [{"inputs":[],"name":"pushTheButton","outputs":[],"stateMutability":"payable","type":"function"}],
       params: {}
     }
 
@@ -142,7 +142,7 @@ const Earn = () => {
     let options = {
       contractAddress: "0x54aDDE78c95C5E4017A70E51bB163A846b030BbF",
       functionName: "PayDay",
-      abi: [{"inputs":[],"name":"PayDay","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"Receiver","outputs":[],"stateMutability":"payable","type":"function"}],
+      abi: [{"inputs":[],"name":"PayDay","outputs":[],"stateMutability":"payable","type":"function"}],
       params: {}
     }
 
