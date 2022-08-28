@@ -592,6 +592,84 @@ const Earn = () => {
                   };
               });
 
+              const [PayDaytimerDays, setPayDayTimerDays] = useState('00');
+              const [PayDaytimerHours, setPayDayTimerHours] = useState('00');
+              const [PayDaytimerMinutes, setPayDayTimerMinutes] = useState('00');
+              const [PayDaytimerSeconds, setPayDayTimerSeconds] = useState('00');
+          
+              const startTimerPayDay = () => {
+                  const countdownDate = new Date(PayDay).getTime();
+          
+                  interval = setInterval(() => {
+                      const now = new Date().getTime();
+                      const distance = countdownDate - now;
+          
+                      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      const hours = Math.floor((distance %  (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+                      const minutes = Math.floor((distance %  (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((distance %  (1000 * 60)) / 1000);
+          
+                      if (distance < 0) {
+                          //stop our timer
+                          clearInterval(interval.current);
+                      } else {
+                          //update timer
+                          setPayDayTimerDays(days);
+                          setPayDayTimerHours(hours);
+                          setPayDayTimerMinutes(minutes);
+                          setPayDayTimerSeconds(seconds);
+                      }
+          
+                  }, 1000);
+              };
+          
+              //componentDidMount
+              useEffect(() => {
+                  startTimerPayDay();
+                  return () => {
+                      clearInterval(interval.current);
+                  };
+              });
+
+              const [RewardDaytimerDays, setRewardDayTimerDays] = useState('00');
+              const [RewardDaytimerHours, setRewardDayTimerHours] = useState('00');
+              const [RewardDaytimerMinutes, setRewardDayTimerMinutes] = useState('00');
+              const [RewardDaytimerSeconds, setRewardDayTimerSeconds] = useState('00');
+          
+              const startTimerRewardDay = () => {
+                  const countdownDate = new Date(RewardDay).getTime();
+          
+                  interval = setInterval(() => {
+                      const now = new Date().getTime();
+                      const distance = countdownDate - now;
+          
+                      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      const hours = Math.floor((distance %  (1000 * 60 * 60 * 24) / (1000 * 60 * 60)));
+                      const minutes = Math.floor((distance %  (1000 * 60 * 60)) / (1000 * 60));
+                      const seconds = Math.floor((distance %  (1000 * 60)) / 1000);
+          
+                      if (distance < 0) {
+                          //stop our timer
+                          clearInterval(interval.current);
+                      } else {
+                          //update timer
+                          setRewardDayTimerDays(days);
+                          setRewardDayTimerHours(hours);
+                          setRewardDayTimerMinutes(minutes);
+                          setRewardDayTimerSeconds(seconds);
+                      }
+          
+                  }, 1000);
+              };
+          
+              //componentDidMount
+              useEffect(() => {
+                  startTimerRewardDay();
+                  return () => {
+                      clearInterval(interval.current);
+                  };
+              });
+
            
   return (
     <Wrap>
@@ -623,11 +701,11 @@ const Earn = () => {
         </ButtonGroup> 
         <ButtonTitles><p1 className = "p10">PAY NFT HOLDERS<br/><p1 className="p9">( pushed every 14 days )</p1></p1></ButtonTitles>
         <ButtonGroup>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushThePayDayButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(PayDay) < Number(new Date()) ? <p1 className="p9">NFT HOLDER REWARDS</p1> : <span><p1 className="p9">Push This Button On:<br/>{PayDay.toLocaleDateString(undefined, options)} - {PayDay.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushThePayDayButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(PayDay) < Number(new Date()) ? <p1 className="p9">NFT HOLDER REWARDS</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{PayDay.toLocaleDateString(undefined, options)} - {PayDay.toLocaleTimeString()}<br/> {(() => {if(PayDaytimerDays > 0){return <div>{PayDaytimerDays} D {PayDaytimerHours} H {PayDaytimerMinutes} M {PayDaytimerSeconds} S</div>} else if(PayDaytimerHours > 0){return <div>{PayDaytimerHours} H {PayDaytimerMinutes} M {PayDaytimerSeconds} S</div>} else if(PayDaytimerMinutes > 0) {return <div>{PayDaytimerMinutes} M {PayDaytimerSeconds} S</div>} else {return <div>{PayDaytimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
         </ButtonGroup>
         <ButtonTitles><p1 className = "p10">PAY BUTTON PUSHING<br/><p1 className="p9">( pushed every 14 days )</p1></p1></ButtonTitles>
         <ButtonGroup>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheRewardsButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(RewardDay) < Number(new Date()) ? <p1 className="p9">BUTTON PUSHING REWARDS</p1> : <span><p1 className="p9">Push This Button On:<br/>{PayDay.toLocaleDateString(undefined, options)} - {PayDay.toLocaleTimeString()}</p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheRewardsButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(RewardDay) < Number(new Date()) ? <p1 className="p9">BUTTON PUSHING REWARDS</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{RewardDay.toLocaleDateString(undefined, options)} - {RewardDay.toLocaleTimeString()}<br/> {(() => {if(RewardDaytimerDays > 0){return <div>{RewardDaytimerDays} D {RewardDaytimerHours} H {RewardDaytimerMinutes} M {RewardDaytimerSeconds} S</div>} else if(RewardDaytimerHours > 0){return <div>{RewardDaytimerHours} H {RewardDaytimerMinutes} M {RewardDaytimerSeconds} S</div>} else if(RewardDaytimerMinutes > 0) {return <div>{RewardDaytimerMinutes} M {RewardDaytimerSeconds} S</div>} else {return <div>{RewardDaytimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
         </ButtonGroup>
         </Buttons> 
         <Spacer/>
@@ -700,7 +778,7 @@ const ButtonGroup = styled.div`
 const ButtonTitles = styled.div`
     display: flex;
     margin-top: 80px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     justify-content: center;
     z-index: 100;
     height:100%;
@@ -787,6 +865,3 @@ const ItemImage4 = styled.div`
 const Spacer = styled.div`
   margin-top:80px;
 `
-
-
-
