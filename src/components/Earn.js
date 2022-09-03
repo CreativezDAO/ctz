@@ -8,27 +8,21 @@ import background from '../animations/polygon.mp4'
 const Earn = () => {
   const contractProcessor = useWeb3ExecuteFunction();
   const {Moralis, isInitialized, isAuthenticated, authenticate} = useMoralis();
-  const [BeQiPay, setBeQiPay] = useState (1);
   const [BeQiCycle, setBeQiCycle] = useState (new Date ());
   const [BeQiLastPush, setBeQiLastPush] = useState ("");
 
-  const [WETHWMATICPay, setWETHWMATICPay] = useState (1);
   const [WETHWMATICCycle, setWETHWMATICCycle] = useState (new Date ());
   const [WETHWMATICLastPush, setWETHWMATICLastPush] = useState ("");
 
-  const [BNBMATICPay, setBNBMATICPay] = useState (1);
   const [BNBMATICCycle, setBNBMATICCycle] = useState (new Date ());
   const [BNBMATICLastPush, setBNBMATICLastPush] = useState ("");
 
-  const [BIFIPay, setBIFIPay] = useState (1);
   const [BIFICycle, setBIFICycle] = useState (new Date ());
   const [BIFILastPush, setBIFILastPush] = useState ("");
 
-  const [BANANAMATICPay, setBANANAMATICPay] = useState (1);
   const [BANANAMATICCycle, setBANANAMATICCycle] = useState (new Date ());
   const [BANANAMATICLastPush, setBANANAMATICLastPush] = useState ("");
 
-  const [USDCDAIPay, setUSDCDAIPay] = useState (1);
   const [USDCDAICycle, setUSDCDAICycle] = useState (new Date ());
   const [USDCDAILastPush, setUSDCDAILastPush] = useState ("");
   const [PayDay, setPayDay] = useState (new Date ());
@@ -194,20 +188,6 @@ const Earn = () => {
       }
     });
   }  
-    
-    useEffect(() => {
-    async function calculateCumMaticBeQi () {
-    const query = new Moralis.Query("BeQiPay");
-    query.descending("createdAt");
-    const result = await query.first(); 
-    let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
-    const Total = WeiTotal / (10**18);
-    
-    setBeQiPay(Total);
-    } 
-
-    calculateCumMaticBeQi();
-    }, [isInitialized]);
 
     useEffect(() => {
       async function calculateTimeLeftBeQi () {
@@ -227,21 +207,7 @@ const Earn = () => {
       calculateTimeLeftBeQi();
       }, [isInitialized]);
 
-      //
-      useEffect(() => {
-        async function calculateCumMaticBIFI () {
-        const query = new Moralis.Query("BIFIPay");
-        query.descending("createdAt");
-        const result = await query.first(); 
-        let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
-        const Total = WeiTotal / (10**18);
-        
-        setBIFIPay(Total);
-        } 
-    
-        calculateCumMaticBIFI();
-        }, [isInitialized]);
-    
+      //    
         useEffect(() => {
           async function calculateTimeLeftBIFI () {
           const query = new Moralis.Query("BIFICycle");
@@ -260,21 +226,7 @@ const Earn = () => {
           calculateTimeLeftBIFI();
           }, [isInitialized]);
 
-          //
-          useEffect(() => {
-            async function calculateCumMaticWETHWMATIC () {
-            const query = new Moralis.Query("WETHWMATICPay");
-            query.descending("createdAt");
-            const result = await query.first(); 
-            let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
-            const Total = WeiTotal / (10**18);
-            
-            setWETHWMATICPay(Total);
-            } 
-        
-            calculateCumMaticWETHWMATIC();
-            }, [isInitialized]);
-        
+          //        
             useEffect(() => {
               async function calculateTimeLeftWETHWMATIC () {
               const query = new Moralis.Query("WETHWMATICCycle");
@@ -293,21 +245,7 @@ const Earn = () => {
               calculateTimeLeftWETHWMATIC();
               }, [isInitialized]);
 
-              //
-              useEffect(() => {
-                async function calculateCumMaticBNBMATIC () {
-                const query = new Moralis.Query("BNBWMATICPay");
-                query.descending("createdAt");
-                const result = await query.first(); 
-                let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
-                const Total = WeiTotal / (10**18);
-                
-                setBNBMATICPay(Total);
-                } 
-            
-                calculateCumMaticBNBMATIC();
-                }, [isInitialized]);
-            
+              //            
                 useEffect(() => {
                   async function calculateTimeLeftBNBMATIC () {
                   const query = new Moralis.Query("BNBWMATICCycle");
@@ -326,21 +264,7 @@ const Earn = () => {
                   calculateTimeLeftBNBMATIC();
                   }, [isInitialized]);
 
-                  //
-                  useEffect(() => {
-                    async function calculateCumMaticBANANAMATIC () {
-                    const query = new Moralis.Query("BananaWMATICPay");
-                    query.descending("createdAt");
-                    const result = await query.first(); 
-                    let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
-                    const Total = WeiTotal / (10**18);
-                    
-                    setBANANAMATICPay(Total);
-                    } 
-                
-                    calculateCumMaticBANANAMATIC();
-                    }, [isInitialized]);
-                
+                  //              
                     useEffect(() => {
                       async function calculateTimeLeftBANANAMATIC () {
                       const query = new Moralis.Query("BananaWMATICCycle");
@@ -359,21 +283,7 @@ const Earn = () => {
                       calculateTimeLeftBANANAMATIC();
                       }, [isInitialized]);
 
-                      //
-                      useEffect(() => {
-                        async function calculateCumMaticUSDCDAI () {
-                        const query = new Moralis.Query("USDCDAIPay");
-                        query.descending("createdAt");
-                        const result = await query.first(); 
-                        let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
-                        const Total = WeiTotal / (10**18);
-                        
-                        setUSDCDAIPay(Total);
-                        } 
-                    
-                        calculateCumMaticUSDCDAI();
-                        }, [isInitialized]);
-                    
+                      //                    
                         useEffect(() => {
                           async function calculateTimeLeftUSDCDAI () {
                           const query = new Moralis.Query("USDCDAICycle");
