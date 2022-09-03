@@ -16,9 +16,6 @@ import {useMoralis } from "react-moralis"
 import { FaQuestionCircle, FaBook, FaYoutube } from "react-icons/fa"
 import Tippy from "@tippy.js/react"
 import "tippy.js/dist/tippy.css"
-import { IconContext } from "react-icons";
-import { Button } from "@mui/material";
-
 
 function Section() {    
 

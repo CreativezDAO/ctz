@@ -1,6 +1,6 @@
 # Creativez Website
 
-The CRΞATIVΞZ website showcases a Web3 NFT DApp which was created using React JS, and CSS. The DApp utilises the Moralis SDK as well as 9 smart contracts created in the Solidity blockchain language.
+The CRΞATIVΞZ website showcases a Web3 NFT DApp which was created using React JS, and CSS. The DApp utilises the Moralis SDK as well as 10 smart contracts created in the Solidity blockchain language.
 
 To learn more about the CRΞATIVΞZ DApp and team follow these links:
 

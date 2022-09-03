@@ -8,12 +8,29 @@ import background from '../animations/polygon.mp4'
 const Earn = () => {
   const contractProcessor = useWeb3ExecuteFunction();
   const {Moralis, isInitialized, isAuthenticated, authenticate} = useMoralis();
-  const [BeQi, setBeQi] = useState (new Date ());
-  const [WETHWMATIC, setWETHWMATIC] = useState (new Date ());
-  const [BNBWMATIC, setBNBWMATIC] = useState (new Date ());
-  const [USDCDAI, setUSDCDAI] = useState (new Date ());
-  const [BananaWMATIC, setBananaWMATIC] = useState (new Date ());
-  const [BIFI, setBIFI] = useState (new Date ());
+  const [BeQiPay, setBeQiPay] = useState (1);
+  const [BeQiCycle, setBeQiCycle] = useState (new Date ());
+  const [BeQiLastPush, setBeQiLastPush] = useState ("");
+
+  const [WETHWMATICPay, setWETHWMATICPay] = useState (1);
+  const [WETHWMATICCycle, setWETHWMATICCycle] = useState (new Date ());
+  const [WETHWMATICLastPush, setWETHWMATICLastPush] = useState ("");
+
+  const [BNBMATICPay, setBNBMATICPay] = useState (1);
+  const [BNBMATICCycle, setBNBMATICCycle] = useState (new Date ());
+  const [BNBMATICLastPush, setBNBMATICLastPush] = useState ("");
+
+  const [BIFIPay, setBIFIPay] = useState (1);
+  const [BIFICycle, setBIFICycle] = useState (new Date ());
+  const [BIFILastPush, setBIFILastPush] = useState ("");
+
+  const [BANANAMATICPay, setBANANAMATICPay] = useState (1);
+  const [BANANAMATICCycle, setBANANAMATICCycle] = useState (new Date ());
+  const [BANANAMATICLastPush, setBANANAMATICLastPush] = useState ("");
+
+  const [USDCDAIPay, setUSDCDAIPay] = useState (1);
+  const [USDCDAICycle, setUSDCDAICycle] = useState (new Date ());
+  const [USDCDAILastPush, setUSDCDAILastPush] = useState ("");
   const [PayDay, setPayDay] = useState (new Date ());
   const [RewardDay, setRewardDay] = useState (new Date ());
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -176,104 +193,204 @@ const Earn = () => {
         alert(error.data.message)
       }
     });
-  }
-
-
-  useEffect(() => {
-    async function calculateTimeLeftBeQi () {
-    const query = new Moralis.Query("BeQiCycle");
+  }  
+    
+    useEffect(() => {
+    async function calculateCumMaticBeQi () {
+    const query = new Moralis.Query("BeQiPay");
     query.descending("createdAt");
     const result = await query.first(); 
-    let start = Number(result.attributes.block_timestamp);
-    let timelocked = Number(result.attributes.timelocked);
-    let end = Number(start+(timelocked*1000));
-    const endDate = new Date(end); 
-
-    setBeQi(endDate);
+    let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+    const Total = WeiTotal / (10**18);
+    
+    setBeQiPay(Total);
     } 
 
-    calculateTimeLeftBeQi();
+    calculateCumMaticBeQi();
     }, [isInitialized]);
 
     useEffect(() => {
-    async function calculateTimeLeftWETHWMATIC () {
-    const query = new Moralis.Query("WETHWMATICCycle");
-    query.descending("createdAt");
-    const result = await query.first(); 
-    let start = Number(result.attributes.block_timestamp);
-    let timelocked = Number(result.attributes.timelocked);
-    let end = Number(start+(timelocked*1000));
-    const endDate = new Date(end); 
-
-    setWETHWMATIC(endDate);
-    } 
-
-    calculateTimeLeftWETHWMATIC();
-    }, [isInitialized]);
-
-    useEffect(() => {
-      async function calculateTimeLeftBNBWMATIC () {
-      const query = new Moralis.Query("BNBWMATICCycle");
+      async function calculateTimeLeftBeQi () {
+      const query = new Moralis.Query("BeQiCycle");
       query.descending("createdAt");
       const result = await query.first(); 
       let start = Number(result.attributes.block_timestamp);
       let timelocked = Number(result.attributes.timelocked);
       let end = Number(start+(timelocked*1000));
       const endDate = new Date(end); 
+      const LastPushAddrs = String(result.attributes.sender);
   
-      setBNBWMATIC(endDate);
+      setBeQiCycle(endDate);
+      setBeQiLastPush(LastPushAddrs);
       } 
   
-      calculateTimeLeftBNBWMATIC();
+      calculateTimeLeftBeQi();
       }, [isInitialized]);
 
+      //
       useEffect(() => {
-        async function calculateTimeLeftUSDCDAI () {
-        const query = new Moralis.Query("USDCDAICycle");
+        async function calculateCumMaticBIFI () {
+        const query = new Moralis.Query("BIFIPay");
         query.descending("createdAt");
         const result = await query.first(); 
-        let start = Number(result.attributes.block_timestamp);
-        let timelocked = Number(result.attributes.timelocked);
-        let end = Number(start+(timelocked*1000));
-        const endDate = new Date(end); 
-    
-        setUSDCDAI(endDate);
+        let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+        const Total = WeiTotal / (10**18);
+        
+        setBIFIPay(Total);
         } 
     
-        calculateTimeLeftUSDCDAI();
+        calculateCumMaticBIFI();
         }, [isInitialized]);
-
+    
         useEffect(() => {
-          async function calculateTimeLeftBananaWMATIC () {
-          const query = new Moralis.Query("BananaWMATICCycle");
+          async function calculateTimeLeftBIFI () {
+          const query = new Moralis.Query("BIFICycle");
           query.descending("createdAt");
           const result = await query.first(); 
           let start = Number(result.attributes.block_timestamp);
           let timelocked = Number(result.attributes.timelocked);
           let end = Number(start+(timelocked*1000));
           const endDate = new Date(end); 
+          const LastPushAddrs = String(result.attributes.sender);
       
-          setBananaWMATIC(endDate);
+          setBIFICycle(endDate);
+          setBIFILastPush(LastPushAddrs);
           } 
       
-          calculateTimeLeftBananaWMATIC();
+          calculateTimeLeftBIFI();
           }, [isInitialized]);
 
+          //
           useEffect(() => {
-            async function calculateTimeLeftBIFI () {
-            const query = new Moralis.Query("BIFICycle");
+            async function calculateCumMaticWETHWMATIC () {
+            const query = new Moralis.Query("WETHWMATICPay");
             query.descending("createdAt");
             const result = await query.first(); 
-            let start = Number(result.attributes.block_timestamp);
-            let timelocked = Number(result.attributes.timelocked);
-            let end = Number(start+(timelocked*1000));
-            const endDate = new Date(end); 
-        
-            setBIFI(endDate);
+            let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+            const Total = WeiTotal / (10**18);
+            
+            setWETHWMATICPay(Total);
             } 
         
-            calculateTimeLeftBIFI();
+            calculateCumMaticWETHWMATIC();
             }, [isInitialized]);
+        
+            useEffect(() => {
+              async function calculateTimeLeftWETHWMATIC () {
+              const query = new Moralis.Query("WETHWMATICCycle");
+              query.descending("createdAt");
+              const result = await query.first(); 
+              let start = Number(result.attributes.block_timestamp);
+              let timelocked = Number(result.attributes.timelocked);
+              let end = Number(start+(timelocked*1000));
+              const endDate = new Date(end); 
+              const LastPushAddrs = String(result.attributes.sender);
+          
+              setWETHWMATICCycle(endDate);
+              setWETHWMATICLastPush(LastPushAddrs);
+              } 
+          
+              calculateTimeLeftWETHWMATIC();
+              }, [isInitialized]);
+
+              //
+              useEffect(() => {
+                async function calculateCumMaticBNBMATIC () {
+                const query = new Moralis.Query("BNBWMATICPay");
+                query.descending("createdAt");
+                const result = await query.first(); 
+                let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+                const Total = WeiTotal / (10**18);
+                
+                setBNBMATICPay(Total);
+                } 
+            
+                calculateCumMaticBNBMATIC();
+                }, [isInitialized]);
+            
+                useEffect(() => {
+                  async function calculateTimeLeftBNBMATIC () {
+                  const query = new Moralis.Query("BNBWMATICCycle");
+                  query.descending("createdAt");
+                  const result = await query.first(); 
+                  let start = Number(result.attributes.block_timestamp);
+                  let timelocked = Number(result.attributes.timelocked);
+                  let end = Number(start+(timelocked*1000));
+                  const endDate = new Date(end); 
+                  const LastPushAddrs = String(result.attributes.sender);
+              
+                  setBNBMATICCycle(endDate);
+                  setBNBMATICLastPush(LastPushAddrs);
+                  } 
+              
+                  calculateTimeLeftBNBMATIC();
+                  }, [isInitialized]);
+
+                  //
+                  useEffect(() => {
+                    async function calculateCumMaticBANANAMATIC () {
+                    const query = new Moralis.Query("BananaWMATICPay");
+                    query.descending("createdAt");
+                    const result = await query.first(); 
+                    let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+                    const Total = WeiTotal / (10**18);
+                    
+                    setBANANAMATICPay(Total);
+                    } 
+                
+                    calculateCumMaticBANANAMATIC();
+                    }, [isInitialized]);
+                
+                    useEffect(() => {
+                      async function calculateTimeLeftBANANAMATIC () {
+                      const query = new Moralis.Query("BananaWMATICCycle");
+                      query.descending("createdAt");
+                      const result = await query.first(); 
+                      let start = Number(result.attributes.block_timestamp);
+                      let timelocked = Number(result.attributes.timelocked);
+                      let end = Number(start+(timelocked*1000));
+                      const endDate = new Date(end); 
+                      const LastPushAddrs = String(result.attributes.sender);
+                  
+                      setBANANAMATICCycle(endDate);
+                      setBANANAMATICLastPush(LastPushAddrs);
+                      } 
+                  
+                      calculateTimeLeftBANANAMATIC();
+                      }, [isInitialized]);
+
+                      //
+                      useEffect(() => {
+                        async function calculateCumMaticUSDCDAI () {
+                        const query = new Moralis.Query("USDCDAIPay");
+                        query.descending("createdAt");
+                        const result = await query.first(); 
+                        let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+                        const Total = WeiTotal / (10**18);
+                        
+                        setUSDCDAIPay(Total);
+                        } 
+                    
+                        calculateCumMaticUSDCDAI();
+                        }, [isInitialized]);
+                    
+                        useEffect(() => {
+                          async function calculateTimeLeftUSDCDAI () {
+                          const query = new Moralis.Query("USDCDAICycle");
+                          query.descending("createdAt");
+                          const result = await query.first(); 
+                          let start = Number(result.attributes.block_timestamp);
+                          let timelocked = Number(result.attributes.timelocked);
+                          let end = Number(start+(timelocked*1000));
+                          const endDate = new Date(end); 
+                          const LastPushAddrs = String(result.attributes.sender);
+                      
+                          setUSDCDAICycle(endDate);
+                          setUSDCDAILastPush(LastPushAddrs);
+                          } 
+                      
+                          calculateTimeLeftUSDCDAI();
+                          }, [isInitialized]);
 
             useEffect(() => {
               async function calculateTimeLeftPayDay () {
@@ -364,7 +481,7 @@ const Earn = () => {
               let interval = useRef();
           
               const startTimerUSDCDAI = () => {
-                  const countdownDate = new Date(USDCDAI).getTime();
+                  const countdownDate = new Date(USDCDAICycle).getTime();
           
                   interval = setInterval(() => {
                       const now = new Date().getTime();
@@ -403,7 +520,7 @@ const Earn = () => {
               const [BIFItimerSeconds, setBIFITimerSeconds] = useState('00');
           
               const startTimerBIFI = () => {
-                  const countdownDate = new Date(BIFI).getTime();
+                  const countdownDate = new Date(BIFICycle).getTime();
           
                   interval = setInterval(() => {
                       const now = new Date().getTime();
@@ -442,7 +559,7 @@ const Earn = () => {
               const [BananaWMATICtimerSeconds, setBananaWMATICTimerSeconds] = useState('00');
           
               const startTimerBananaWMATIC = () => {
-                  const countdownDate = new Date(BananaWMATIC).getTime();
+                  const countdownDate = new Date(BANANAMATICCycle).getTime();
           
                   interval = setInterval(() => {
                       const now = new Date().getTime();
@@ -481,7 +598,7 @@ const Earn = () => {
               const [BNBWMATICtimerSeconds, setBNBWMATICTimerSeconds] = useState('00');
           
               const startTimerBNBWMATIC = () => {
-                  const countdownDate = new Date(BNBWMATIC).getTime();
+                  const countdownDate = new Date(BNBMATICCycle).getTime();
           
                   interval = setInterval(() => {
                       const now = new Date().getTime();
@@ -520,7 +637,7 @@ const Earn = () => {
               const [WETHWMATICtimerSeconds, setWETHWMATICTimerSeconds] = useState('00');
           
               const startTimerWETHWMATIC = () => {
-                  const countdownDate = new Date(WETHWMATIC).getTime();
+                  const countdownDate = new Date(WETHWMATICCycle).getTime();
           
                   interval = setInterval(() => {
                       const now = new Date().getTime();
@@ -559,7 +676,7 @@ const Earn = () => {
               const [BeQitimerSeconds, setBeQiTimerSeconds] = useState('00');
           
               const startTimerBeQi = () => {
-                  const countdownDate = new Date(BeQi).getTime();
+                  const countdownDate = new Date(BeQiCycle).getTime();
           
                   interval = setInterval(() => {
                       const now = new Date().getTime();
@@ -690,14 +807,14 @@ const Earn = () => {
         <ButtonTitles><p1 className="p10">Push the Buttons Below to Receive Matic in the Next Pay Cycle</p1></ButtonTitles> 
         <ButtonTitles><p1 className="p10">STAKING CONTRACTS<br/><p1 className="p9">( pushed every 1-2 days )</p1></p1></ButtonTitles>
         <ButtonGroup>    
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BeQi) < Number(new Date()) ? <p1 className="p9">BeQi</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BeQi.toLocaleDateString(undefined, options)} - {BeQi.toLocaleTimeString()}<br/> {(() => {if(BeQitimerDays > 0){return <div>{BeQitimerDays} D {BeQitimerHours} H {BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else if(BeQitimerHours > 0){return <div>{BeQitimerHours} H {BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else if(BeQitimerMinutes > 0) {return <div>{BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else {return <div>{BeQitimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheWETHWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(WETHWMATIC) < Number(new Date()) ? <p1 className="p9">ETH / MATIC</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{WETHWMATIC.toLocaleDateString(undefined, options)} - {WETHWMATIC.toLocaleTimeString()}<br/> {(() => {if(WETHWMATICtimerDays > 0){return <div>{WETHWMATICtimerDays} D {WETHWMATICtimerHours} H {WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else if(WETHWMATICtimerHours > 0){return <div>{WETHWMATICtimerHours} H {WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else if(WETHWMATICtimerMinutes > 0) {return <div>{WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else {return <div>{WETHWMATICtimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBNBWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BNBWMATIC) < Number(new Date()) ? <p1 className="p9">BNB / MATIC</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BNBWMATIC.toLocaleDateString(undefined, options)} - {BNBWMATIC.toLocaleTimeString()}<br/> {(() => {if(BNBWMATICtimerDays > 0){return <div>{BNBWMATICtimerDays} D {BNBWMATICtimerHours} H {BNBWMATICtimerMinutes} M {BNBWMATICtimerSeconds} S</div>} else if(BNBWMATICtimerHours > 0){return <div>{BNBWMATICtimerHours} H {BNBWMATICtimerMinutes} M {BNBWMATICtimerSeconds} S</div>} else if(BNBWMATICtimerMinutes > 0) {return <div>{BNBWMATICtimerMinutes} M {BNBWMATICtimerSeconds} S</div>} else {return <div>{BNBWMATICtimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BeQiCycle) < Number(new Date()) ? <p1 className="p9">BeQi</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BeQiCycle.toLocaleDateString(undefined, options)} - {BeQiCycle.toLocaleTimeString()}<br/> {(() => {if(BeQitimerDays > 0){return <div>{BeQitimerDays} D {BeQitimerHours} H {BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else if(BeQitimerHours > 0){return <div>{BeQitimerHours} H {BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else if(BeQitimerMinutes > 0) {return <div>{BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else {return <div>{BeQitimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheWETHWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(WETHWMATICCycle) < Number(new Date()) ? <p1 className="p9">ETH / MATIC</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{WETHWMATICCycle.toLocaleDateString(undefined, options)} - {WETHWMATICCycle.toLocaleTimeString()}<br/> {(() => {if(WETHWMATICtimerDays > 0){return <div>{WETHWMATICtimerDays} D {WETHWMATICtimerHours} H {WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else if(WETHWMATICtimerHours > 0){return <div>{WETHWMATICtimerHours} H {WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else if(WETHWMATICtimerMinutes > 0) {return <div>{WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else {return <div>{WETHWMATICtimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBNBWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BNBMATICCycle) < Number(new Date()) ? <p1 className="p9">BNB / MATIC</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BNBMATICCycle.toLocaleDateString(undefined, options)} - {BNBMATICCycle.toLocaleTimeString()}<br/> {(() => {if(BNBWMATICtimerDays > 0){return <div>{BNBWMATICtimerDays} D {BNBWMATICtimerHours} H {BNBWMATICtimerMinutes} M {BNBWMATICtimerSeconds} S</div>} else if(BNBWMATICtimerHours > 0){return <div>{BNBWMATICtimerHours} H {BNBWMATICtimerMinutes} M {BNBWMATICtimerSeconds} S</div>} else if(BNBWMATICtimerMinutes > 0) {return <div>{BNBWMATICtimerMinutes} M {BNBWMATICtimerSeconds} S</div>} else {return <div>{BNBWMATICtimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
         </ButtonGroup>
         <ButtonGroup>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheUSDCDAIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAI) < Number(new Date()) ? <p1 className="p9">USDC / DAI</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{USDCDAI.toLocaleDateString(undefined, options)} - {USDCDAI.toLocaleTimeString()}<br/>{(() => {if(USDCDAItimerDays > 0){return <div>{USDCDAItimerDays} D {USDCDAItimerHours} H {USDCDAItimerMinutes} M {USDCDAItimerSeconds} S</div>} else if(USDCDAItimerHours > 0){return <div>{USDCDAItimerHours} H {USDCDAItimerMinutes} M {USDCDAItimerSeconds} S</div>} else if(USDCDAItimerMinutes > 0) {return <div>{USDCDAItimerMinutes} M {USDCDAItimerSeconds} S</div>} else {return <div>{USDCDAItimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBananaWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BananaWMATIC) < Number(new Date()) ? <p1 className="p9">BANANA / MATIC</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BananaWMATIC.toLocaleDateString(undefined, options)} - {BananaWMATIC.toLocaleTimeString()}<br/> {(() => {if(BananaWMATICtimerDays > 0){return <div>{BananaWMATICtimerDays} D {BananaWMATICtimerHours} H {BananaWMATICtimerMinutes} M {BananaWMATICtimerSeconds} S</div>} else if(BananaWMATICtimerHours > 0){return <div>{BananaWMATICtimerHours} H {BananaWMATICtimerMinutes} M {BananaWMATICtimerSeconds} S</div>} else if(BananaWMATICtimerMinutes > 0) {return <div>{BananaWMATICtimerMinutes} M {BananaWMATICtimerSeconds} S</div>} else {return <div>{BananaWMATICtimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
-            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBIFIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BIFI) < Number(new Date()) ? <p1 className="p9">BIFI</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BIFI.toLocaleDateString(undefined, options)} - {BIFI.toLocaleTimeString()}<br/> {(() => {if(BIFItimerDays > 0){return <div>{BIFItimerDays} D {BIFItimerHours} H {BIFItimerMinutes} M {BIFItimerSeconds} S</div>} else if(BIFItimerHours > 0){return <div>{BIFItimerHours} H {BIFItimerMinutes} M {BIFItimerSeconds} S</div>} else if(BIFItimerMinutes > 0) {return <div>{BIFItimerMinutes} M {BIFItimerSeconds} S</div>} else {return <div>{BIFItimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheUSDCDAIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(USDCDAICycle) < Number(new Date()) ? <p1 className="p9">USDC / DAI</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{USDCDAICycle.toLocaleDateString(undefined, options)} - {USDCDAICycle.toLocaleTimeString()}<br/>{(() => {if(USDCDAItimerDays > 0){return <div>{USDCDAItimerDays} D {USDCDAItimerHours} H {USDCDAItimerMinutes} M {USDCDAItimerSeconds} S</div>} else if(USDCDAItimerHours > 0){return <div>{USDCDAItimerHours} H {USDCDAItimerMinutes} M {USDCDAItimerSeconds} S</div>} else if(USDCDAItimerMinutes > 0) {return <div>{USDCDAItimerMinutes} M {USDCDAItimerSeconds} S</div>} else {return <div>{USDCDAItimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBananaWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BANANAMATICCycle) < Number(new Date()) ? <p1 className="p9">BANANA / MATIC</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BANANAMATICCycle.toLocaleDateString(undefined, options)} - {BANANAMATICCycle.toLocaleTimeString()}<br/> {(() => {if(BananaWMATICtimerDays > 0){return <div>{BananaWMATICtimerDays} D {BananaWMATICtimerHours} H {BananaWMATICtimerMinutes} M {BananaWMATICtimerSeconds} S</div>} else if(BananaWMATICtimerHours > 0){return <div>{BananaWMATICtimerHours} H {BananaWMATICtimerMinutes} M {BananaWMATICtimerSeconds} S</div>} else if(BananaWMATICtimerMinutes > 0) {return <div>{BananaWMATICtimerMinutes} M {BananaWMATICtimerSeconds} S</div>} else {return <div>{BananaWMATICtimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
+            <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBIFIButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BIFICycle) < Number(new Date()) ? <p1 className="p9">BIFI</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BIFICycle.toLocaleDateString(undefined, options)} - {BIFICycle.toLocaleTimeString()}<br/> {(() => {if(BIFItimerDays > 0){return <div>{BIFItimerDays} D {BIFItimerHours} H {BIFItimerMinutes} M {BIFItimerSeconds} S</div>} else if(BIFItimerHours > 0){return <div>{BIFItimerHours} H {BIFItimerMinutes} M {BIFItimerSeconds} S</div>} else if(BIFItimerMinutes > 0) {return <div>{BIFItimerMinutes} M {BIFItimerSeconds} S</div>} else {return <div>{BIFItimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
         </ButtonGroup> 
         <ButtonTitles><p1 className = "p10">PAY NFT HOLDERS<br/><p1 className="p9">( pushed every 14 days )</p1></p1></ButtonTitles>
         <ButtonGroup>
@@ -707,6 +824,25 @@ const Earn = () => {
         <ButtonGroup>
             <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheRewardsButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(RewardDay) < Number(new Date()) ? <p1 className="p9">BUTTON PUSHING REWARDS</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{RewardDay.toLocaleDateString(undefined, options)} - {RewardDay.toLocaleTimeString()}<br/> {(() => {if(RewardDaytimerDays > 0){return <div>{RewardDaytimerDays} D {RewardDaytimerHours} H {RewardDaytimerMinutes} M {RewardDaytimerSeconds} S</div>} else if(RewardDaytimerHours > 0){return <div>{RewardDaytimerHours} H {RewardDaytimerMinutes} M {RewardDaytimerSeconds} S</div>} else if(RewardDaytimerMinutes > 0) {return <div>{RewardDaytimerMinutes} M {RewardDaytimerSeconds} S</div>} else {return <div>{RewardDaytimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
         </ButtonGroup>
+        <ButtonTitles><p1 className = "p10">LAST BUTTON PUSH<br/></p1></ButtonTitles>
+        <ItemText3>
+        <p1 className = "p5">The ETH/MATIC button was last pressed on: {WETHWMATICCycle.toLocaleDateString(undefined, options)} at {WETHWMATICCycle.toLocaleTimeString()} by <p1 className="p20">{WETHWMATICLastPush.substring(0,5)}...{WETHWMATICLastPush.substring(WETHWMATICLastPush.length,WETHWMATICLastPush.length-4)}</p1></p1>
+        </ItemText3>
+        <ItemText4>
+          <p1 className = "p5">The BNB/MATIC button was last pressed on: {BNBMATICCycle.toLocaleDateString(undefined, options)} at {BNBMATICCycle.toLocaleTimeString()} by <p1 className="p20">{BNBMATICLastPush.substring(0,5)}...{BNBMATICLastPush.substring(BNBMATICLastPush.length,BNBMATICLastPush.length-4)}</p1></p1>
+        </ItemText4>
+        <ItemText4>
+          <p1 className = "p5">The USDC/DAI button was last pressed on: {USDCDAICycle.toLocaleDateString(undefined, options)} at {USDCDAICycle.toLocaleTimeString()} by <p1 className="p20">{USDCDAILastPush.substring(0,5)}...{USDCDAILastPush.substring(USDCDAILastPush.length,USDCDAILastPush.length-4)}</p1></p1>
+        </ItemText4>
+        <ItemText4>
+          <p1 className = "p5">The BANANA/MATIC button was last pressed on: {BANANAMATICCycle.toLocaleDateString(undefined, options)} at {BANANAMATICCycle.toLocaleTimeString()} by <p1 className="p20">{BANANAMATICLastPush.substring(0,5)}...{BANANAMATICLastPush.substring(BANANAMATICLastPush.length,BANANAMATICLastPush.length-4)}</p1></p1>
+        </ItemText4>
+        <ItemText4>
+        <p1 className = "p5">The BeQi button was last pressed on: {BeQiCycle.toLocaleDateString(undefined, options)} at {BeQiCycle.toLocaleTimeString()} by <p1 className="p20">{BeQiLastPush.substring(0,5)}...{BeQiLastPush.substring(BeQiLastPush.length,BeQiLastPush.length-4)}</p1></p1>
+        </ItemText4>
+        <ItemText2>
+          <p1 className = "p5">The BIFI button was last pressed on: {BIFICycle.toLocaleDateString(undefined, options)} at {BIFICycle.toLocaleTimeString()} by <p1 className="p20">{BIFILastPush.substring(0,5)}...{BIFILastPush.substring(BIFILastPush.length,BIFILastPush.length-4)}</p1></p1>
+        </ItemText2>
         </Buttons> 
         <Spacer/>
         <div className='strip'><p1><br/></p1></div>
@@ -820,6 +956,23 @@ const ItemText2 = styled.div`
       text-align: center;
     }
   
+`
+
+const ItemText3 = styled.div`
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 10px; 
+    margin-top: 20px;
+`
+
+const ItemText4 = styled.div`
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 10px; 
 `
 
 const ItemImage = styled.div`

@@ -33,6 +33,213 @@ const Stats = () => {
     datasets: [],
   })
 
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };  
+
+  const [BeQiPay, setBeQiPay] = useState (1);
+  const [BeQiCycle, setBeQiCycle] = useState (new Date ());
+  const [BeQiLastPush, setBeQiLastPush] = useState ("");
+
+  const [WETHWMATICPay, setWETHWMATICPay] = useState (1);
+  const [WETHWMATICCycle, setWETHWMATICCycle] = useState (new Date ());
+  const [WETHWMATICLastPush, setWETHWMATICLastPush] = useState ("");
+
+  const [BNBMATICPay, setBNBMATICPay] = useState (1);
+  const [BNBMATICCycle, setBNBMATICCycle] = useState (new Date ());
+  const [BNBMATICLastPush, setBNBMATICLastPush] = useState ("");
+
+  const [BIFIPay, setBIFIPay] = useState (1);
+  const [BIFICycle, setBIFICycle] = useState (new Date ());
+  const [BIFILastPush, setBIFILastPush] = useState ("");
+
+  const [BANANAMATICPay, setBANANAMATICPay] = useState (1);
+  const [BANANAMATICCycle, setBANANAMATICCycle] = useState (new Date ());
+  const [BANANAMATICLastPush, setBANANAMATICLastPush] = useState ("");
+
+  const [USDCDAIPay, setUSDCDAIPay] = useState (1);
+  const [USDCDAICycle, setUSDCDAICycle] = useState (new Date ());
+  const [USDCDAILastPush, setUSDCDAILastPush] = useState ("");
+
+    useEffect(() => {
+    async function calculateCumMaticBeQi () {
+    const query = new Moralis.Query("BeQiPay");
+    query.descending("createdAt");
+    const result = await query.first(); 
+    let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+    const Total = WeiTotal / (10**18);
+    
+    setBeQiPay(Total);
+    } 
+
+    calculateCumMaticBeQi();
+    }, [isInitialized]);
+
+    useEffect(() => {
+      async function calculateTimeLeftBeQi () {
+      const query = new Moralis.Query("BeQiCycle");
+      query.descending("createdAt");
+      const result = await query.first(); 
+      const LastPushTime = new Date(result.attributes.block_timestamp);
+      const LastPushAddrs = String(result.attributes.sender);
+  
+      setBeQiCycle(LastPushTime);
+      setBeQiLastPush(LastPushAddrs);
+      } 
+  
+      calculateTimeLeftBeQi();
+      }, [isInitialized]);
+
+      //
+      useEffect(() => {
+        async function calculateCumMaticBIFI () {
+        const query = new Moralis.Query("BIFIPay");
+        query.descending("createdAt");
+        const result = await query.first(); 
+        let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+        const Total = WeiTotal / (10**18);
+        
+        setBIFIPay(Total);
+        } 
+    
+        calculateCumMaticBIFI();
+        }, [isInitialized]);
+    
+        useEffect(() => {
+          async function calculateTimeLeftBIFI () {
+          const query = new Moralis.Query("BIFICycle");
+          query.descending("createdAt");
+          const result = await query.first(); 
+          const LastPushTime = new Date(result.attributes.block_timestamp);
+          const LastPushAddrs = String(result.attributes.sender);
+      
+          setBIFICycle(LastPushTime);
+          setBIFILastPush(LastPushAddrs);
+          } 
+      
+          calculateTimeLeftBIFI();
+          }, [isInitialized]);
+
+          //
+          useEffect(() => {
+            async function calculateCumMaticWETHWMATIC () {
+            const query = new Moralis.Query("WETHWMATICPay");
+            query.descending("createdAt");
+            const result = await query.first(); 
+            let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+            const Total = WeiTotal / (10**18);
+            
+            setWETHWMATICPay(Total);
+            } 
+        
+            calculateCumMaticWETHWMATIC();
+            }, [isInitialized]);
+        
+            useEffect(() => {
+              async function calculateTimeLeftWETHWMATIC () {
+              const query = new Moralis.Query("WETHWMATICCycle");
+              query.descending("createdAt");
+              const result = await query.first(); 
+              const LastPushTime = new Date(result.attributes.block_timestamp);
+              const LastPushAddrs = String(result.attributes.sender);
+          
+              setWETHWMATICCycle(LastPushTime);
+              setWETHWMATICLastPush(LastPushAddrs);
+              } 
+          
+              calculateTimeLeftWETHWMATIC();
+              }, [isInitialized]);
+
+              //
+              useEffect(() => {
+                async function calculateCumMaticBNBMATIC () {
+                const query = new Moralis.Query("BNBWMATICPay");
+                query.descending("createdAt");
+                const result = await query.first(); 
+                let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+                const Total = WeiTotal / (10**18);
+                
+                setBNBMATICPay(Total);
+                } 
+            
+                calculateCumMaticBNBMATIC();
+                }, [isInitialized]);
+            
+                useEffect(() => {
+                  async function calculateTimeLeftBNBMATIC () {
+                  const query = new Moralis.Query("BNBWMATICCycle");
+                  query.descending("createdAt");
+                  const result = await query.first(); 
+                  const LastPushTime = new Date(result.attributes.block_timestamp);
+                  const LastPushAddrs = String(result.attributes.sender);
+              
+                  setBNBMATICCycle(LastPushTime);
+                  setBNBMATICLastPush(LastPushAddrs);
+                  } 
+              
+                  calculateTimeLeftBNBMATIC();
+                  }, [isInitialized]);
+
+                  //
+                  useEffect(() => {
+                    async function calculateCumMaticBANANAMATIC () {
+                    const query = new Moralis.Query("BananaWMATICPay");
+                    query.descending("createdAt");
+                    const result = await query.first(); 
+                    let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+                    const Total = WeiTotal / (10**18);
+                    
+                    setBANANAMATICPay(Total);
+                    } 
+                
+                    calculateCumMaticBANANAMATIC();
+                    }, [isInitialized]);
+                
+                    useEffect(() => {
+                      async function calculateTimeLeftBANANAMATIC () {
+                      const query = new Moralis.Query("BananaWMATICCycle");
+                      query.descending("createdAt");
+                      const result = await query.first(); 
+                      const LastPushTime = new Date(result.attributes.block_timestamp);
+                      const LastPushAddrs = String(result.attributes.sender);
+                  
+                      setBANANAMATICCycle(LastPushTime);
+                      setBANANAMATICLastPush(LastPushAddrs);
+                      } 
+                  
+                      calculateTimeLeftBANANAMATIC();
+                      }, [isInitialized]);
+
+                      //
+                      useEffect(() => {
+                        async function calculateCumMaticUSDCDAI () {
+                        const query = new Moralis.Query("USDCDAIPay");
+                        query.descending("createdAt");
+                        const result = await query.first(); 
+                        let WeiTotal = Number(result.attributes.cumulativeMaticSentToDeployer);
+                        const Total = WeiTotal / (10**18);
+                        
+                        setUSDCDAIPay(Total);
+                        } 
+                    
+                        calculateCumMaticUSDCDAI();
+                        }, [isInitialized]);
+                    
+                        useEffect(() => {
+                          async function calculateTimeLeftUSDCDAI () {
+                          const query = new Moralis.Query("USDCDAICycle");
+                          query.descending("createdAt");
+                          const result = await query.first(); 
+                          const LastPushTime = new Date(result.attributes.block_timestamp);
+                          const LastPushAddrs = String(result.attributes.sender);
+                      
+                          setUSDCDAICycle(LastPushTime);
+                          setUSDCDAILastPush(LastPushAddrs);
+                          } 
+                      
+                          calculateTimeLeftUSDCDAI();
+                          }, [isInitialized]);
+
+
+
   useEffect(() => {
     setChartDataBar({
     labels: ["ETH/MATIC POOL", "BNB/MATIC POOL", "USDC/DAI POOL", "BIFI POOL", "BEQI POOL", "BANANA/MATIC POOL"],
@@ -40,7 +247,7 @@ const Stats = () => {
     datasets: [
       {
         label: "Matic Rewards",
-        data: [1212, 255, 434, 320, 720, 500],
+        data: [(WETHWMATICPay), (BNBMATICPay), (USDCDAIPay), (BIFIPay), (BeQiPay), (BANANAMATICPay)],
         borderColor: "rgb(255, 255, 255)",
         backgroundColor: ["rgba(114,20,119, 1)","rgba(64,30,120, 1)","rgba(76,12,79, 1)","rgba(238,201,250, 1)","rgba(147,142,236, 1)","rgba(60,52,100, 1)"],        
       },
@@ -130,8 +337,7 @@ const Stats = () => {
     } 
 
     calculateButtonPush();
-    }, [isInitialized]);          
-
+    }, [isInitialized]);     
 
   return (
     <Wrap>
@@ -161,6 +367,27 @@ const Stats = () => {
       </ButtonPushCounter>
       <ItemText2>
         <p1 className = "p5">This is a running total of the number of times a button has been pushed on the "EARN" page.</p1>
+      </ItemText2>
+      <ItemText3>
+        <p1 className = "p10"> Last Button Push Stats</p1>
+      </ItemText3>
+      <ItemText4>
+        <p1 className = "p5">The ETH/MATIC button was last pressed on: {WETHWMATICCycle.toLocaleDateString(undefined, options)} at {WETHWMATICCycle.toLocaleTimeString()} by <p1 className="p20">{WETHWMATICLastPush.substring(0,5)}...{WETHWMATICLastPush.substring(WETHWMATICLastPush.length,WETHWMATICLastPush.length-4)}</p1></p1>
+      </ItemText4>
+      <ItemText4>
+        <p1 className = "p5">The BNB/MATIC button was last pressed on: {BNBMATICCycle.toLocaleDateString(undefined, options)} at {BNBMATICCycle.toLocaleTimeString()} by <p1 className="p20">{BNBMATICLastPush.substring(0,5)}...{BNBMATICLastPush.substring(BNBMATICLastPush.length,BNBMATICLastPush.length-4)}</p1></p1>
+      </ItemText4>
+      <ItemText4>
+        <p1 className = "p5">The USDC/DAI button was last pressed on: {USDCDAICycle.toLocaleDateString(undefined, options)} at {USDCDAICycle.toLocaleTimeString()} by <p1 className="p20">{USDCDAILastPush.substring(0,5)}...{USDCDAILastPush.substring(USDCDAILastPush.length,USDCDAILastPush.length-4)}</p1></p1>
+      </ItemText4>
+      <ItemText4>
+        <p1 className = "p5">The BANANA/MATIC button was last pressed on: {BANANAMATICCycle.toLocaleDateString(undefined, options)} at {BANANAMATICCycle.toLocaleTimeString()} by <p1 className="p20">{BANANAMATICLastPush.substring(0,5)}...{BANANAMATICLastPush.substring(BANANAMATICLastPush.length,BANANAMATICLastPush.length-4)}</p1></p1>
+      </ItemText4>
+      <ItemText4>
+        <p1 className = "p5">The BeQi button was last pressed on: {BeQiCycle.toLocaleDateString(undefined, options)} at {BeQiCycle.toLocaleTimeString()} by <p1 className="p20">{BeQiLastPush.substring(0,5)}...{BeQiLastPush.substring(BeQiLastPush.length,BeQiLastPush.length-4)}</p1></p1>
+      </ItemText4>
+      <ItemText2>
+        <p1 className = "p5">The BIFI button was last pressed on: {BIFICycle.toLocaleDateString(undefined, options)} at {BIFICycle.toLocaleTimeString()} by <p1 className="p20">{BIFILastPush.substring(0,5)}...{BIFILastPush.substring(BIFILastPush.length,BIFILastPush.length-4)}</p1></p1>
       </ItemText2>
       <Footer />
     </Wrap>
@@ -226,9 +453,7 @@ const ButtonPushCounter = styled.div`
     box-shadow: 0px 0px 25px 8px rgba(255,105,255,1);
     border-radius: 1000px;   
     padding: 50px;
-    background-color: #060420; 
-
-    
+    background-color: #060420;    
 `
 
 const ItemText1 = styled.div`
@@ -254,5 +479,13 @@ const ItemText3 = styled.div`
     display: flex;
     margin-bottom: 60px;  
     border-radius: 30px;  
+`
+
+const ItemText4 = styled.div`
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-bottom: 10px; 
 `
 
