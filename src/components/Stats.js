@@ -35,27 +35,27 @@ const Stats = () => {
 
   const options = { year: 'numeric', month: 'long', day: 'numeric' };  
 
-  const [BeQiPay, setBeQiPay] = useState (1);
+  const [BeQiPay, setBeQiPay] = useState ();
   const [BeQiCycle, setBeQiCycle] = useState (new Date ());
   const [BeQiLastPush, setBeQiLastPush] = useState ("");
 
-  const [WETHWMATICPay, setWETHWMATICPay] = useState (1);
+  const [WETHWMATICPay, setWETHWMATICPay] = useState ();
   const [WETHWMATICCycle, setWETHWMATICCycle] = useState (new Date ());
   const [WETHWMATICLastPush, setWETHWMATICLastPush] = useState ("");
 
-  const [BNBMATICPay, setBNBMATICPay] = useState (1);
+  const [BNBMATICPay, setBNBMATICPay] = useState ();
   const [BNBMATICCycle, setBNBMATICCycle] = useState (new Date ());
   const [BNBMATICLastPush, setBNBMATICLastPush] = useState ("");
 
-  const [BIFIPay, setBIFIPay] = useState (1);
+  const [BIFIPay, setBIFIPay] = useState ();
   const [BIFICycle, setBIFICycle] = useState (new Date ());
   const [BIFILastPush, setBIFILastPush] = useState ("");
 
-  const [BANANAMATICPay, setBANANAMATICPay] = useState (1);
+  const [BANANAMATICPay, setBANANAMATICPay] = useState ();
   const [BANANAMATICCycle, setBANANAMATICCycle] = useState (new Date ());
   const [BANANAMATICLastPush, setBANANAMATICLastPush] = useState ("");
 
-  const [USDCDAIPay, setUSDCDAIPay] = useState (1);
+  const [USDCDAIPay, setUSDCDAIPay] = useState ();
   const [USDCDAICycle, setUSDCDAICycle] = useState (new Date ());
   const [USDCDAILastPush, setUSDCDAILastPush] = useState ("");
 

@@ -8,23 +8,31 @@ import background from '../animations/polygon.mp4'
 const Earn = () => {
   const contractProcessor = useWeb3ExecuteFunction();
   const {Moralis, isInitialized, isAuthenticated, authenticate} = useMoralis();
+
   const [BeQiCycle, setBeQiCycle] = useState (new Date ());
   const [BeQiLastPush, setBeQiLastPush] = useState ("");
+  const [BeQiLastPushTime, setBeQiLastPushTime] = useState (new Date ());
 
   const [WETHWMATICCycle, setWETHWMATICCycle] = useState (new Date ());
   const [WETHWMATICLastPush, setWETHWMATICLastPush] = useState ("");
+  const [WETHWMATICLastPushTime, setWETHWMATICLastPushTime] = useState (new Date ());
 
   const [BNBMATICCycle, setBNBMATICCycle] = useState (new Date ());
   const [BNBMATICLastPush, setBNBMATICLastPush] = useState ("");
+  const [BNBMATICLastPushTime, setBNBMATICLastPushTime] = useState (new Date ());
 
   const [BIFICycle, setBIFICycle] = useState (new Date ());
   const [BIFILastPush, setBIFILastPush] = useState ("");
+  const [BIFILastPushTime, setBIFILastPushTime] = useState (new Date ());
 
   const [BANANAMATICCycle, setBANANAMATICCycle] = useState (new Date ());
   const [BANANAMATICLastPush, setBANANAMATICLastPush] = useState ("");
+  const [BANANAMATICLastPushTime, setBANANAMATICLastPushTime] = useState (new Date ());
 
   const [USDCDAICycle, setUSDCDAICycle] = useState (new Date ());
   const [USDCDAILastPush, setUSDCDAILastPush] = useState ("");
+  const [USDCDAILastPushTime, setUSDCDAILastPushTime] = useState (new Date ());
+
   const [PayDay, setPayDay] = useState (new Date ());
   const [RewardDay, setRewardDay] = useState (new Date ());
   const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -199,7 +207,9 @@ const Earn = () => {
       let end = Number(start+(timelocked*1000));
       const endDate = new Date(end); 
       const LastPushAddrs = String(result.attributes.sender);
-  
+      const LastPushTime = new Date(result.attributes.block_timestamp);
+      
+      setBeQiLastPushTime(LastPushTime);  
       setBeQiCycle(endDate);
       setBeQiLastPush(LastPushAddrs);
       } 
@@ -218,7 +228,9 @@ const Earn = () => {
           let end = Number(start+(timelocked*1000));
           const endDate = new Date(end); 
           const LastPushAddrs = String(result.attributes.sender);
-      
+          const LastPushTime = new Date(result.attributes.block_timestamp);
+                  
+          setBIFILastPushTime(LastPushTime);      
           setBIFICycle(endDate);
           setBIFILastPush(LastPushAddrs);
           } 
@@ -237,6 +249,9 @@ const Earn = () => {
               let end = Number(start+(timelocked*1000));
               const endDate = new Date(end); 
               const LastPushAddrs = String(result.attributes.sender);
+              const LastPushTime = new Date(result.attributes.block_timestamp);
+                  
+              setWETHWMATICLastPushTime(LastPushTime); 
           
               setWETHWMATICCycle(endDate);
               setWETHWMATICLastPush(LastPushAddrs);
@@ -256,7 +271,9 @@ const Earn = () => {
                   let end = Number(start+(timelocked*1000));
                   const endDate = new Date(end); 
                   const LastPushAddrs = String(result.attributes.sender);
-              
+                  const LastPushTime = new Date(result.attributes.block_timestamp);
+                  
+                  setBNBMATICLastPushTime(LastPushTime);               
                   setBNBMATICCycle(endDate);
                   setBNBMATICLastPush(LastPushAddrs);
                   } 
@@ -275,7 +292,9 @@ const Earn = () => {
                       let end = Number(start+(timelocked*1000));
                       const endDate = new Date(end); 
                       const LastPushAddrs = String(result.attributes.sender);
+                      const LastPushTime = new Date(result.attributes.block_timestamp);
                   
+                      setBANANAMATICLastPushTime(LastPushTime);                  
                       setBANANAMATICCycle(endDate);
                       setBANANAMATICLastPush(LastPushAddrs);
                       } 
@@ -294,7 +313,9 @@ const Earn = () => {
                           let end = Number(start+(timelocked*1000));
                           const endDate = new Date(end); 
                           const LastPushAddrs = String(result.attributes.sender);
-                      
+                          const LastPushTime = new Date(result.attributes.block_timestamp);
+                  
+                          setUSDCDAILastPushTime(LastPushTime);                       
                           setUSDCDAICycle(endDate);
                           setUSDCDAILastPush(LastPushAddrs);
                           } 
@@ -736,22 +757,22 @@ const Earn = () => {
         </ButtonGroup>
         <ButtonTitles><p1 className = "p10">LAST BUTTON PUSH<br/></p1></ButtonTitles>
         <ItemText3>
-        <p1 className = "p5">The ETH/MATIC button was last pressed on: {WETHWMATICCycle.toLocaleDateString(undefined, options)} at {WETHWMATICCycle.toLocaleTimeString()} by <p1 className="p20">{WETHWMATICLastPush.substring(0,5)}...{WETHWMATICLastPush.substring(WETHWMATICLastPush.length,WETHWMATICLastPush.length-4)}</p1></p1>
+        <p1 className = "p5">The ETH/MATIC button was last pressed on: {WETHWMATICLastPushTime.toLocaleDateString(undefined, options)} at {WETHWMATICLastPushTime.toLocaleTimeString()} by <p1 className="p20">{WETHWMATICLastPush.substring(0,5)}...{WETHWMATICLastPush.substring(WETHWMATICLastPush.length,WETHWMATICLastPush.length-4)}</p1></p1>
         </ItemText3>
         <ItemText4>
-          <p1 className = "p5">The BNB/MATIC button was last pressed on: {BNBMATICCycle.toLocaleDateString(undefined, options)} at {BNBMATICCycle.toLocaleTimeString()} by <p1 className="p20">{BNBMATICLastPush.substring(0,5)}...{BNBMATICLastPush.substring(BNBMATICLastPush.length,BNBMATICLastPush.length-4)}</p1></p1>
+          <p1 className = "p5">The BNB/MATIC button was last pressed on: {BNBMATICLastPushTime.toLocaleDateString(undefined, options)} at {BNBMATICLastPushTime.toLocaleTimeString()} by <p1 className="p20">{BNBMATICLastPush.substring(0,5)}...{BNBMATICLastPush.substring(BNBMATICLastPush.length,BNBMATICLastPush.length-4)}</p1></p1>
         </ItemText4>
         <ItemText4>
-          <p1 className = "p5">The USDC/DAI button was last pressed on: {USDCDAICycle.toLocaleDateString(undefined, options)} at {USDCDAICycle.toLocaleTimeString()} by <p1 className="p20">{USDCDAILastPush.substring(0,5)}...{USDCDAILastPush.substring(USDCDAILastPush.length,USDCDAILastPush.length-4)}</p1></p1>
+          <p1 className = "p5">The USDC/DAI button was last pressed on: {USDCDAILastPushTime.toLocaleDateString(undefined, options)} at {USDCDAILastPushTime.toLocaleTimeString()} by <p1 className="p20">{USDCDAILastPush.substring(0,5)}...{USDCDAILastPush.substring(USDCDAILastPush.length,USDCDAILastPush.length-4)}</p1></p1>
         </ItemText4>
         <ItemText4>
-          <p1 className = "p5">The BANANA/MATIC button was last pressed on: {BANANAMATICCycle.toLocaleDateString(undefined, options)} at {BANANAMATICCycle.toLocaleTimeString()} by <p1 className="p20">{BANANAMATICLastPush.substring(0,5)}...{BANANAMATICLastPush.substring(BANANAMATICLastPush.length,BANANAMATICLastPush.length-4)}</p1></p1>
+          <p1 className = "p5">The BANANA/MATIC button was last pressed on: {BANANAMATICCycle.toLocaleDateString(undefined, options)} at {BANANAMATICLastPushTime.toLocaleTimeString()} by <p1 className="p20">{BANANAMATICLastPush.substring(0,5)}...{BANANAMATICLastPush.substring(BANANAMATICLastPush.length,BANANAMATICLastPush.length-4)}</p1></p1>
         </ItemText4>
         <ItemText4>
-        <p1 className = "p5">The BeQi button was last pressed on: {BeQiCycle.toLocaleDateString(undefined, options)} at {BeQiCycle.toLocaleTimeString()} by <p1 className="p20">{BeQiLastPush.substring(0,5)}...{BeQiLastPush.substring(BeQiLastPush.length,BeQiLastPush.length-4)}</p1></p1>
+        <p1 className = "p5">The BeQi button was last pressed on: {BeQiLastPushTime.toLocaleDateString(undefined, options)} at {BeQiLastPushTime.toLocaleTimeString()} by <p1 className="p20">{BeQiLastPush.substring(0,5)}...{BeQiLastPush.substring(BeQiLastPush.length,BeQiLastPush.length-4)}</p1></p1>
         </ItemText4>
         <ItemText2>
-          <p1 className = "p5">The BIFI button was last pressed on: {BIFICycle.toLocaleDateString(undefined, options)} at {BIFICycle.toLocaleTimeString()} by <p1 className="p20">{BIFILastPush.substring(0,5)}...{BIFILastPush.substring(BIFILastPush.length,BIFILastPush.length-4)}</p1></p1>
+          <p1 className = "p5">The BIFI button was last pressed on: {BIFILastPushTime.toLocaleDateString(undefined, options)} at {BIFILastPushTime.toLocaleTimeString()} by <p1 className="p20">{BIFILastPush.substring(0,5)}...{BIFILastPush.substring(BIFILastPush.length,BIFILastPush.length-4)}</p1></p1>
         </ItemText2>
         </Buttons> 
         <Spacer/>
