@@ -160,7 +160,7 @@ const Earn = () => {
   async function pushThePayDayButton(){
 
     let options = {
-      contractAddress: "0x54aDDE78c95C5E4017A70E51bB163A846b030BbF",
+      contractAddress: "0x02fa8c41b8fE3750479AB7d70529Dceb11aBa266",
       functionName: "PayDay",
       abi: [{"inputs":[],"name":"PayDay","outputs":[],"stateMutability":"payable","type":"function"}],
       params: {}
@@ -332,10 +332,10 @@ const Earn = () => {
               let timelocked = Number(result.attributes.timelocked);
               let end = Number(start+(timelocked*1000));
               const endDate = new Date(end); 
-          
+
               setPayDay(endDate);
               } 
-          
+
               calculateTimeLeftPayDay();
               }, [isInitialized]);
 
@@ -736,7 +736,7 @@ const Earn = () => {
         <img src = "images/EarnMatic.png" alt="" className='ItemImage3'/>
         </ItemImage3>
         <ButtonTitles><p1 className="p10">Push the Buttons Below to Receive Matic in the Next Pay Cycle</p1></ButtonTitles> 
-        <ButtonTitles><p1 className="p10">STAKING CONTRACTS<br/><p1 className="p9">( pushed every 1-2 days )</p1></p1></ButtonTitles>
+        <ButtonTitles><p1 className="p10">STAKING CONTRACTS<br/><p1 className="p9">( pushed every 2-4 days )</p1></p1></ButtonTitles>
         <ButtonGroup>    
             <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheBeQiButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(BeQiCycle) < Number(new Date()) ? <p1 className="p9">BeQi</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{BeQiCycle.toLocaleDateString(undefined, options)} - {BeQiCycle.toLocaleTimeString()}<br/> {(() => {if(BeQitimerDays > 0){return <div>{BeQitimerDays} D {BeQitimerHours} H {BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else if(BeQitimerHours > 0){return <div>{BeQitimerHours} H {BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else if(BeQitimerMinutes > 0) {return <div>{BeQitimerMinutes} M {BeQitimerSeconds} S</div>} else {return <div>{BeQitimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
             <div className='buttons5' onClick={() => { if(isAuthenticated) { pushTheWETHWMATICButton()}else{handleNetworkSwitch("polygon"); login();}}}>{Number(WETHWMATICCycle) < Number(new Date()) ? <p1 className="p9">ETH / MATIC</p1> : <span><p1 className="p9">Next Push:<br/><TimerBoxes><p1 className="p21">{WETHWMATICCycle.toLocaleDateString(undefined, options)} - {WETHWMATICCycle.toLocaleTimeString()}<br/> {(() => {if(WETHWMATICtimerDays > 0){return <div>{WETHWMATICtimerDays} D {WETHWMATICtimerHours} H {WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else if(WETHWMATICtimerHours > 0){return <div>{WETHWMATICtimerHours} H {WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else if(WETHWMATICtimerMinutes > 0) {return <div>{WETHWMATICtimerMinutes} M {WETHWMATICtimerSeconds} S</div>} else {return <div>{WETHWMATICtimerSeconds} S</div>}})()} </p1></TimerBoxes></p1></span>}</div>
