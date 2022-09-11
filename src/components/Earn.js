@@ -766,7 +766,7 @@ const Earn = () => {
           <p1 className = "p5">The USDC/DAI button was last pressed on: {USDCDAILastPushTime.toLocaleDateString(undefined, options)} at {USDCDAILastPushTime.toLocaleTimeString()} by <p1 className="p20">{USDCDAILastPush.substring(0,5)}...{USDCDAILastPush.substring(USDCDAILastPush.length,USDCDAILastPush.length-4)}</p1></p1>
         </ItemText4>
         <ItemText4>
-          <p1 className = "p5">The BANANA/MATIC button was last pressed on: {BANANAMATICCycle.toLocaleDateString(undefined, options)} at {BANANAMATICLastPushTime.toLocaleTimeString()} by <p1 className="p20">{BANANAMATICLastPush.substring(0,5)}...{BANANAMATICLastPush.substring(BANANAMATICLastPush.length,BANANAMATICLastPush.length-4)}</p1></p1>
+          <p1 className = "p5">The BANANA/MATIC button was last pressed on: {BANANAMATICLastPushTime.toLocaleDateString(undefined, options)} at {BANANAMATICLastPushTime.toLocaleTimeString()} by <p1 className="p20">{BANANAMATICLastPush.substring(0,5)}...{BANANAMATICLastPush.substring(BANANAMATICLastPush.length,BANANAMATICLastPush.length-4)}</p1></p1>
         </ItemText4>
         <ItemText4>
         <p1 className = "p5">The BeQi button was last pressed on: {BeQiLastPushTime.toLocaleDateString(undefined, options)} at {BeQiLastPushTime.toLocaleTimeString()} by <p1 className="p20">{BeQiLastPush.substring(0,5)}...{BeQiLastPush.substring(BeQiLastPush.length,BeQiLastPush.length-4)}</p1></p1>
