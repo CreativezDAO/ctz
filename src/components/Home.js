@@ -53,7 +53,7 @@ function Section() {
       } 
   
       calculateMinted(); 
-      }, [isInitialized]);
+      }, [Moralis.Query, isInitialized]);
 
         useEffect(() => {
           async function checkLists () {
@@ -64,7 +64,6 @@ function Section() {
           const test = await query.count();
           if (test === 0){
             const notOnList = Boolean(true);  
-
           }
           else {
             const result = await query.first();
@@ -75,7 +74,7 @@ function Section() {
           }}          
       
           checkLists();
-          }, [isInitialized]); 
+          }, [Moralis.Query, isInitialized, user]); 
 
     const [isFlipped1, setIsFlipped1] = useState(false);
 
