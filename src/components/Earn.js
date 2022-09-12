@@ -215,7 +215,7 @@ const Earn = () => {
       } 
   
       calculateTimeLeftBeQi();
-      }, [isInitialized]);
+      }, [Moralis.Query, isInitialized]);
 
       //    
         useEffect(() => {
@@ -236,7 +236,7 @@ const Earn = () => {
           } 
       
           calculateTimeLeftBIFI();
-          }, [isInitialized]);
+          }, [Moralis.Query, isInitialized]);
 
           //        
             useEffect(() => {
@@ -258,7 +258,7 @@ const Earn = () => {
               } 
           
               calculateTimeLeftWETHWMATIC();
-              }, [isInitialized]);
+              }, [Moralis.Query, isInitialized]);
 
               //            
                 useEffect(() => {
@@ -279,7 +279,7 @@ const Earn = () => {
                   } 
               
                   calculateTimeLeftBNBMATIC();
-                  }, [isInitialized]);
+                  }, [Moralis.Query, isInitialized]);
 
                   //              
                     useEffect(() => {
@@ -300,7 +300,7 @@ const Earn = () => {
                       } 
                   
                       calculateTimeLeftBANANAMATIC();
-                      }, [isInitialized]);
+                      }, [Moralis.Query, isInitialized]);
 
                       //                    
                         useEffect(() => {
@@ -321,7 +321,7 @@ const Earn = () => {
                           } 
                       
                           calculateTimeLeftUSDCDAI();
-                          }, [isInitialized]);
+                          }, [Moralis.Query, isInitialized]);
 
             useEffect(() => {
               async function calculateTimeLeftPayDay () {
@@ -337,7 +337,7 @@ const Earn = () => {
               } 
 
               calculateTimeLeftPayDay();
-              }, [isInitialized]);
+              }, [Moralis.Query, isInitialized]);
 
               useEffect(() => {
                 async function calculateTimeLeftRewardDay () {
@@ -353,7 +353,7 @@ const Earn = () => {
                 } 
             
                 calculateTimeLeftRewardDay();
-                }, [isInitialized]);
+                }, [Moralis.Query, isInitialized]);
 
             const handleNetworkSwitch = async (networkName) => {
               setError();
