@@ -101,7 +101,7 @@ const Stats = () => {
         } 
     
         calculateCumMaticBIFI();
-        }, [isInitialized]);
+        }, []);
     
         useEffect(() => {
           async function calculateTimeLeftBIFI () {
@@ -131,7 +131,7 @@ const Stats = () => {
             } 
         
             calculateCumMaticWETHWMATIC();
-            }, [isInitialized]);
+            }, []);
         
             useEffect(() => {
               async function calculateTimeLeftWETHWMATIC () {
@@ -221,7 +221,7 @@ const Stats = () => {
                         } 
                     
                         calculateCumMaticUSDCDAI();
-                        }, [isInitialized]);
+                        }, []);
                     
                         useEffect(() => {
                           async function calculateTimeLeftUSDCDAI () {
