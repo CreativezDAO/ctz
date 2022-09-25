@@ -46,11 +46,11 @@ function PublicsaleInfo() {
       <Rules>
       <p1 className ="p18">1) One free NFT mint for early supporters / competition winners</p1> 
       <p1 className ="p1"><p1 className = "p18">2) Max three NFT mints for presale wallets <p1 className="p20">@ 70 MATIC</p1> each</p1></p1> 
-      <p1 className ="p1"><p1 className = "p18">3) Max five NFT mints for public sale wallets <p1 className="p20">@ 100 MATIC</p1> each</p1></p1> 
+      <p1 className ="p1"><p1 className = "p18">3) Max five NFT mints for public sale wallets <p1 className="p20">@ 90 MATIC</p1> each</p1></p1> 
       </Rules>
       <ButtonSection>
       <Button onClick={mint} onMouseEnter={ handleMouseEnter5 } onMouseLeave={ handleMouseLeave5 }>M I N T</Button> 
-      <p1 className ="p1"><p1 className = "p18"><br/>{mintAmount} CRΞATIVΞZ NFT = {Math.round(mintAmount *100 * 100) / 100} MATIC</p1></p1> 
+      <p1 className ="p1"><p1 className = "p18"><br/>{mintAmount} CRΞATIVΞZ NFT = {Math.round(mintAmount *90 * 100) / 100} MATIC</p1></p1> 
       </ButtonSection>
       <WrapCounter>
       <SmallButton onClick={decrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>-</SmallButton><span><p1 className = "p18">{mintAmount}</p1></span><SmallButton onClick={incrementCount} onMouseEnter={ handleMouseEnter4 } onMouseLeave={ handleMouseLeave4 }>+</SmallButton>

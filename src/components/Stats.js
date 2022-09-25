@@ -348,7 +348,7 @@ const Stats = () => {
         <Bar options={chartOptionsBar} data={chartDataBar}/>
       </BarChart>
       <ItemText2>
-        <p1 className = "p5">MATIC rewards are accumulated by swapping staking rewards to MATIC.<br/> 85% of MATIC is distributed to CRΞATIVΞZ NFT holders, 8% is reinvested <br/> back into the staking contracts, 5% is sent to a gaming rewards treasury <br/> (in development) and 2% is used to finance CRΞATIVΞZ development.</p1>
+        <p1 className = "p5">MATIC rewards are accumulated by swapping staking rewards to MATIC.<br/> 69% of MATIC is distributed to CRΞATIVΞZ NFT holders, 25% is reinvested <br/> back into the staking contracts, 5% is sent to the CRΞATIVΞZ <br/> and 1% is used to pay button pushes.</p1>
       </ItemText2>
       <ItemText3>
         <p1 className = "p10"> CRΞATIVΞZ DAO - Initial Staking Portfolio</p1>

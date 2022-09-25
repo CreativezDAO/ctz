@@ -29,7 +29,6 @@ function Header() {
       <NavLink to="/" className={"navbar"}>HOME</NavLink>
       <NavLink to="/earn" className={"navbar"}>EARN</NavLink>
       <NavLink to="/voting" className={"navbar"}>VOTING</NavLink>
-      <NavLink to="/ctzarcade" className={"navbar"}>ARCADE</NavLink>
       <NavLink to="/stats" className={"navbar"}>STATS</NavLink>
     </Menu>
     <RightMenu> 
@@ -54,7 +53,6 @@ function Header() {
       <li><Link to="/" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>HOME</Link></li> 
       <li><Link to="/earn" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>EARN</Link></li>
       <li><Link to="/voting" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>VOTING</Link></li>
-      <li><Link to="/ctzarcade" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>ARCADE</Link></li>
       <li><Link to="/stats" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>STATS</Link></li>
       <li><Link to="/" onClick = {scrollToBottom} onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>MINT</Link></li>
       <li><a href="https://creativezdapp.gitbook.io/c-r-ks-a-t-i-v-ks-z/" target="_blank" rel="noreferrer" onMouseEnter={ handleMouseEnterBurger } onMouseLeave={ handleMouseLeaveBurger }>DOCS</a></li>
