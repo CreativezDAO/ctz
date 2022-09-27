@@ -160,7 +160,7 @@ const Earn = () => {
   async function pushThePayDayButton(){
 
     let options = {
-      contractAddress: "0x02fa8c41b8fE3750479AB7d70529Dceb11aBa266",
+      contractAddress: "0x9d203405Ad6B083c7Cc03Aec0aAbf9010565906E",
       functionName: "PayDay",
       abi: [{"inputs":[],"name":"PayDay","outputs":[],"stateMutability":"payable","type":"function"}],
       params: {}
